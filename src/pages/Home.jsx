@@ -13,7 +13,7 @@ export default function Home() {
       <section className="hero">
         <div className="hero__bg" />
         <div className="container hero__inner">
-          <div className="hero__text">
+          <div className="hero__text" data-parallax="0.04">
             <p className="section-label" data-animate="blur-in">Est. 2017 · Livonia, Michigan</p>
             <h1 className="hero__title" data-animate="blur-in" data-delay="80">
               We Just Have<br />
@@ -28,7 +28,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero__image" data-animate="fade-right" data-delay="150">
-            <img src={wingHeroImg} alt="Wing Snob traditional wings" className="hero__wing-img photo-float" />
+            <img src={wingHeroImg} alt="Wing Snob traditional wings" className="hero__wing-img photo-float" data-parallax="0.12" />
           </div>
         </div>
         <div className="hero__scroll-hint">

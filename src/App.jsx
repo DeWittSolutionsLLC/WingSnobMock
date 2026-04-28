@@ -15,6 +15,24 @@ function ScrollAnimator() {
 
   useEffect(() => {
     let observer
+    let rafId
+
+    const parallaxEls = document.querySelectorAll('[data-parallax]')
+
+    const updateParallax = () => {
+      parallaxEls.forEach(el => {
+        const factor = parseFloat(el.dataset.parallax || '0')
+        if (!factor) return
+        const offset = window.scrollY * factor
+        el.style.setProperty('--parallax-y', `${offset}px`)
+      })
+      rafId = undefined
+    }
+
+    const handleScroll = () => {
+      if (rafId) return
+      rafId = requestAnimationFrame(updateParallax)
+    }
 
     const timer = setTimeout(() => {
       const els = document.querySelectorAll('[data-animate]')
@@ -38,9 +56,14 @@ function ScrollAnimator() {
       els.forEach(el => observer.observe(el))
     }, 60)
 
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    updateParallax()
+
     return () => {
       clearTimeout(timer)
       observer?.disconnect()
+      window.removeEventListener('scroll', handleScroll)
+      if (rafId) cancelAnimationFrame(rafId)
     }
   }, [location.pathname])
 

@@ -47,6 +47,12 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--dark);
+  background-image:
+    radial-gradient(circle at 12% 10%, rgba(214, 43, 43, 0.12) 0%, transparent 24%),
+    radial-gradient(circle at 88% 8%, rgba(245, 166, 35, 0.08) 0%, transparent 22%),
+    radial-gradient(circle at 50% 92%, rgba(255, 255, 255, 0.04) 0%, transparent 30%);
+  background-attachment: fixed;
+  background-size: cover;
   color: var(--white);
   line-height: 1.6;
 }
@@ -55,6 +61,7 @@ h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
   letter-spacing: 0.03em;
   line-height: 1.1;
+  text-shadow: 0 8px 20px rgba(0,0,0,0.16);
 }
 
 a {
@@ -163,6 +170,7 @@ ul { list-style: none; }
   font-size: clamp(2.4rem, 5vw, 4rem);
   color: var(--white);
   margin-bottom: 16px;
+  text-shadow: 0 10px 20px rgba(214, 43, 43, 0.12);
 }
 
 .section-subtitle {
@@ -170,6 +178,7 @@ ul { list-style: none; }
   color: var(--text-secondary);
   max-width: 560px;
   line-height: 1.75;
+  letter-spacing: 0.01em;
 }
 
 .page-wrapper {
@@ -222,18 +231,20 @@ ul { list-style: none; }
   animation: panelSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 .photo-float {
+  --parallax-y: 0px;
   animation: float-plate 8s ease-in-out infinite;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  transform-style: preserve-3d;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  transform: translateY(var(--parallax-y));
+  will-change: transform;
 }
 .photo-float:hover {
-  transform: translateY(-6px) scale(1.02);
+  transform: translateY(calc(var(--parallax-y) - 6px)) rotateZ(-1deg) scale(1.01);
 }
 @keyframes float-plate {
-  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
-  25% { transform: translate3d(0, -10px, 0) rotateZ(-1deg); }
-  50% { transform: translate3d(0, -6px, 0) rotateZ(1deg); }
-  75% { transform: translate3d(0, -8px, 0) rotateZ(-0.5deg); }
+  0%, 100% { transform: translateY(calc(var(--parallax-y) + 0px)) rotateZ(0deg); }
+  20% { transform: translateY(calc(var(--parallax-y) - 10px)) rotateZ(-1deg); }
+  50% { transform: translateY(calc(var(--parallax-y) - 6px)) rotateZ(1deg); }
+  80% { transform: translateY(calc(var(--parallax-y) - 8px)) rotateZ(-0.5deg); }
 }
 @keyframes pulse-glow {
   0%, 100% { box-shadow: 0 30px 90px rgba(214, 43, 43, 0.18); }
