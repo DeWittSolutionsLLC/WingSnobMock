@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import iphoneImg from '../assets/ws-app-iphone.png'
 import './Perks.css'
 
 const TIERS = [
@@ -198,6 +199,9 @@ export default function Perks() {
                   <span className="reward-example__reward">{ex.reward}</span>
                 </div>
               ))}
+            </div>
+            <div className="perks-value__phone" data-animate="fade-right" data-delay="200">
+              <img src={iphoneImg} alt="Wing Snob app on iPhone" className="perks-iphone-img" />
             </div>
           </div>
         </div>

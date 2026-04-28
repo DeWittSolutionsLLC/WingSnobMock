@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
-import wingHeroImg from '../assets/WingSnobTraditional.webp'
+import wingHeroImg from '../assets/ws-traditional.png'
 import './Home.css'
 
 // Pick a representative spread across heat levels

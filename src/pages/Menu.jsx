@@ -1,10 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
-import traditionalImg from '../assets/WingSnobTraditional.webp'
-import bonelessImg from '../assets/WingSnobBoneless.webp'
-import cauliImg from '../assets/WingSnobCauli.webp'
-import friesImg from '../assets/WingSnobFries.webp'
+import traditionalImg from '../assets/ws-traditional.png'
+import bonelessImg from '../assets/ws-boneless.png'
+import cauliImg from '../assets/ws-cauli.png'
+import friesImg from '../assets/ws-loaded-fries.png'
+import tendersImg from '../assets/ws-tenders.png'
+import minisImg from '../assets/ws-minis.png'
+import sandoImg from '../assets/ws-sando.png'
+import cheesecakeImg from '../assets/ws-cheesecake.png'
 import './Menu.css'
 
 const WING_TYPES = ['Traditional', 'Boneless', 'Cauli Wings']
@@ -215,9 +219,12 @@ export default function Menu() {
       {/* Chicken Tenders */}
       <section className="menu-section">
         <div className="container">
-          <div className="menu-section__header" data-animate="fade-up">
-            <h2 className="section-title">Chicken Tenders</h2>
-            <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
+          <div className="sides-header" data-animate="fade-up">
+            <div>
+              <h2 className="section-title">Chicken Tenders</h2>
+              <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
+            </div>
+            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo" />
           </div>
           <div className="size-grid size-grid--3">
             {TENDER_SIZES.map((size, i) => (
@@ -236,9 +243,12 @@ export default function Menu() {
       {/* Chicken Minis & Sliders */}
       <section className="menu-section menu-section--dark">
         <div className="container">
-          <div className="menu-section__header" data-animate="fade-up">
-            <h2 className="section-title">Chicken Minis & Sliders</h2>
-            <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
+          <div className="sides-header" data-animate="fade-up">
+            <div>
+              <h2 className="section-title">Chicken Minis & Sliders</h2>
+              <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
+            </div>
+            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo" />
           </div>
           <div className="extras-grid">
             {SLIDERS.map((item, i) => (
@@ -258,9 +268,12 @@ export default function Menu() {
       {/* Sandos */}
       <section className="menu-section">
         <div className="container">
-          <div className="menu-section__header" data-animate="fade-up">
-            <h2 className="section-title">Sandos</h2>
-            <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
+          <div className="sides-header" data-animate="fade-up">
+            <div>
+              <h2 className="section-title">Sandos</h2>
+              <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
+            </div>
+            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo" />
           </div>
           <div className="extras-grid">
             {SANDOS.map((item, i) => (
@@ -304,7 +317,10 @@ export default function Menu() {
         <div className="container">
           <div className="menu-dd-grid">
             <div>
-              <h2 className="section-title" style={{ marginBottom: '28px' }}>Desserts</h2>
+              <div className="menu-dd-header">
+                <h2 className="section-title" style={{ marginBottom: '28px' }}>Desserts</h2>
+                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo" />
+              </div>
               <div className="extras-grid extras-grid--col1">
                 {DESSERTS.map(item => (
                   <div key={item.name} className="extras-card">

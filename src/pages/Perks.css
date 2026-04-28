@@ -250,9 +250,24 @@
 
 .perks-value__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  grid-template-columns: 1fr 1fr 280px;
+  gap: 60px;
   align-items: center;
+}
+
+.perks-value__phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.perks-iphone-img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  filter: drop-shadow(0 8px 32px rgba(245,166,35,0.15));
 }
 
 .perks-value__examples {
@@ -425,7 +440,15 @@
     grid-template-columns: 1fr;
   }
 
-  .perks-value__inner,
+  .perks-value__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+
+  .perks-value__phone {
+    display: none;
+  }
+
   .perks-signup__inner {
     grid-template-columns: 1fr;
     gap: 48px;

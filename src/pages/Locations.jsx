@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import truckImg from '../assets/ws-truck.png'
 import './Locations.css'
 
 const LOCATIONS = [
@@ -274,7 +275,9 @@ export default function Locations() {
             </p>
             <a href="https://www.wingsnob.com/catering" className="btn-gold" style={{ marginTop: '28px' }}>Book Catering</a>
           </div>
-          <div className="food-truck-visual" data-animate="fade-right" data-delay="150">🍗</div>
+          <div className="food-truck-visual" data-animate="fade-right" data-delay="150">
+            <img src={truckImg} alt="Wing Snob food truck" className="food-truck-img" />
+          </div>
         </div>
       </section>
     </div>
