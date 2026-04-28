@@ -1,0 +1,439 @@
+.perks-page {
+  background: var(--dark);
+}
+
+/* ── Hero ── */
+.perks-hero {
+  padding: 80px 0 80px;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%, rgba(245, 166, 35, 0.12) 0%, transparent 70%),
+    var(--dark-2);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.perks-hero__title {
+  font-size: clamp(3rem, 7vw, 5.5rem);
+  margin-bottom: 16px;
+  line-height: 0.95;
+}
+
+.perks-hero__actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 36px;
+  flex-wrap: wrap;
+}
+
+/* ── How It Works ── */
+.perks-how {
+  padding: 100px 0;
+}
+
+.perks-how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.perks-how-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+}
+
+.perks-how-card__step {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--gold);
+  opacity: 0.6;
+  margin-bottom: 16px;
+  line-height: 1;
+}
+
+.perks-how-card h3 {
+  font-size: 1.5rem;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+
+.perks-how-card p {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ── Tiers ── */
+.perks-tiers {
+  padding: 100px 0;
+  background: var(--dark-2);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.tier-tabs {
+  display: flex;
+  gap: 12px;
+  margin: 40px 0 32px;
+  flex-wrap: wrap;
+}
+
+.tier-tab {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--dark-3);
+  border: 2px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-full);
+  padding: 12px 24px;
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  transition: all 0.2s;
+}
+
+.tier-tab:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: var(--white);
+}
+
+.tier-tab--active {
+  color: var(--white);
+}
+
+.tier-tab__range {
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ── Tier Detail ── */
+.tier-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  background: var(--dark-3);
+  border: 1px solid var(--tier-color, rgba(255,255,255,0.1));
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  margin-bottom: 48px;
+}
+
+.tier-detail__badge {
+  font-size: 3rem;
+  margin-bottom: 12px;
+}
+
+.tier-detail__left h3 {
+  font-size: 2.2rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.tier-detail__range {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.tier-detail__desc {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.tier-detail__benefits h4 {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.tier-detail__benefits ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tier-detail__benefits li {
+  display: flex;
+  gap: 12px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  align-items: flex-start;
+}
+
+.benefit-check {
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* ── All Tier Cards ── */
+.tier-all-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.tier-all-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  padding: 32px 24px;
+  transition: border-color 0.2s;
+}
+
+.tier-all-card:hover {
+  border-color: var(--tc, rgba(255,255,255,0.2));
+}
+
+.tier-all-card__emoji {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.tier-all-card h4 {
+  font-size: 1.6rem;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.tier-all-card > p {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.tier-all-card ul {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.tier-all-card li {
+  display: flex;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+}
+
+.tier-all-card li span {
+  color: var(--tc, var(--white));
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.tier-all-card__more {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-style: italic;
+  margin-top: 4px;
+}
+
+/* ── Points Value ── */
+.perks-value {
+  padding: 100px 0;
+}
+
+.perks-value__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.perks-value__examples {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.reward-example {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+}
+
+.reward-example__pts {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  color: var(--gold);
+  min-width: 100px;
+}
+
+.reward-example__arrow {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.reward-example__reward {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--white);
+}
+
+/* ── Sign Up ── */
+.perks-signup {
+  padding: 100px 0;
+  background: var(--dark-2);
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.perks-signup__inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.perks-signup__bonus {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  background: rgba(245, 166, 35, 0.08);
+  border: 1px solid rgba(245, 166, 35, 0.25);
+  border-radius: var(--radius-md);
+  padding: 16px 20px;
+  margin-top: 24px;
+}
+
+.perks-signup__bonus span {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.perks-signup__bonus p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.perks-signup__bonus strong {
+  color: var(--gold);
+}
+
+/* ── Form ── */
+.perks-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.form-group input {
+  background: var(--dark-4);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-group input::placeholder {
+  color: var(--text-muted);
+}
+
+.form-group input:focus {
+  border-color: rgba(245, 166, 35, 0.5);
+}
+
+.perks-form__disclaimer {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  text-align: center;
+  line-height: 1.5;
+}
+
+/* ── Success State ── */
+.perks-signup__success {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 40px;
+  background: var(--dark-3);
+  border: 1px solid rgba(214, 43, 43, 0.3);
+  border-radius: var(--radius-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.perks-signup__success-icon {
+  font-size: 4rem;
+}
+
+.perks-signup__success h2 {
+  font-size: 3rem;
+  color: var(--white);
+}
+
+.perks-signup__success p {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  max-width: 440px;
+  line-height: 1.7;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .perks-how-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tier-detail {
+    grid-template-columns: 1fr;
+  }
+
+  .tier-all-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .perks-value__inner,
+  .perks-signup__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .perks-how-grid {
+    grid-template-columns: 1fr;
+  }
+}
