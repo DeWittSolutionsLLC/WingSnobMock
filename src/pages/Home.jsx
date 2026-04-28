@@ -28,7 +28,7 @@ export default function Home() {
             </div>
           </div>
           <div className="hero__image" data-animate="fade-right" data-delay="150">
-            <img src={wingHeroImg} alt="Wing Snob traditional wings" className="hero__wing-img" />
+            <img src={wingHeroImg} alt="Wing Snob traditional wings" className="hero__wing-img photo-float" />
           </div>
         </div>
         <div className="hero__scroll-hint">

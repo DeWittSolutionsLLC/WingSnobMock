@@ -130,7 +130,7 @@ export default function Menu() {
             <img
               src={WING_IMAGES[activeWingType]}
               alt={`${activeWingType} wings`}
-              loading="lazy" className="wing-type-photo"
+              loading="lazy" className="wing-type-photo photo-float"
             />
           </div>
 
@@ -221,7 +221,7 @@ export default function Menu() {
               <h2 className="section-title">Chicken Tenders</h2>
               <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
             </div>
-            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo" loading="lazy" />
+            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="size-grid size-grid--3">
             {TENDER_SIZES.map((size, i) => (
@@ -245,7 +245,7 @@ export default function Menu() {
               <h2 className="section-title">Chicken Minis & Sliders</h2>
               <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
             </div>
-            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo" loading="lazy" />
+            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SLIDERS.map((item, i) => (
@@ -269,7 +269,7 @@ export default function Menu() {
               <h2 className="section-title">Sandos</h2>
               <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
             </div>
-            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo" loading="lazy" />
+            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SANDOS.map((item, i) => (
@@ -290,7 +290,7 @@ export default function Menu() {
         <div className="container">
           <div className="sides-header" data-animate="fade-up">
             <h2 className="section-title">Sides</h2>
-            <img src={friesImg} alt="Wing Snob fries" className="sides-photo" loading="lazy" />
+            <img src={friesImg} alt="Wing Snob fries" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SIDES.map((item, i) => (
@@ -313,7 +313,7 @@ export default function Menu() {
             <div>
               <div className="menu-dd-header">
                 <h2 className="section-title" style={{ marginBottom: '28px' }}>Desserts</h2>
-                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo" loading="lazy" />
+                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo photo-float" loading="lazy" />
               </div>
               <div className="extras-grid extras-grid--col1">
                 {DESSERTS.map(item => (

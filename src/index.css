@@ -221,3 +221,21 @@ ul { list-style: none; }
 .step-panel {
   animation: panelSlideIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
+.photo-float {
+  animation: float-plate 8s ease-in-out infinite;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+}
+.photo-float:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+@keyframes float-plate {
+  0%, 100% { transform: translate3d(0, 0, 0) rotateZ(0deg); }
+  25% { transform: translate3d(0, -10px, 0) rotateZ(-1deg); }
+  50% { transform: translate3d(0, -6px, 0) rotateZ(1deg); }
+  75% { transform: translate3d(0, -8px, 0) rotateZ(-0.5deg); }
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 30px 90px rgba(214, 43, 43, 0.18); }
+  50% { box-shadow: 0 38px 110px rgba(214, 43, 43, 0.28); }
+}
