@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
+import logo from '../assets/WingSnobLogo.webp'
 import './Navbar.css'
 
 export default function Navbar() {
@@ -21,8 +22,7 @@ export default function Navbar() {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner container">
         <Link to="/" className="navbar__logo">
-          <span className="navbar__logo-flame">🔥</span>
-          WING<span className="navbar__logo-accent">SNOB</span>
+          <img src={logo} alt="Wing Snob" className="navbar__logo-img" />
         </Link>
 
         <ul className={`navbar__links ${menuOpen ? 'navbar__links--open' : ''}`}>

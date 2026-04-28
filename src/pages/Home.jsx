@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
+import wingHeroImg from '../assets/WingSnobTraditional.webp'
 import './Home.css'
 
 const FEATURED_SAUCES = SAUCES.slice(0, 8)
@@ -10,18 +11,23 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div className="hero__bg" />
-        <div className="container hero__content">
-          <p className="section-label">Est. 2017 · Livonia, Michigan</p>
-          <h1 className="hero__title">
-            Fresh.<br />
-            <span className="hero__title-accent">Never Frozen.</span>
-          </h1>
-          <p className="hero__subtitle">
-            18 signature sauces. Made-to-order wings. One obsession: flavor.
-          </p>
-          <div className="hero__actions">
-            <Link to="/order" className="btn-primary">Order Now</Link>
-            <Link to="/locations" className="btn-secondary">Find a Location</Link>
+        <div className="container hero__inner">
+          <div className="hero__text">
+            <p className="section-label">Est. 2017 · Livonia, Michigan</p>
+            <h1 className="hero__title">
+              Fresh.<br />
+              <span className="hero__title-accent">Never Frozen.</span>
+            </h1>
+            <p className="hero__subtitle">
+              18 signature sauces. Made-to-order wings. One obsession: flavor.
+            </p>
+            <div className="hero__actions">
+              <Link to="/order" className="btn-primary">Order Now</Link>
+              <Link to="/locations" className="btn-secondary">Find a Location</Link>
+            </div>
+          </div>
+          <div className="hero__image">
+            <img src={wingHeroImg} alt="Wing Snob traditional wings" className="hero__wing-img" />
           </div>
         </div>
         <div className="hero__scroll-hint">

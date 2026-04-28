@@ -1,9 +1,19 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
+import traditionalImg from '../assets/WingSnobTraditional.webp'
+import bonelessImg from '../assets/WingSnobBoneless.webp'
+import cauliImg from '../assets/WingSnobCauli.webp'
+import friesImg from '../assets/WingSnobFries.webp'
 import './Menu.css'
 
-const WING_TYPES = ['Traditional', 'Boneless', 'Cauliflower']
+const WING_TYPES = ['Traditional', 'Boneless', 'Cauli Wings']
+
+const WING_IMAGES = {
+  Traditional: traditionalImg,
+  Boneless: bonelessImg,
+  'Cauli Wings': cauliImg,
+}
 
 const SIZES = [
   { qty: 6, price: 9.99 },
@@ -13,7 +23,26 @@ const SIZES = [
   { qty: 50, price: 64.99 },
 ]
 
+const TENDER_SIZES = [
+  { qty: 5, price: 10.99 },
+  { qty: 10, price: 18.99 },
+  { qty: 20, price: 34.99, label: 'Family' },
+]
+
+const SLIDERS = [
+  { name: 'Single Slider', desc: 'Crispy chicken breast on a toasted brioche bun with pickles and house sauce.', price: 4.99, emoji: '🍔' },
+  { name: '3-Pack', desc: 'Three sliders — perfect for sharing, or not.', price: 12.99, emoji: '🍔' },
+  { name: '6-Pack', desc: 'Six sliders. The move for a crowd.', price: 23.99, emoji: '🍔' },
+]
+
+const SANDOS = [
+  { name: 'Classic Sando', desc: 'Crispy chicken, lettuce, tomato, pickles, house sauce on a toasted brioche bun.', price: 11.99, emoji: '🥪' },
+  { name: 'Spicy Sando', desc: 'Same as the classic, hit with your sauce of choice from the Sauce Lab.', price: 12.49, emoji: '🥪' },
+  { name: 'Nashville Hot Sando', desc: 'Bone-dry Nashville heat, coleslaw, pickles. Not for the faint of heart.', price: 12.99, emoji: '🥪' },
+]
+
 const SIDES = [
+  { name: 'Loaded Fries', desc: 'Hand-cut fries loaded with cheese sauce, bacon, jalapeños, and ranch.', price: 7.99, emoji: '🍟' },
   { name: 'Classic Fries', desc: 'Golden, hand-cut, perfectly salted.', price: 3.49, emoji: '🍟' },
   { name: 'Seasoned Fries', desc: 'Our signature house seasoning blend.', price: 3.99, emoji: '🍟' },
   { name: 'Mac & Cheese', desc: 'Creamy, three-cheese blend.', price: 4.49, emoji: '🧀' },
@@ -79,22 +108,29 @@ export default function Menu() {
               >
                 {type === 'Traditional' && '🍗 '}
                 {type === 'Boneless' && '🍖 '}
-                {type === 'Cauliflower' && '🥦 '}
+                {type === 'Cauli Wings' && '🥦 '}
                 {type}
               </button>
             ))}
           </div>
 
-          <div className="wing-type-desc">
-            {activeWingType === 'Traditional' && (
-              <p>Classic bone-in wings — crispy skin, juicy meat. The original Wing Snob experience.</p>
-            )}
-            {activeWingType === 'Boneless' && (
-              <p>All the flavor, none of the bones. Tender, all-white-meat bites tossed in your sauce.</p>
-            )}
-            {activeWingType === 'Cauliflower' && (
-              <p>Our plant-based option — crispy cauliflower florets that hold sauce just as well as the real thing.</p>
-            )}
+          <div className="wing-type-showcase">
+            <div className="wing-type-desc">
+              {activeWingType === 'Traditional' && (
+                <p>Classic bone-in wings — crispy skin, juicy meat. The original Wing Snob experience.</p>
+              )}
+              {activeWingType === 'Boneless' && (
+                <p>All the flavor, none of the bones. Tender, all-white-meat bites tossed in your sauce.</p>
+              )}
+              {activeWingType === 'Cauli Wings' && (
+                <p>Our plant-based option — crispy cauliflower florets that hold sauce just as well as the real thing.</p>
+              )}
+            </div>
+            <img
+              src={WING_IMAGES[activeWingType]}
+              alt={`${activeWingType} wings`}
+              className="wing-type-photo"
+            />
           </div>
 
           <div className="size-grid">
@@ -176,10 +212,78 @@ export default function Menu() {
         </div>
       </section>
 
-      {/* Sides */}
+      {/* Chicken Tenders */}
       <section className="menu-section">
         <div className="container">
-          <h2 className="section-title">Sides</h2>
+          <div className="menu-section__header">
+            <h2 className="section-title">Chicken Tenders</h2>
+            <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
+          </div>
+          <div className="size-grid size-grid--3">
+            {TENDER_SIZES.map(size => (
+              <div key={size.qty} className="size-card">
+                <div className="size-card__qty">{size.qty}<span>pc</span></div>
+                {size.label && <p className="size-card__tag">{size.label}</p>}
+                <div className="size-card__price">${size.price.toFixed(2)}</div>
+                <p className="size-card__note">Up to 2 sauces</p>
+                <Link to="/order" className="btn-primary size-card__btn">Order</Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Chicken Minis & Sliders */}
+      <section className="menu-section menu-section--dark">
+        <div className="container">
+          <div className="menu-section__header">
+            <h2 className="section-title">Chicken Minis & Sliders</h2>
+            <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
+          </div>
+          <div className="extras-grid">
+            {SLIDERS.map(item => (
+              <div key={item.name} className="extras-card">
+                <span className="extras-card__emoji">{item.emoji}</span>
+                <div>
+                  <h4>{item.name}</h4>
+                  <p>{item.desc}</p>
+                </div>
+                <span className="extras-card__price">${item.price.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sandos */}
+      <section className="menu-section">
+        <div className="container">
+          <div className="menu-section__header">
+            <h2 className="section-title">Sandos</h2>
+            <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
+          </div>
+          <div className="extras-grid">
+            {SANDOS.map(item => (
+              <div key={item.name} className="extras-card">
+                <span className="extras-card__emoji">{item.emoji}</span>
+                <div>
+                  <h4>{item.name}</h4>
+                  <p>{item.desc}</p>
+                </div>
+                <span className="extras-card__price">${item.price.toFixed(2)}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sides */}
+      <section className="menu-section menu-section--dark">
+        <div className="container">
+          <div className="sides-header">
+            <h2 className="section-title">Sides</h2>
+            <img src={friesImg} alt="Wing Snob fries" className="sides-photo" />
+          </div>
           <div className="extras-grid">
             {SIDES.map(item => (
               <div key={item.name} className="extras-card">
@@ -196,7 +300,7 @@ export default function Menu() {
       </section>
 
       {/* Desserts & Drinks */}
-      <section className="menu-section menu-section--dark">
+      <section className="menu-section">
         <div className="container">
           <div className="menu-dd-grid">
             <div>
