@@ -1,0 +1,351 @@
+.menu-page {
+  background: var(--dark);
+}
+
+.menu-hero {
+  padding: 80px 0 60px;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 0%, rgba(214, 43, 43, 0.12) 0%, transparent 70%),
+    var(--dark-2);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.menu-section {
+  padding: 80px 0;
+}
+
+.menu-section--dark {
+  background: var(--dark-2);
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.menu-section__header {
+  margin-bottom: 48px;
+}
+
+/* ── Wing Tabs ── */
+.wing-type-tabs {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.wing-tab {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.06em;
+  padding: 12px 28px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s;
+}
+
+.wing-tab:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: var(--white);
+}
+
+.wing-tab--active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+.wing-type-desc {
+  margin-bottom: 36px;
+  padding: 16px 20px;
+  background: var(--dark-3);
+  border-left: 3px solid var(--red);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+.wing-type-desc p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ── Size Grid ── */
+.size-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+}
+
+.size-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  padding: 28px 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+  transition: border-color 0.2s, transform 0.2s;
+}
+
+.size-card:hover {
+  border-color: rgba(214, 43, 43, 0.4);
+  transform: translateY(-3px);
+}
+
+.size-card__qty {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  color: var(--white);
+  line-height: 1;
+}
+
+.size-card__qty span {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  margin-left: 2px;
+}
+
+.size-card__price {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--gold);
+}
+
+.size-card__note {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.size-card__btn {
+  font-size: 0.9rem;
+  padding: 10px 22px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ── Sauce Filters ── */
+.sauce-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 36px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-secondary);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding: 8px 20px;
+  border-radius: var(--radius-full);
+  transition: all 0.2s;
+}
+
+.filter-btn:hover {
+  border-color: rgba(255,255,255,0.25);
+  color: var(--white);
+}
+
+.filter-btn--active {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
+/* ── Sauce Lab Grid ── */
+.sauce-lab-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.sauce-lab-card {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  transition: border-color 0.2s;
+}
+
+.sauce-lab-card:hover {
+  border-color: rgba(255,255,255,0.18);
+}
+
+.sauce-lab-card__bowl {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.5), inset 0 -3px 8px rgba(0,0,0,0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.sauce-dry-texture {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.15) 1px, transparent 1px),
+                    radial-gradient(circle at 70% 65%, rgba(255,255,255,0.1) 1px, transparent 1px);
+  background-size: 7px 7px, 5px 5px;
+}
+
+.sauce-lab-card__info {
+  flex: 1;
+}
+
+.sauce-lab-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 6px;
+}
+
+.sauce-lab-card__top h4 {
+  font-size: 1.05rem;
+  color: var(--white);
+}
+
+.sauce-lab-card__badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.sauce-lab-card__desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+.sauce-lab-card__heat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sauce-lab-card__heat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.heat-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.heat-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* ── Extras ── */
+.extras-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.extras-grid--col1 {
+  grid-template-columns: 1fr;
+}
+
+.extras-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+}
+
+.extras-card__emoji {
+  font-size: 1.6rem;
+  flex-shrink: 0;
+}
+
+.extras-card h4 {
+  font-size: 1rem;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.extras-card p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.extras-card__price {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  color: var(--gold);
+  margin-left: auto;
+  flex-shrink: 0;
+}
+
+/* ── Desserts & Drinks Grid ── */
+.menu-dd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+}
+
+/* ── Menu CTA ── */
+.menu-cta {
+  padding: 80px 0;
+  background:
+    radial-gradient(ellipse 50% 60% at 50% 50%, rgba(214, 43, 43, 0.1) 0%, transparent 70%),
+    var(--dark);
+  text-align: center;
+}
+
+.menu-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* ── Responsive ── */
+@media (max-width: 1024px) {
+  .size-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .sauce-lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-dd-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 640px) {
+  .size-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .extras-grid {
+    grid-template-columns: 1fr;
+  }
+}
