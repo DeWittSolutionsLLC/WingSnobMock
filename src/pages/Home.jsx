@@ -3,7 +3,8 @@ import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
 import wingHeroImg from '../assets/WingSnobTraditional.webp'
 import './Home.css'
 
-const FEATURED_SAUCES = SAUCES.slice(0, 8)
+// Pick a representative spread across heat levels
+const FEATURED_SAUCES = [1, 2, 4, 5, 9, 13, 17, 20].map(id => SAUCES.find(s => s.id === id))
 
 export default function Home() {
   return (
@@ -19,7 +20,7 @@ export default function Home() {
               <span className="hero__title-accent">Better Wings.</span>
             </h1>
             <p className="hero__subtitle" data-animate="fade-up" data-delay="200">
-              16 handcrafted sauces & rubs. Made-to-order in 70+ locations across 9 states. One obsession: flavor.
+              20 sauces & rubs. Made-to-order in 70+ locations across 9 states. One obsession: flavor.
             </p>
             <div className="hero__actions" data-animate="fade-up" data-delay="300">
               <Link to="/order" className="btn-primary">Order Now</Link>
@@ -44,7 +45,7 @@ export default function Home() {
           </div>
           <div className="stat__divider" />
           <div className="stat" data-animate="scale-up" data-delay="100">
-            <span className="stat__number">16</span>
+            <span className="stat__number">20</span>
             <span className="stat__label">Sauces & Rubs</span>
           </div>
           <div className="stat__divider" />
@@ -73,7 +74,7 @@ export default function Home() {
           <div className="why-grid">
             {[
               { icon: '🍗', title: 'Better Wings', text: 'Made-to-order, never frozen. From bone-in traditional to cauli wings — quality is non-negotiable.' },
-              { icon: '🧪', title: '16 Sauces & Rubs', text: 'From Lemon Butter to Habanero Heat — 16 handcrafted flavors that cover every corner of the flavor map.' },
+              { icon: '🧪', title: '20 Sauces & Rubs', text: 'From Garlic Parmesan to Blazin Q — 20 handcrafted flavors covering every corner of the heat map.' },
               { icon: '🏆', title: 'Metro Detroit\'s Best', text: 'Voted Best Chicken Wings in Metro Detroit. Started as a single location — now 70+ strong across 9 states.' },
               { icon: '📱', title: 'Snob Perks App', text: 'Order, earn rewards, and unlock exclusive deals. Download the Wing Snob app and get a free fry just for joining.' },
             ].map((card, i) => (
@@ -92,7 +93,7 @@ export default function Home() {
         <div className="container">
           <div className="sauce-preview__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
-            <h2 className="section-title">16 Sauces & Rubs</h2>
+            <h2 className="section-title">20 Sauces & Rubs</h2>
             <p className="section-subtitle">
               From Lemon Butter to Habanero Heat — handcrafted flavors at every heat level.
               Mix up to 2 per order.
@@ -119,7 +120,7 @@ export default function Home() {
             ))}
           </div>
           <div className="sauce-preview__cta" data-animate="fade-up">
-            <Link to="/menu" className="btn-secondary">See All 16 Sauces & Rubs</Link>
+            <Link to="/menu" className="btn-secondary">See All 20 Sauces & Rubs</Link>
             <Link to="/order" className="btn-primary">Start Your Order</Link>
           </div>
         </div>

@@ -85,7 +85,7 @@ export default function Menu() {
           <p className="section-label" data-animate="blur-in">The Menu</p>
           <h1 className="section-title" data-animate="blur-in" data-delay="80">We Just Have<br />Better Wings.</h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="180">
-            Traditional, boneless, tenders, cauli wings, minis, sandos, and sides — all made to order with 16 handcrafted sauces & rubs.
+            Traditional, boneless, tenders, cauli wings, minis, sandos, and sides — all made to order with 20 handcrafted sauces & rubs.
           </p>
           <Link to="/order" className="btn-primary" style={{ marginTop: '28px' }} data-animate="fade-up" data-delay="280">Start Your Order</Link>
         </div>
@@ -153,9 +153,9 @@ export default function Menu() {
         <div className="container">
           <div className="menu-section__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
-            <h2 className="section-title">16 Sauces & Rubs</h2>
+            <h2 className="section-title">20 Sauces & Rubs</h2>
             <p className="section-subtitle">
-              Handcrafted from scratch. From Lemon Butter to Habanero Heat — there's a flavor for everyone and a heat level for the fearless.
+              Handcrafted from scratch. From Naked to Hot AF — there's a flavor for everyone and a heat level for the fearless.
             </p>
           </div>
 
