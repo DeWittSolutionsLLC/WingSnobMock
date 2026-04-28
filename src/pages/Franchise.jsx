@@ -69,16 +69,16 @@ export default function Franchise() {
       {/* Hero */}
       <section className="franchise-hero">
         <div className="container">
-          <p className="section-label">Franchise Opportunity</p>
-          <h1 className="franchise-hero__title">
+          <p className="section-label" data-animate="blur-in">Franchise Opportunity</p>
+          <h1 className="franchise-hero__title" data-animate="blur-in" data-delay="80">
             Own a<br />
             <span className="franchise-hero__accent">Wing Snob</span>
           </h1>
-          <p className="section-subtitle">
+          <p className="section-subtitle" data-animate="fade-up" data-delay="200">
             Join the fastest-growing wing brand in America. Low overhead,
             proven systems, and a product people are obsessed with.
           </p>
-          <div className="franchise-hero__actions">
+          <div className="franchise-hero__actions" data-animate="fade-up" data-delay="300">
             <a href="#inquire" className="btn-gold">Start Your Inquiry</a>
             <a href="#investment" className="btn-secondary">View Investment</a>
           </div>
@@ -88,27 +88,27 @@ export default function Franchise() {
       {/* Quick Stats */}
       <section className="franchise-stats">
         <div className="container franchise-stats__inner">
-          <div className="fstat">
+          <div className="fstat" data-animate="scale-up" data-delay="0">
             <span className="fstat__value">50+</span>
             <span className="fstat__label">Open Locations</span>
           </div>
           <div className="fstat__div" />
-          <div className="fstat">
+          <div className="fstat" data-animate="scale-up" data-delay="80">
             <span className="fstat__value">100+</span>
             <span className="fstat__label">In Pipeline</span>
           </div>
           <div className="fstat__div" />
-          <div className="fstat">
+          <div className="fstat" data-animate="scale-up" data-delay="160">
             <span className="fstat__value">$340K</span>
             <span className="fstat__label">Min. Investment</span>
           </div>
           <div className="fstat__div" />
-          <div className="fstat">
+          <div className="fstat" data-animate="scale-up" data-delay="240">
             <span className="fstat__value">2017</span>
             <span className="fstat__label">Founded</span>
           </div>
           <div className="fstat__div" />
-          <div className="fstat">
+          <div className="fstat" data-animate="scale-up" data-delay="320">
             <span className="fstat__value">1,500</span>
             <span className="fstat__label">Avg Sq Ft</span>
           </div>
@@ -125,8 +125,8 @@ export default function Franchise() {
             and a brand that actually resonates with the next generation.
           </p>
           <div className="franchise-why-grid">
-            {WHY_ITEMS.map(item => (
-              <div key={item.title} className="franchise-why-card">
+            {WHY_ITEMS.map((item, i) => (
+              <div key={item.title} className="franchise-why-card" data-animate="fade-up" data-delay={String(i * 80)}>
                 <div className="franchise-why-card__icon">{item.emoji}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
@@ -149,8 +149,8 @@ export default function Franchise() {
               </p>
             </div>
             <div className="investment-table">
-              {INVESTMENT.map(row => (
-                <div key={row.label} className="investment-row">
+              {INVESTMENT.map((row, i) => (
+                <div key={row.label} className="investment-row" data-animate="fade-left" data-delay={String(i * 70)}>
                   <span className="investment-row__label">{row.label}</span>
                   <span className="investment-row__value">{row.value}</span>
                 </div>
@@ -174,7 +174,7 @@ export default function Franchise() {
           <h2 className="section-title">5 Steps to<br />Grand Opening</h2>
           <div className="franchise-steps-list">
             {STEPS.map((step, i) => (
-              <div key={step.num} className="franchise-step">
+              <div key={step.num} className="franchise-step" data-animate="fade-up" data-delay={String(i * 100)}>
                 <div className="franchise-step__number">{step.num}</div>
                 <div className="franchise-step__content">
                   <h3>{step.title}</h3>
@@ -190,7 +190,7 @@ export default function Franchise() {
       {/* Testimonial */}
       <section className="franchise-testimonial">
         <div className="container">
-          <div className="testimonial-card">
+          <div className="testimonial-card" data-animate="scale-up">
             <div className="testimonial-card__quote">"</div>
             <p className="testimonial-card__text">
               I opened my first Wing Snob in Columbus in 2022. Within 8 months I'd recouped
@@ -212,7 +212,7 @@ export default function Franchise() {
       <section className="franchise-inquiry" id="inquire">
         <div className="container">
           <div className="franchise-inquiry__inner">
-            <div className="franchise-inquiry__text">
+            <div className="franchise-inquiry__text" data-animate="fade-left">
               <p className="section-label">Get Started</p>
               <h2 className="section-title">Ready to Own<br />Your Market?</h2>
               <p className="section-subtitle">
@@ -246,7 +246,7 @@ export default function Franchise() {
                 </p>
               </div>
             ) : (
-              <form className="franchise-form" onSubmit={handleSubmit}>
+              <form className="franchise-form" onSubmit={handleSubmit} data-animate="fade-right" data-delay="100">
                 <h3>Franchise Inquiry</h3>
                 <div className="franchise-form__row">
                   <div className="form-group">

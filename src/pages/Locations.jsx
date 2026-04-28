@@ -101,12 +101,12 @@ export default function Locations() {
       {/* Hero */}
       <section className="locations-hero">
         <div className="container">
-          <p className="section-label">50+ Locations & Growing</p>
-          <h1 className="section-title">Find Your<br />Wing Snob</h1>
-          <p className="section-subtitle">
+          <p className="section-label" data-animate="blur-in">50+ Locations & Growing</p>
+          <h1 className="section-title" data-animate="blur-in" data-delay="80">Find Your<br />Wing Snob</h1>
+          <p className="section-subtitle" data-animate="fade-up" data-delay="160">
             From Michigan to Tennessee — we're spreading the flavor everywhere.
           </p>
-          <div className="locations-search">
+          <div className="locations-search" data-animate="fade-up" data-delay="240">
             <span className="locations-search__icon">🔍</span>
             <input
               type="text"
@@ -122,7 +122,7 @@ export default function Locations() {
       {/* Map Placeholder */}
       <div className="locations-map">
         <div className="container">
-          <div className="map-placeholder">
+          <div className="map-placeholder" data-animate="scale-up">
             <div className="map-placeholder__inner">
               <span className="map-placeholder__icon">📍</span>
               <p>Interactive map — 50+ Wing Snob locations across the US</p>
@@ -152,8 +152,8 @@ export default function Locations() {
             <>
               <h2 className="locations-list__heading">Open Now</h2>
               <div className="locations-grid">
-                {openLocations.map(loc => (
-                  <div key={loc.id} className="location-card">
+                {openLocations.map((loc, i) => (
+                  <div key={loc.id} className="location-card" data-animate="fade-up" data-delay={String(i * 80)}>
                     <div className="location-card__header">
                       <div>
                         <h3>{loc.city}, {loc.state}</h3>
@@ -187,8 +187,8 @@ export default function Locations() {
             <>
               <h2 className="locations-list__heading" style={{ marginTop: '60px' }}>Coming Soon</h2>
               <div className="locations-grid">
-                {comingSoon.map(loc => (
-                  <div key={loc.id} className="location-card location-card--soon">
+                {comingSoon.map((loc, i) => (
+                  <div key={loc.id} className="location-card location-card--soon" data-animate="fade-up" data-delay={String(i * 100)}>
                     <div className="location-card__header">
                       <div>
                         <h3>{loc.city}, {loc.state}</h3>
@@ -223,7 +223,7 @@ export default function Locations() {
       {/* Food Truck */}
       <section className="food-truck-banner">
         <div className="container food-truck-banner__inner">
-          <div>
+          <div data-animate="fade-left">
             <p className="section-label">Wing Snob on Wheels</p>
             <h2 className="section-title">The Food Truck</h2>
             <p className="section-subtitle">
@@ -232,7 +232,7 @@ export default function Locations() {
             </p>
             <a href="#" className="btn-gold" style={{ marginTop: '28px' }}>Book the Truck</a>
           </div>
-          <div className="food-truck-visual">🚚</div>
+          <div className="food-truck-visual" data-animate="fade-right" data-delay="150">🚚</div>
         </div>
       </section>
     </div>

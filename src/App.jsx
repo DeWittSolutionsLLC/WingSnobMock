@@ -1,4 +1,5 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { useEffect } from 'react'
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Home from './pages/Home'
@@ -9,9 +10,47 @@ import Perks from './pages/Perks'
 import Franchise from './pages/Franchise'
 import './App.css'
 
+function ScrollAnimator() {
+  const location = useLocation()
+
+  useEffect(() => {
+    let observer
+
+    const timer = setTimeout(() => {
+      const els = document.querySelectorAll('[data-animate]')
+
+      observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const delay = parseInt(entry.target.dataset.delay || '0', 10)
+              entry.target.style.transitionDelay = delay + 'ms'
+              entry.target.classList.add('is-visible')
+            } else {
+              entry.target.style.transitionDelay = '0ms'
+              entry.target.classList.remove('is-visible')
+            }
+          })
+        },
+        { threshold: 0.1, rootMargin: '0px 0px -48px 0px' }
+      )
+
+      els.forEach(el => observer.observe(el))
+    }, 60)
+
+    return () => {
+      clearTimeout(timer)
+      observer?.disconnect()
+    }
+  }, [location.pathname])
+
+  return null
+}
+
 function App() {
   return (
     <BrowserRouter>
+      <ScrollAnimator />
       <Navbar />
       <main className="page-wrapper">
         <Routes>

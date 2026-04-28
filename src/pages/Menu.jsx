@@ -82,24 +82,24 @@ export default function Menu() {
       {/* Page Hero */}
       <section className="menu-hero">
         <div className="container">
-          <p className="section-label">The Menu</p>
-          <h1 className="section-title">Built for Flavor.<br />Made for You.</h1>
-          <p className="section-subtitle">
+          <p className="section-label" data-animate="blur-in">The Menu</p>
+          <h1 className="section-title" data-animate="blur-in" data-delay="80">Built for Flavor.<br />Made for You.</h1>
+          <p className="section-subtitle" data-animate="fade-up" data-delay="180">
             Every order is made fresh to order. Pick your style, pick your sauce, enjoy.
           </p>
-          <Link to="/order" className="btn-primary" style={{ marginTop: '28px' }}>Start Your Order</Link>
+          <Link to="/order" className="btn-primary" style={{ marginTop: '28px' }} data-animate="fade-up" data-delay="280">Start Your Order</Link>
         </div>
       </section>
 
       {/* Wings Section */}
       <section className="menu-section">
         <div className="container">
-          <div className="menu-section__header">
+          <div className="menu-section__header" data-animate="fade-up">
             <h2 className="section-title">Wings</h2>
             <p className="section-subtitle">Choose your style, then pick your size. Mix up to 2 sauces per order.</p>
           </div>
 
-          <div className="wing-type-tabs">
+          <div className="wing-type-tabs" data-animate="fade-up" data-delay="80">
             {WING_TYPES.map(type => (
               <button
                 key={type}
@@ -114,7 +114,7 @@ export default function Menu() {
             ))}
           </div>
 
-          <div className="wing-type-showcase">
+          <div className="wing-type-showcase" data-animate="fade-up" data-delay="120">
             <div className="wing-type-desc">
               {activeWingType === 'Traditional' && (
                 <p>Classic bone-in wings — crispy skin, juicy meat. The original Wing Snob experience.</p>
@@ -134,8 +134,8 @@ export default function Menu() {
           </div>
 
           <div className="size-grid">
-            {SIZES.map(size => (
-              <div key={size.qty} className="size-card">
+            {SIZES.map((size, i) => (
+              <div key={size.qty} className="size-card" data-animate="fade-up" data-delay={String(i * 80)}>
                 <div className="size-card__qty">{size.qty}<span>pc</span></div>
                 <div className="size-card__price">${size.price.toFixed(2)}</div>
                 <p className="size-card__note">
@@ -151,7 +151,7 @@ export default function Menu() {
       {/* Sauce Lab */}
       <section className="menu-section menu-section--dark">
         <div className="container">
-          <div className="menu-section__header">
+          <div className="menu-section__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
             <h2 className="section-title">16 Signature Flavors</h2>
             <p className="section-subtitle">
@@ -172,8 +172,8 @@ export default function Menu() {
           </div>
 
           <div className="sauce-lab-grid">
-            {filteredSauces.map(sauce => (
-              <div key={sauce.id} className="sauce-lab-card">
+            {filteredSauces.map((sauce, i) => (
+              <div key={sauce.id} className="sauce-lab-card" data-animate="fade-up" data-delay={String(Math.min(i * 60, 360))}>
                 <div
                   className="sauce-lab-card__bowl"
                   style={{ background: sauce.color }}
@@ -215,13 +215,13 @@ export default function Menu() {
       {/* Chicken Tenders */}
       <section className="menu-section">
         <div className="container">
-          <div className="menu-section__header">
+          <div className="menu-section__header" data-animate="fade-up">
             <h2 className="section-title">Chicken Tenders</h2>
             <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
           </div>
           <div className="size-grid size-grid--3">
-            {TENDER_SIZES.map(size => (
-              <div key={size.qty} className="size-card">
+            {TENDER_SIZES.map((size, i) => (
+              <div key={size.qty} className="size-card" data-animate="scale-up" data-delay={String(i * 100)}>
                 <div className="size-card__qty">{size.qty}<span>pc</span></div>
                 {size.label && <p className="size-card__tag">{size.label}</p>}
                 <div className="size-card__price">${size.price.toFixed(2)}</div>
@@ -236,13 +236,13 @@ export default function Menu() {
       {/* Chicken Minis & Sliders */}
       <section className="menu-section menu-section--dark">
         <div className="container">
-          <div className="menu-section__header">
+          <div className="menu-section__header" data-animate="fade-up">
             <h2 className="section-title">Chicken Minis & Sliders</h2>
             <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
           </div>
           <div className="extras-grid">
-            {SLIDERS.map(item => (
-              <div key={item.name} className="extras-card">
+            {SLIDERS.map((item, i) => (
+              <div key={item.name} className="extras-card" data-animate="fade-left" data-delay={String(i * 80)}>
                 <span className="extras-card__emoji">{item.emoji}</span>
                 <div>
                   <h4>{item.name}</h4>
@@ -258,13 +258,13 @@ export default function Menu() {
       {/* Sandos */}
       <section className="menu-section">
         <div className="container">
-          <div className="menu-section__header">
+          <div className="menu-section__header" data-animate="fade-up">
             <h2 className="section-title">Sandos</h2>
             <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
           </div>
           <div className="extras-grid">
-            {SANDOS.map(item => (
-              <div key={item.name} className="extras-card">
+            {SANDOS.map((item, i) => (
+              <div key={item.name} className="extras-card" data-animate="fade-up" data-delay={String(i * 100)}>
                 <span className="extras-card__emoji">{item.emoji}</span>
                 <div>
                   <h4>{item.name}</h4>
@@ -280,13 +280,13 @@ export default function Menu() {
       {/* Sides */}
       <section className="menu-section menu-section--dark">
         <div className="container">
-          <div className="sides-header">
+          <div className="sides-header" data-animate="fade-up">
             <h2 className="section-title">Sides</h2>
             <img src={friesImg} alt="Wing Snob fries" className="sides-photo" />
           </div>
           <div className="extras-grid">
-            {SIDES.map(item => (
-              <div key={item.name} className="extras-card">
+            {SIDES.map((item, i) => (
+              <div key={item.name} className="extras-card" data-animate="fade-up" data-delay={String(i * 60)}>
                 <span className="extras-card__emoji">{item.emoji}</span>
                 <div>
                   <h4>{item.name}</h4>

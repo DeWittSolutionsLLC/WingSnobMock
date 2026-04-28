@@ -13,20 +13,20 @@ export default function Home() {
         <div className="hero__bg" />
         <div className="container hero__inner">
           <div className="hero__text">
-            <p className="section-label">Est. 2017 · Livonia, Michigan</p>
-            <h1 className="hero__title">
+            <p className="section-label" data-animate="blur-in">Est. 2017 · Livonia, Michigan</p>
+            <h1 className="hero__title" data-animate="blur-in" data-delay="80">
               Fresh.<br />
               <span className="hero__title-accent">Never Frozen.</span>
             </h1>
-            <p className="hero__subtitle">
+            <p className="hero__subtitle" data-animate="fade-up" data-delay="200">
               18 signature sauces. Made-to-order wings. One obsession: flavor.
             </p>
-            <div className="hero__actions">
+            <div className="hero__actions" data-animate="fade-up" data-delay="300">
               <Link to="/order" className="btn-primary">Order Now</Link>
               <Link to="/locations" className="btn-secondary">Find a Location</Link>
             </div>
           </div>
-          <div className="hero__image">
+          <div className="hero__image" data-animate="fade-right" data-delay="150">
             <img src={wingHeroImg} alt="Wing Snob traditional wings" className="hero__wing-img" />
           </div>
         </div>
@@ -38,22 +38,22 @@ export default function Home() {
       {/* Stats Bar */}
       <section className="stats-bar">
         <div className="container stats-bar__inner">
-          <div className="stat">
+          <div className="stat" data-animate="scale-up" data-delay="0">
             <span className="stat__number">50+</span>
             <span className="stat__label">Locations</span>
           </div>
           <div className="stat__divider" />
-          <div className="stat">
+          <div className="stat" data-animate="scale-up" data-delay="100">
             <span className="stat__number">16</span>
             <span className="stat__label">Signature Sauces</span>
           </div>
           <div className="stat__divider" />
-          <div className="stat">
+          <div className="stat" data-animate="scale-up" data-delay="200">
             <span className="stat__number">100%</span>
             <span className="stat__label">Fresh Daily</span>
           </div>
           <div className="stat__divider" />
-          <div className="stat">
+          <div className="stat" data-animate="scale-up" data-delay="300">
             <span className="stat__number">3</span>
             <span className="stat__label">Wing Styles</span>
           </div>
@@ -63,7 +63,7 @@ export default function Home() {
       {/* Why Wing Snob */}
       <section className="why-section">
         <div className="container">
-          <div className="why-section__header">
+          <div className="why-section__header" data-animate="fade-up">
             <p className="section-label">Why Wing Snob</p>
             <h2 className="section-title">We're Not Your<br />Average Wing Spot</h2>
             <p className="section-subtitle">
@@ -72,26 +72,18 @@ export default function Home() {
             </p>
           </div>
           <div className="why-grid">
-            <div className="why-card">
-              <div className="why-card__icon">🍗</div>
-              <h3>Always Fresh</h3>
-              <p>Never frozen, never compromised. Our wings go from delivery to fryer — period.</p>
-            </div>
-            <div className="why-card">
-              <div className="why-card__icon">🧪</div>
-              <h3>The Sauce Lab</h3>
-              <p>16 handcrafted flavors from mild dry rubs to bone-melting heat. Your order, your rules.</p>
-            </div>
-            <div className="why-card">
-              <div className="why-card__icon">⚡</div>
-              <h3>Made Fast</h3>
-              <p>Small-footprint kitchens engineered for speed. Dine-in, takeout, or delivery — all fast.</p>
-            </div>
-            <div className="why-card">
-              <div className="why-card__icon">📱</div>
-              <h3>Order Your Way</h3>
-              <p>App, web, walk-in, DoorDash or UberEats. We meet you wherever you're ordering from.</p>
-            </div>
+            {[
+              { icon: '🍗', title: 'Always Fresh', text: 'Never frozen, never compromised. Our wings go from delivery to fryer — period.' },
+              { icon: '🧪', title: 'The Sauce Lab', text: '16 handcrafted flavors from mild dry rubs to bone-melting heat. Your order, your rules.' },
+              { icon: '⚡', title: 'Made Fast', text: 'Small-footprint kitchens engineered for speed. Dine-in, takeout, or delivery — all fast.' },
+              { icon: '📱', title: 'Order Your Way', text: 'App, web, walk-in, DoorDash or UberEats. We meet you wherever you\'re ordering from.' },
+            ].map((card, i) => (
+              <div className="why-card" key={card.title} data-animate="fade-up" data-delay={String(i * 100)}>
+                <div className="why-card__icon">{card.icon}</div>
+                <h3>{card.title}</h3>
+                <p>{card.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -99,7 +91,7 @@ export default function Home() {
       {/* Sauce Lab Preview */}
       <section className="sauce-preview">
         <div className="container">
-          <div className="sauce-preview__header">
+          <div className="sauce-preview__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
             <h2 className="section-title">Pick Your Poison</h2>
             <p className="section-subtitle">
@@ -108,8 +100,8 @@ export default function Home() {
             </p>
           </div>
           <div className="sauce-grid">
-            {FEATURED_SAUCES.map(sauce => (
-              <div key={sauce.id} className="sauce-card">
+            {FEATURED_SAUCES.map((sauce, i) => (
+              <div key={sauce.id} className="sauce-card" data-animate="scale-up" data-delay={String(Math.min(i * 60, 420))}>
                 <div
                   className="sauce-card__bowl"
                   style={{ background: sauce.color }}
@@ -127,7 +119,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="sauce-preview__cta">
+          <div className="sauce-preview__cta" data-animate="fade-up">
             <Link to="/menu" className="btn-secondary">See All 16 Sauces</Link>
             <Link to="/order" className="btn-primary">Start Your Order</Link>
           </div>
@@ -137,24 +129,24 @@ export default function Home() {
       {/* How It Works */}
       <section className="how-section">
         <div className="container">
-          <div className="how-section__header">
+          <div className="how-section__header" data-animate="fade-up">
             <p className="section-label">How It Works</p>
             <h2 className="section-title">Wings in 3 Steps</h2>
           </div>
           <div className="how-steps">
-            <div className="how-step">
+            <div className="how-step" data-animate="fade-up" data-delay="0">
               <div className="how-step__number">01</div>
               <h3>Choose Your Style</h3>
               <p>Traditional bone-in, boneless, or cauliflower. You pick the base.</p>
             </div>
-            <div className="how-step__arrow">→</div>
-            <div className="how-step">
+            <div className="how-step__arrow" data-animate="fade-up" data-delay="100">→</div>
+            <div className="how-step" data-animate="fade-up" data-delay="150">
               <div className="how-step__number">02</div>
               <h3>Pick Your Sauce</h3>
               <p>Select up to 2 flavors from the Sauce Lab. Mix or double-down.</p>
             </div>
-            <div className="how-step__arrow">→</div>
-            <div className="how-step">
+            <div className="how-step__arrow" data-animate="fade-up" data-delay="200">→</div>
+            <div className="how-step" data-animate="fade-up" data-delay="300">
               <div className="how-step__number">03</div>
               <h3>Add Your Sides</h3>
               <p>Fries, mac, coleslaw — round out your order and enjoy.</p>
@@ -166,7 +158,7 @@ export default function Home() {
       {/* Snob Perks Teaser */}
       <section className="perks-teaser">
         <div className="container perks-teaser__inner">
-          <div className="perks-teaser__text">
+          <div className="perks-teaser__text" data-animate="fade-left">
             <p className="section-label">Snob Perks</p>
             <h2 className="section-title">Get Rewarded<br />For Being a Snob</h2>
             <p className="section-subtitle">
@@ -175,7 +167,7 @@ export default function Home() {
             </p>
             <Link to="/perks" className="btn-gold">Join Snob Perks</Link>
           </div>
-          <div className="perks-teaser__tiers">
+          <div className="perks-teaser__tiers" data-animate="fade-right" data-delay="100">
             <div className="tier-card tier-card--snob">
               <div className="tier-card__badge">🍗</div>
               <h4>Snob</h4>
@@ -198,7 +190,7 @@ export default function Home() {
       {/* Franchise CTA */}
       <section className="franchise-cta">
         <div className="container franchise-cta__inner">
-          <div className="franchise-cta__content">
+          <div className="franchise-cta__content" data-animate="fade-left">
             <p className="section-label">Own a Wing Snob</p>
             <h2 className="section-title">Be Part of the<br />Fastest Growing<br />Wing Brand</h2>
             <p className="section-subtitle">
@@ -208,22 +200,17 @@ export default function Home() {
             <Link to="/franchise" className="btn-gold">Learn More</Link>
           </div>
           <div className="franchise-cta__metrics">
-            <div className="metric">
-              <span className="metric__value">$340K</span>
-              <span className="metric__label">Starting Investment</span>
-            </div>
-            <div className="metric">
-              <span className="metric__value">1,500</span>
-              <span className="metric__label">Avg Sq Ft</span>
-            </div>
-            <div className="metric">
-              <span className="metric__value">6%</span>
-              <span className="metric__label">Royalty Fee</span>
-            </div>
-            <div className="metric">
-              <span className="metric__value">100+</span>
-              <span className="metric__label">Locations in Pipeline</span>
-            </div>
+            {[
+              { value: '$340K', label: 'Starting Investment' },
+              { value: '1,500', label: 'Avg Sq Ft' },
+              { value: '6%', label: 'Royalty Fee' },
+              { value: '100+', label: 'Locations in Pipeline' },
+            ].map((m, i) => (
+              <div className="metric" key={m.label} data-animate="scale-up" data-delay={String(i * 80)}>
+                <span className="metric__value">{m.value}</span>
+                <span className="metric__label">{m.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

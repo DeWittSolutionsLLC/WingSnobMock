@@ -72,16 +72,16 @@ export default function Perks() {
       {/* Hero */}
       <section className="perks-hero">
         <div className="container">
-          <p className="section-label">Snob Perks</p>
-          <h1 className="perks-hero__title">
+          <p className="section-label" data-animate="blur-in">Snob Perks</p>
+          <h1 className="perks-hero__title" data-animate="blur-in" data-delay="80">
             Get Rewarded<br />
             <span style={{ color: 'var(--gold)' }}>For Being a Snob</span>
           </h1>
-          <p className="section-subtitle">
+          <p className="section-subtitle" data-animate="fade-up" data-delay="200">
             Every wing order earns you points. Every point gets you closer to free food.
             The Snob life never looked so good.
           </p>
-          <div className="perks-hero__actions">
+          <div className="perks-hero__actions" data-animate="fade-up" data-delay="300">
             <a href="#join" className="btn-gold">Join for Free</a>
             <a href="#tiers" className="btn-secondary">View Tiers</a>
           </div>
@@ -91,11 +91,11 @@ export default function Perks() {
       {/* How It Works */}
       <section className="perks-how">
         <div className="container">
-          <p className="section-label">How It Works</p>
-          <h2 className="section-title">4 Steps to Free Wings</h2>
+          <p className="section-label" data-animate="fade-up">How It Works</p>
+          <h2 className="section-title" data-animate="fade-up" data-delay="60">4 Steps to Free Wings</h2>
           <div className="perks-how-grid">
-            {HOW_IT_WORKS.map(item => (
-              <div key={item.step} className="perks-how-card">
+            {HOW_IT_WORKS.map((item, i) => (
+              <div key={item.step} className="perks-how-card" data-animate="fade-up" data-delay={String(i * 100)}>
                 <div className="perks-how-card__step">{item.step}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
@@ -111,7 +111,7 @@ export default function Perks() {
           <p className="section-label">Membership Tiers</p>
           <h2 className="section-title">Three Levels.<br />Endless Rewards.</h2>
 
-          <div className="tier-tabs">
+          <div className="tier-tabs" data-animate="fade-up">
             {TIERS.map(tier => (
               <button
                 key={tier.id}
@@ -127,7 +127,7 @@ export default function Perks() {
           </div>
 
           {activeTier && (
-            <div className="tier-detail" style={{ '--tier-color': activeTier.color }}>
+            <div className="tier-detail" style={{ '--tier-color': activeTier.color }} data-animate="scale-up" data-delay="100">
               <div className="tier-detail__left">
                 <div className="tier-detail__badge">{activeTier.emoji}</div>
                 <h3>{activeTier.name}</h3>
@@ -154,8 +154,8 @@ export default function Perks() {
 
           {/* Tier Comparison */}
           <div className="tier-all-cards">
-            {TIERS.map(tier => (
-              <div key={tier.id} className="tier-all-card" style={{ '--tc': tier.color }}>
+            {TIERS.map((tier, i) => (
+              <div key={tier.id} className="tier-all-card" style={{ '--tc': tier.color }} data-animate="scale-up" data-delay={String(i * 100)}>
                 <div className="tier-all-card__emoji">{tier.emoji}</div>
                 <h4>{tier.name}</h4>
                 <p>{tier.range}</p>
@@ -177,7 +177,7 @@ export default function Perks() {
       <section className="perks-value">
         <div className="container">
           <div className="perks-value__inner">
-            <div className="perks-value__text">
+            <div className="perks-value__text" data-animate="fade-left">
               <p className="section-label">Points Value</p>
               <h2 className="section-title">Your Points,<br />Your Way</h2>
               <p className="section-subtitle">
@@ -186,26 +186,18 @@ export default function Perks() {
               </p>
             </div>
             <div className="perks-value__examples">
-              <div className="reward-example">
-                <span className="reward-example__pts">500 pts</span>
-                <span className="reward-example__arrow">→</span>
-                <span className="reward-example__reward">Free 6pc Wings 🍗</span>
-              </div>
-              <div className="reward-example">
-                <span className="reward-example__pts">300 pts</span>
-                <span className="reward-example__arrow">→</span>
-                <span className="reward-example__reward">Free Side 🍟</span>
-              </div>
-              <div className="reward-example">
-                <span className="reward-example__pts">200 pts</span>
-                <span className="reward-example__arrow">→</span>
-                <span className="reward-example__reward">Free Drink 🥤</span>
-              </div>
-              <div className="reward-example">
-                <span className="reward-example__pts">1000 pts</span>
-                <span className="reward-example__arrow">→</span>
-                <span className="reward-example__reward">Free 10pc Wings 🎉</span>
-              </div>
+              {[
+                { pts: '500 pts', reward: 'Free 6pc Wings 🍗' },
+                { pts: '300 pts', reward: 'Free Side 🍟' },
+                { pts: '200 pts', reward: 'Free Drink 🥤' },
+                { pts: '1000 pts', reward: 'Free 10pc Wings 🎉' },
+              ].map((ex, i) => (
+                <div className="reward-example" key={ex.pts} data-animate="fade-right" data-delay={String(i * 80)}>
+                  <span className="reward-example__pts">{ex.pts}</span>
+                  <span className="reward-example__arrow">→</span>
+                  <span className="reward-example__reward">{ex.reward}</span>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -226,7 +218,7 @@ export default function Perks() {
               </div>
             ) : (
               <>
-                <div className="perks-signup__text">
+                <div className="perks-signup__text" data-animate="fade-left">
                   <p className="section-label">Join Free</p>
                   <h2 className="section-title">Start Earning Today</h2>
                   <p className="section-subtitle">
@@ -238,7 +230,7 @@ export default function Perks() {
                     <p>Get <strong>100 bonus points</strong> just for joining — that's halfway to a free drink.</p>
                   </div>
                 </div>
-                <form className="perks-form" onSubmit={handleSubmit}>
+                <form className="perks-form" onSubmit={handleSubmit} data-animate="fade-right" data-delay="100">
                   <div className="form-group">
                     <label>Full Name</label>
                     <input
