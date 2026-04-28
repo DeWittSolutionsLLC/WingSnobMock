@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
-import logo from '../assets/WingSnobLogo.webp'
+import logo from '../assets/ws-logo.png'
 import './Navbar.css'
 
 export default function Navbar() {
