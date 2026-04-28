@@ -188,16 +188,16 @@
 }
 
 .why-card {
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-md);
-  padding: 36px 28px;
+  background: transparent;
+  border: none;
+  border-left: 5px solid rgba(245,166,35,0.85);
+  padding: 32px 24px;
   transition: border-color 0.25s, transform 0.25s;
 }
 
 .why-card:hover {
-  border-color: rgba(214, 43, 43, 0.4);
-  transform: translateY(-4px);
+  border-color: rgba(245,166,35,1);
+  transform: translateY(-2px);
 }
 
 .why-card__icon {
@@ -249,10 +249,10 @@
 }
 
 .sauce-card {
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-md);
-  padding: 28px 20px 22px;
+  background: transparent;
+  border: none;
+  border-left: 5px solid rgba(245,166,35,0.8);
+  padding: 24px 18px 18px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -263,8 +263,8 @@
 }
 
 .sauce-card:hover {
-  border-color: rgba(255,255,255,0.2);
-  transform: translateY(-3px);
+  border-color: rgba(245,166,35,0.95);
+  transform: translateY(-2px);
 }
 
 .sauce-card__bowl {
@@ -385,24 +385,21 @@
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 22px 28px;
-  border-radius: var(--radius-md);
-  border: 1px solid;
+  padding: 20px 24px;
+  border-left: 5px solid transparent;
+  border: none;
 }
 
 .tier-card--snob {
-  background: rgba(255,255,255,0.04);
-  border-color: rgba(255,255,255,0.1);
+  border-left-color: rgba(255,255,255,0.35);
 }
 
 .tier-card--king {
-  background: rgba(245, 166, 35, 0.07);
-  border-color: rgba(245, 166, 35, 0.3);
+  border-left-color: rgba(245,166,35,0.8);
 }
 
 .tier-card--boss {
-  background: rgba(214, 43, 43, 0.08);
-  border-color: rgba(214, 43, 43, 0.35);
+  border-left-color: rgba(214,43,43,0.9);
 }
 
 .tier-card__badge {

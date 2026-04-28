@@ -150,21 +150,19 @@
 }
 
 .location-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), var(--dark-2));
-  border: 1px solid rgba(214,43,43,0.13);
+  background: transparent;
+  border: none;
   border-left: 6px solid rgba(214,43,43,0.85);
-  border-radius: var(--radius-lg);
-  padding: 32px;
+  padding: 28px 28px 24px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  gap: 18px;
+  transition: border-color 0.2s, transform 0.2s;
 }
 
 .location-card:hover {
-  border-color: rgba(245, 166, 35, 0.45);
-  transform: translateY(-4px);
-  box-shadow: 0 22px 48px rgba(214,43,43,0.14);
+  border-color: rgba(245, 166, 35, 0.6);
+  transform: translateY(-2px);
 }
 
 .location-card--soon {

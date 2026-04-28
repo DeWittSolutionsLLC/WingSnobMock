@@ -88,13 +88,11 @@
 
 /* ── Step Panel ── */
 .step-panel {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(16,16,16,0.92));
-  border: 1px solid rgba(214,43,43,0.18);
+  background: transparent;
+  border: none;
   border-left: 6px solid rgba(214,43,43,0.9);
-  border-radius: var(--radius-xl);
-  padding: 40px;
+  padding: 32px 24px 28px;
   margin-bottom: 28px;
-  box-shadow: 0 30px 90px rgba(0,0,0,0.18);
 }
 
 .step-panel__title {
@@ -372,13 +370,12 @@
 
 /* ── Order Summary ── */
 .order-summary {
-  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(18,18,18,0.95));
-  border: 1px solid rgba(214,43,43,0.16);
-  border-radius: var(--radius-lg);
-  padding: 32px;
+  background: transparent;
+  border: none;
+  border-left: 6px solid rgba(214,43,43,0.9);
+  padding: 32px 26px 28px;
   position: sticky;
   top: calc(var(--nav-height) + 24px);
-  box-shadow: 0 30px 90px rgba(0,0,0,0.18);
 }
 
 .order-summary__title {

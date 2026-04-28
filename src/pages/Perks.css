@@ -56,18 +56,16 @@
 }
 
 .perks-how-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(18,18,18,0.95));
-  border: 1px solid rgba(214,43,43,0.14);
-  border-left: 6px solid rgba(245,166,35,0.85);
-  border-radius: var(--radius-xl);
-  padding: 36px 28px;
-  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+  background: transparent;
+  border: none;
+  border-top: 2px solid rgba(245,166,35,0.3);
+  padding: 28px 20px 20px;
+  transition: transform 0.25s ease, border-color 0.25s;
 }
 
 .perks-how-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(245,166,35,0.4);
-  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
+  transform: translateY(-2px);
+  border-color: rgba(245,166,35,0.55);
 }
 
 .perks-how-card__step {
@@ -225,18 +223,16 @@
 }
 
 .tier-all-card {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(18,18,18,0.95));
-  border: 1px solid rgba(214,43,43,0.14);
-  border-left: 6px solid var(--tc, rgba(245,166,35,0.8));
-  border-radius: var(--radius-xl);
-  padding: 34px 28px;
-  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+  background: rgba(255,255,255,0.01);
+  border: none;
+  border-left: 4px solid var(--tc, rgba(245,166,35,0.8));
+  padding: 28px 22px;
+  transition: transform 0.25s ease, border-color 0.25s;
 }
 
 .tier-all-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(245,166,35,0.35);
-  box-shadow: 0 30px 80px rgba(0,0,0,0.16);
+  transform: translateY(-2px);
+  border-color: rgba(245,166,35,0.45);
 }
 
 .tier-all-card__emoji {
