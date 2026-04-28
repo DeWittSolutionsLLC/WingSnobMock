@@ -96,7 +96,7 @@ export default function Franchise() {
   return (
     <div className="franchise-page">
       {/* Hero */}
-      <section className="franchise-hero">
+      <section className="franchise-hero" data-parallax="0.04">
         <div className="container">
           <p className="section-label" data-animate="blur-in">Franchise Opportunity</p>
           <h1 className="franchise-hero__title" data-animate="blur-in" data-delay="80">
@@ -107,7 +107,7 @@ export default function Franchise() {
             Born in Livonia, MI in 2017. Voted Best Chicken Wings in Metro Detroit.
             Now 70+ locations across 9 states — and growing 50%+ year over year.
           </p>
-          <div className="franchise-hero__actions" data-animate="fade-up" data-delay="300">
+          <div className="franchise-hero__actions" data-animate="fade-up" data-delay="300" data-parallax="0.03">
             <a href="#inquire" className="btn-gold">Start Your Inquiry</a>
             <a href="#investment" className="btn-secondary">View Investment</a>
           </div>

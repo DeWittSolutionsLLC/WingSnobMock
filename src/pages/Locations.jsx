@@ -140,7 +140,7 @@ export default function Locations() {
   return (
     <div className="locations-page">
       {/* Hero */}
-      <section className="locations-hero">
+      <section className="locations-hero" data-parallax="0.04">
         <div className="container">
           <p className="section-label" data-animate="blur-in">70+ Locations Across 9 States</p>
           <h1 className="section-title" data-animate="blur-in" data-delay="80">Find Your<br />Wing Snob</h1>
@@ -298,7 +298,7 @@ export default function Locations() {
             <a href="https://www.wingsnob.com/catering" className="btn-gold" style={{ marginTop: '28px' }}>Book Catering</a>
           </div>
           <div className="food-truck-visual" data-animate="fade-right" data-delay="150">
-            <img src={truckImg} alt="Wing Snob food truck" className="food-truck-img" loading="lazy" />
+            <img src={truckImg} alt="Wing Snob food truck" className="food-truck-img photo-float" data-parallax="0.1" loading="lazy" />
           </div>
         </div>
       </section>

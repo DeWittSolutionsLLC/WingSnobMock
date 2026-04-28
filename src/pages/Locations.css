@@ -3,24 +3,46 @@
 }
 
 .locations-hero {
-  padding: 80px 0 60px;
+  position: relative;
+  padding: 100px 0 80px;
   background:
-    radial-gradient(ellipse 50% 50% at 50% 0%, rgba(214, 43, 43, 0.1) 0%, transparent 70%),
-    var(--dark-2);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+    radial-gradient(circle at 18% 18%, rgba(214, 43, 43, 0.18) 0%, transparent 32%),
+    radial-gradient(circle at 82% 20%, rgba(245, 166, 35, 0.12) 0%, transparent 28%),
+    linear-gradient(180deg, #141414 0%, #181818 100%);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.locations-hero::before {
+  content: '';
+  position: absolute;
+  right: 20px;
+  top: 30%;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245, 166, 35, 0.18), transparent 55%);
+  filter: blur(30px);
+  pointer-events: none;
 }
 
 .locations-search {
   display: flex;
   align-items: center;
   gap: 12px;
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(214,43,43,0.18);
   border-radius: var(--radius-full);
-  padding: 14px 24px;
-  max-width: 480px;
+  padding: 16px 24px;
+  max-width: 520px;
   margin-top: 32px;
-  transition: border-color 0.2s;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.locations-search:hover,
+.locations-search:focus-within {
+  border-color: rgba(245,166,35,0.4);
+  box-shadow: 0 12px 36px rgba(214,43,43,0.08);
 }
 
 .locations-search:focus-within {
@@ -54,12 +76,14 @@
 }
 
 .map-placeholder {
-  height: 280px;
+  min-height: 320px;
   background:
-    radial-gradient(ellipse 80% 80% at 50% 50%, rgba(214, 43, 43, 0.05) 0%, transparent 70%),
-    var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.08);
+    radial-gradient(circle at 50% 35%, rgba(245, 166, 35, 0.14) 0%, transparent 36%),
+    radial-gradient(circle at 20% 70%, rgba(214, 43, 43, 0.12) 0%, transparent 28%),
+    linear-gradient(180deg, rgba(0,0,0,0.75), rgba(0,0,0,0.5));
+  border: 1px solid rgba(214,43,43,0.16);
   border-radius: var(--radius-lg);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.35);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -70,6 +94,7 @@
 .map-placeholder__inner {
   text-align: center;
   z-index: 1;
+  color: var(--white);
 }
 
 .map-placeholder__icon {
@@ -125,19 +150,21 @@
 }
 
 .location-card {
-  background: var(--dark-2);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-md);
-  padding: 28px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), var(--dark-2));
+  border: 1px solid rgba(214,43,43,0.13);
+  border-left: 6px solid rgba(214,43,43,0.85);
+  border-radius: var(--radius-lg);
+  padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  transition: border-color 0.2s, transform 0.2s;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .location-card:hover {
-  border-color: rgba(214, 43, 43, 0.35);
-  transform: translateY(-2px);
+  border-color: rgba(245, 166, 35, 0.45);
+  transform: translateY(-4px);
+  box-shadow: 0 22px 48px rgba(214,43,43,0.14);
 }
 
 .location-card--soon {
@@ -255,8 +282,22 @@
 /* ── Food Truck Banner ── */
 .food-truck-banner {
   padding: 80px 0;
-  background: var(--dark-2);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: linear-gradient(180deg, rgba(20,20,20,0.95), rgba(18,18,18,0.92));
+  border-top: 1px solid rgba(255,255,255,0.08);
+  position: relative;
+}
+
+.food-truck-banner::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 12%;
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(214, 43, 43, 0.12), transparent 55%);
+  filter: blur(24px);
+  pointer-events: none;
 }
 
 .food-truck-banner__inner {
@@ -270,16 +311,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .food-truck-img {
   max-width: 420px;
   width: 100%;
   height: auto;
-  border-radius: var(--radius-md);
+  border-radius: 28px;
   object-fit: cover;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
+  box-shadow: 0 30px 100px rgba(214,43,43,0.24);
   filter: drop-shadow(0 8px 32px rgba(214,43,43,0.2));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.food-truck-img:hover {
+  transform: translateY(-4px) rotateZ(-0.8deg);
+  box-shadow: 0 38px 120px rgba(214,43,43,0.32);
 }
 
 @media (max-width: 768px) {

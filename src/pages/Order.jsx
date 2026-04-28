@@ -224,7 +224,7 @@ export default function Order() {
         </div>
 
         {/* Right: Order Summary */}
-        <div className="order-summary">
+        <div className="order-summary" data-parallax="0.06">
           <h3 className="order-summary__title">Your Order</h3>
 
           {!wingType && !size && sauces.length === 0 && sides.length === 0 ? (

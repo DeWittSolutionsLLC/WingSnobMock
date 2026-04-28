@@ -1,26 +1,45 @@
 .perks-page {
-  background: var(--dark);
+  background:
+    radial-gradient(circle at 18% 20%, rgba(214,43,43,0.14), transparent 25%),
+    radial-gradient(circle at 80% 18%, rgba(245,166,35,0.08), transparent 18%),
+    linear-gradient(180deg, #0f0f0f 0%, #141414 100%);
 }
 
 /* ── Hero ── */
 .perks-hero {
-  padding: 80px 0 80px;
+  position: relative;
+  padding: 100px 0 100px;
   background:
-    radial-gradient(ellipse 60% 60% at 50% 0%, rgba(245, 166, 35, 0.12) 0%, transparent 70%),
-    var(--dark-2);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+    radial-gradient(circle at 22% 18%, rgba(245,166,35,0.18), transparent 24%),
+    radial-gradient(circle at 82% 20%, rgba(214,43,43,0.14), transparent 22%),
+    linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.03));
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  overflow: hidden;
+}
+
+.perks-hero::before {
+  content: '';
+  position: absolute;
+  left: 10%;
+  top: 12%;
+  width: 240px;
+  height: 240px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(245,166,35,0.16), transparent 55%);
+  filter: blur(30px);
+  pointer-events: none;
 }
 
 .perks-hero__title {
   font-size: clamp(3rem, 7vw, 5.5rem);
-  margin-bottom: 16px;
-  line-height: 0.95;
+  margin-bottom: 20px;
+  line-height: 0.92;
 }
 
 .perks-hero__actions {
   display: flex;
   gap: 16px;
-  margin-top: 36px;
+  margin-top: 42px;
   flex-wrap: wrap;
 }
 
@@ -37,18 +56,26 @@
 }
 
 .perks-how-card {
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-md);
-  padding: 32px 24px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.03), rgba(18,18,18,0.95));
+  border: 1px solid rgba(214,43,43,0.14);
+  border-left: 6px solid rgba(245,166,35,0.85);
+  border-radius: var(--radius-xl);
+  padding: 36px 28px;
+  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
+}
+
+.perks-how-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245,166,35,0.4);
+  box-shadow: 0 28px 70px rgba(0,0,0,0.18);
 }
 
 .perks-how-card__step {
   font-family: var(--font-display);
   font-size: 3rem;
   color: var(--gold);
-  opacity: 0.6;
-  margin-bottom: 16px;
+  opacity: 0.7;
+  margin-bottom: 18px;
   line-height: 1;
 }
 
@@ -116,26 +143,28 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  background: var(--dark-3);
-  border: 1px solid var(--tier-color, rgba(255,255,255,0.1));
-  border-radius: var(--radius-lg);
-  padding: 40px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(18,18,18,0.95));
+  border: 1px solid rgba(214,43,43,0.16);
+  border-left: 8px solid var(--tier-color);
+  border-radius: var(--radius-xl);
+  padding: 42px;
   margin-bottom: 48px;
+  box-shadow: 0 32px 96px rgba(0,0,0,0.18);
 }
 
 .tier-detail__badge {
-  width: 64px;
-  height: 64px;
+  width: 68px;
+  height: 68px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   background: rgba(255,255,255,0.07);
   font-family: var(--font-display);
-  font-size: 1.8rem;
+  font-size: 1.9rem;
   letter-spacing: 0.05em;
   color: var(--tier-color);
-  margin-bottom: 16px;
+  margin-bottom: 18px;
 }
 
 .tier-detail__left h3 {
@@ -196,15 +225,18 @@
 }
 
 .tier-all-card {
-  background: var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-md);
-  padding: 32px 24px;
-  transition: border-color 0.2s;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(18,18,18,0.95));
+  border: 1px solid rgba(214,43,43,0.14);
+  border-left: 6px solid var(--tc, rgba(245,166,35,0.8));
+  border-radius: var(--radius-xl);
+  padding: 34px 28px;
+  transition: transform 0.25s ease, border-color 0.25s, box-shadow 0.25s;
 }
 
 .tier-all-card:hover {
-  border-color: var(--tc, rgba(255,255,255,0.2));
+  transform: translateY(-4px);
+  border-color: rgba(245,166,35,0.35);
+  box-shadow: 0 30px 80px rgba(0,0,0,0.16);
 }
 
 .tier-all-card__emoji {
@@ -270,24 +302,34 @@
 
 .perks-value__inner {
   display: grid;
-  grid-template-columns: 1fr 1fr 280px;
-  gap: 60px;
+  grid-template-columns: 1.2fr 1fr 320px;
+  gap: 64px;
   align-items: center;
+  position: relative;
 }
 
 .perks-value__phone {
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .perks-iphone-img {
-  max-width: 240px;
+  max-width: 310px;
   width: 100%;
   height: auto;
-  border-radius: 20px;
-  box-shadow: 0 24px 64px rgba(0,0,0,0.6);
-  filter: drop-shadow(0 8px 32px rgba(245,166,35,0.15));
+  border-radius: 32px;
+  border: 1px solid rgba(245,166,35,0.18);
+  background: rgba(255,255,255,0.02);
+  box-shadow: 0 40px 120px rgba(214,43,43,0.22);
+  filter: drop-shadow(0 10px 38px rgba(245,166,35,0.2));
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.perks-iphone-img:hover {
+  transform: translateY(-3px) rotate(-0.4deg);
+  box-shadow: 0 48px 140px rgba(214,43,43,0.26);
 }
 
 .perks-value__examples {
@@ -336,6 +378,11 @@
   grid-template-columns: 1fr 1fr;
   gap: 80px;
   align-items: start;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(20,20,20,0.95));
+  border: 1px solid rgba(214,43,43,0.18);
+  border-left: 8px solid rgba(245,166,35,0.75);
+  border-radius: var(--radius-xl);
+  padding: 40px;
 }
 
 .perks-signup__bonus {
@@ -345,7 +392,7 @@
   background: rgba(245, 166, 35, 0.08);
   border: 1px solid rgba(245, 166, 35, 0.25);
   border-radius: var(--radius-md);
-  padding: 16px 20px;
+  padding: 18px 22px;
   margin-top: 24px;
 }
 
