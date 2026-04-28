@@ -78,12 +78,12 @@ export default function Perks() {
             <span style={{ color: 'var(--gold)' }}>For Being a Snob</span>
           </h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="200">
-            Every wing order earns you points. Every point gets you closer to free food.
-            The Snob life never looked so good.
+            Order, earn, and unlock exclusive deals through the Wing Snob app.
+            Sign up and get a free order of fries — no purchase needed.
           </p>
           <div className="perks-hero__actions" data-animate="fade-up" data-delay="300">
             <a href="#join" className="btn-gold">Join for Free</a>
-            <a href="#tiers" className="btn-secondary">View Tiers</a>
+            <a href="https://www.wingsnob.com/download" className="btn-secondary">Download the App</a>
           </div>
         </div>
       </section>
@@ -222,12 +222,11 @@ export default function Perks() {
                   <p className="section-label">Join Free</p>
                   <h2 className="section-title">Start Earning Today</h2>
                   <p className="section-subtitle">
-                    Sign up in seconds. No credit card. No commitment.
-                    Just wings and rewards.
+                    Download the Wing Snob app or sign up online. Get exclusive daily deals, member-only offers, and rewards on every order.
                   </p>
                   <div className="perks-signup__bonus">
-                    <span>🎁</span>
-                    <p>Get <strong>100 bonus points</strong> just for joining — that's halfway to a free drink.</p>
+                    <span>🍟</span>
+                    <p>Sign up and get a <strong>FREE order of fries</strong> — no purchase required.</p>
                   </div>
                 </div>
                 <form className="perks-form" onSubmit={handleSubmit} data-animate="fade-right" data-delay="100">

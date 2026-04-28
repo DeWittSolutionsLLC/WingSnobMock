@@ -43,12 +43,12 @@ const STEPS = [
 ]
 
 const INVESTMENT = [
-  { label: 'Initial Franchise Fee', value: '$35,000' },
-  { label: 'Total Investment Range', value: '$340K – $616K' },
-  { label: 'Royalty Fee', value: '6% of gross sales' },
-  { label: 'Brand Fund', value: '2% of gross sales' },
-  { label: 'Liquid Capital Required', value: '$150,000' },
-  { label: 'Net Worth Required', value: '$350,000' },
+  { label: 'Total Investment Range', value: '$195K – $352K' },
+  { label: 'Average Unit Volume (2023)', value: '$950,487' },
+  { label: 'Year-over-Year Growth', value: '50%+' },
+  { label: 'Locations Open', value: '70+' },
+  { label: 'States', value: '9' },
+  { label: 'Founded', value: '2017 · Livonia, MI' },
 ]
 
 export default function Franchise() {
@@ -75,8 +75,8 @@ export default function Franchise() {
             <span className="franchise-hero__accent">Wing Snob</span>
           </h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="200">
-            Join the fastest-growing wing brand in America. Low overhead,
-            proven systems, and a product people are obsessed with.
+            Born in Livonia, MI in 2017. Voted Best Chicken Wings in Metro Detroit.
+            Now 70+ locations across 9 states — and growing 50%+ year over year.
           </p>
           <div className="franchise-hero__actions" data-animate="fade-up" data-delay="300">
             <a href="#inquire" className="btn-gold">Start Your Inquiry</a>
@@ -89,28 +89,28 @@ export default function Franchise() {
       <section className="franchise-stats">
         <div className="container franchise-stats__inner">
           <div className="fstat" data-animate="scale-up" data-delay="0">
-            <span className="fstat__value">50+</span>
+            <span className="fstat__value">70+</span>
             <span className="fstat__label">Open Locations</span>
           </div>
           <div className="fstat__div" />
           <div className="fstat" data-animate="scale-up" data-delay="80">
-            <span className="fstat__value">100+</span>
-            <span className="fstat__label">In Pipeline</span>
+            <span className="fstat__value">9</span>
+            <span className="fstat__label">States</span>
           </div>
           <div className="fstat__div" />
           <div className="fstat" data-animate="scale-up" data-delay="160">
-            <span className="fstat__value">$340K</span>
+            <span className="fstat__value">$195K</span>
             <span className="fstat__label">Min. Investment</span>
           </div>
           <div className="fstat__div" />
           <div className="fstat" data-animate="scale-up" data-delay="240">
-            <span className="fstat__value">2017</span>
-            <span className="fstat__label">Founded</span>
+            <span className="fstat__value">$950K</span>
+            <span className="fstat__label">Avg Unit Volume</span>
           </div>
           <div className="fstat__div" />
           <div className="fstat" data-animate="scale-up" data-delay="320">
-            <span className="fstat__value">1,500</span>
-            <span className="fstat__label">Avg Sq Ft</span>
+            <span className="fstat__value">50%+</span>
+            <span className="fstat__label">YoY Growth</span>
           </div>
         </div>
       </section>
@@ -121,8 +121,8 @@ export default function Franchise() {
           <p className="section-label">Why Wing Snob</p>
           <h2 className="section-title">The Anti-Legacy<br />Franchise Model</h2>
           <p className="section-subtitle">
-            Built to outperform traditional wing chains with a leaner model, a better product,
-            and a brand that actually resonates with the next generation.
+            Wing Snob University trains every franchisee from day one. Simple operations,
+            proven systems, and a product voted best in Metro Detroit — built to scale.
           </p>
           <div className="franchise-why-grid">
             {WHY_ITEMS.map((item, i) => (
@@ -144,8 +144,8 @@ export default function Franchise() {
               <p className="section-label">Investment Overview</p>
               <h2 className="section-title">Clear Numbers.<br />No Surprises.</h2>
               <p className="section-subtitle">
-                We believe in full transparency. Here's exactly what it takes
-                to own a Wing Snob franchise.
+                Lower entry cost than most competitors ($300K–$750K industry range).
+                Here's exactly what it takes to own a Wing Snob.
               </p>
             </div>
             <div className="investment-table">

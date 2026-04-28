@@ -6,8 +6,8 @@ const LOCATIONS = [
     id: 1,
     city: 'Livonia',
     state: 'MI',
-    address: '29201 Plymouth Rd, Livonia, MI 48150',
-    phone: '(734) 555-0192',
+    address: '28408 Five Mile Rd, Livonia, MI 48154',
+    phone: '(734) 237-0800',
     hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
     tag: 'Original',
     open: true,
@@ -16,68 +16,108 @@ const LOCATIONS = [
     id: 2,
     city: 'Detroit',
     state: 'MI',
-    address: '4120 Woodward Ave, Detroit, MI 48201',
-    phone: '(313) 555-0187',
-    hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–12am · Sun 12pm–9pm',
+    address: 'Detroit, MI',
+    phone: null,
+    hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
     tag: null,
     open: true,
   },
   {
     id: 3,
-    city: 'Chicago',
-    state: 'IL',
-    address: '845 N Michigan Ave, Chicago, IL 60611',
-    phone: '(312) 555-0234',
+    city: 'Ann Arbor',
+    state: 'MI',
+    address: 'Ann Arbor, MI',
+    phone: null,
     hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
     tag: null,
     open: true,
   },
   {
     id: 4,
-    city: 'Columbus',
-    state: 'OH',
-    address: '1421 N High St, Columbus, OH 43201',
-    phone: '(614) 555-0155',
+    city: 'Lansing',
+    state: 'MI',
+    address: 'Lansing, MI',
+    phone: null,
     hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
     tag: null,
     open: true,
   },
   {
     id: 5,
-    city: 'Indianapolis',
-    state: 'IN',
-    address: '5632 E 82nd St, Indianapolis, IN 46250',
-    phone: '(317) 555-0211',
+    city: 'Columbus',
+    state: 'OH',
+    address: 'Columbus, OH',
+    phone: null,
     hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
     tag: null,
     open: true,
   },
   {
     id: 6,
-    city: 'Nashville',
-    state: 'TN',
-    address: '2014 Broadway, Nashville, TN 37203',
-    phone: '(615) 555-0199',
-    hours: 'Mon–Thu 11am–11pm · Fri–Sat 11am–12am · Sun 12pm–10pm',
+    city: 'Schaumburg',
+    state: 'IL',
+    address: 'Schaumburg, IL',
+    phone: null,
+    hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
     tag: null,
     open: true,
   },
   {
     id: 7,
-    city: 'Atlanta',
-    state: 'GA',
-    address: '789 Peachtree St NE, Atlanta, GA 30308',
-    phone: '(404) 555-0168',
+    city: 'Frisco',
+    state: 'TX',
+    address: 'Frisco, TX',
+    phone: null,
     hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
+    tag: null,
+    open: true,
+  },
+  {
+    id: 8,
+    city: 'Katy',
+    state: 'TX',
+    address: 'Katy, TX',
+    phone: null,
+    hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
+    tag: null,
+    open: true,
+  },
+  {
+    id: 9,
+    city: 'Delavan',
+    state: 'WI',
+    address: 'Delavan, WI',
+    phone: null,
+    hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
+    tag: null,
+    open: true,
+  },
+  {
+    id: 10,
+    city: 'Phoenix',
+    state: 'AZ',
+    address: 'Phoenix, AZ',
+    phone: null,
+    hours: 'Mon–Thu 11am–10pm · Fri–Sat 11am–11pm · Sun 12pm–9pm',
+    tag: null,
+    open: true,
+  },
+  {
+    id: 11,
+    city: 'Tampa',
+    state: 'FL',
+    address: 'Tampa, FL',
+    phone: null,
+    hours: 'Coming Soon',
     tag: 'Opening Soon',
     open: false,
   },
   {
-    id: 8,
-    city: 'Dallas',
-    state: 'TX',
-    address: '3201 Knox St, Dallas, TX 75205',
-    phone: '(214) 555-0177',
+    id: 12,
+    city: 'St. Louis',
+    state: 'MO',
+    address: 'St. Louis, MO',
+    phone: null,
     hours: 'Coming Soon',
     tag: 'Opening Soon',
     open: false,
@@ -101,10 +141,10 @@ export default function Locations() {
       {/* Hero */}
       <section className="locations-hero">
         <div className="container">
-          <p className="section-label" data-animate="blur-in">50+ Locations & Growing</p>
+          <p className="section-label" data-animate="blur-in">70+ Locations Across 9 States</p>
           <h1 className="section-title" data-animate="blur-in" data-delay="80">Find Your<br />Wing Snob</h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="160">
-            From Michigan to Tennessee — we're spreading the flavor everywhere.
+            From Michigan to Texas — we're spreading the flavor nationwide. Use the search below or visit us online to order pickup or delivery.
           </p>
           <div className="locations-search" data-animate="fade-up" data-delay="240">
             <span className="locations-search__icon">🔍</span>
@@ -125,7 +165,7 @@ export default function Locations() {
           <div className="map-placeholder" data-animate="scale-up">
             <div className="map-placeholder__inner">
               <span className="map-placeholder__icon">📍</span>
-              <p>Interactive map — 50+ Wing Snob locations across the US</p>
+              <p>Interactive map — 70+ Wing Snob locations across 9 states</p>
               <p className="map-placeholder__sub">Connect Google Maps API for live map</p>
             </div>
             {LOCATIONS.filter(l => l.open).map(loc => (
@@ -168,10 +208,12 @@ export default function Locations() {
                         <span>🕐</span>
                         <p>{loc.hours}</p>
                       </div>
-                      <div className="location-detail">
-                        <span>📞</span>
-                        <p>{loc.phone}</p>
-                      </div>
+                      {loc.phone && (
+                        <div className="location-detail">
+                          <span>📞</span>
+                          <p>{loc.phone}</p>
+                        </div>
+                      )}
                     </div>
                     <div className="location-card__actions">
                       <a href="#" className="btn-primary location-card__btn">Get Directions</a>
@@ -220,19 +262,19 @@ export default function Locations() {
         </div>
       </section>
 
-      {/* Food Truck */}
+      {/* Catering */}
       <section className="food-truck-banner">
         <div className="container food-truck-banner__inner">
           <div data-animate="fade-left">
-            <p className="section-label">Wing Snob on Wheels</p>
-            <h2 className="section-title">The Food Truck</h2>
+            <p className="section-label">Be Snobby With Your Event</p>
+            <h2 className="section-title">Wing Snob Catering</h2>
             <p className="section-subtitle">
-              Bringing Wing Snob to festivals, events, and corporate catering near you.
-              Book us for your next event.
+              Bringing better wings to your event, festival, or corporate gathering.
+              Let us know your date, location, and guest count — we'll handle the rest.
             </p>
-            <a href="#" className="btn-gold" style={{ marginTop: '28px' }}>Book the Truck</a>
+            <a href="https://www.wingsnob.com/catering" className="btn-gold" style={{ marginTop: '28px' }}>Book Catering</a>
           </div>
-          <div className="food-truck-visual" data-animate="fade-right" data-delay="150">🚚</div>
+          <div className="food-truck-visual" data-animate="fade-right" data-delay="150">🍗</div>
         </div>
       </section>
     </div>

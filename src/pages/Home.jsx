@@ -15,11 +15,11 @@ export default function Home() {
           <div className="hero__text">
             <p className="section-label" data-animate="blur-in">Est. 2017 · Livonia, Michigan</p>
             <h1 className="hero__title" data-animate="blur-in" data-delay="80">
-              Fresh.<br />
-              <span className="hero__title-accent">Never Frozen.</span>
+              We Just Have<br />
+              <span className="hero__title-accent">Better Wings.</span>
             </h1>
             <p className="hero__subtitle" data-animate="fade-up" data-delay="200">
-              18 signature sauces. Made-to-order wings. One obsession: flavor.
+              16 handcrafted sauces & rubs. Made-to-order in 70+ locations across 9 states. One obsession: flavor.
             </p>
             <div className="hero__actions" data-animate="fade-up" data-delay="300">
               <Link to="/order" className="btn-primary">Order Now</Link>
@@ -39,23 +39,23 @@ export default function Home() {
       <section className="stats-bar">
         <div className="container stats-bar__inner">
           <div className="stat" data-animate="scale-up" data-delay="0">
-            <span className="stat__number">50+</span>
+            <span className="stat__number">70+</span>
             <span className="stat__label">Locations</span>
           </div>
           <div className="stat__divider" />
           <div className="stat" data-animate="scale-up" data-delay="100">
             <span className="stat__number">16</span>
-            <span className="stat__label">Signature Sauces</span>
+            <span className="stat__label">Sauces & Rubs</span>
           </div>
           <div className="stat__divider" />
           <div className="stat" data-animate="scale-up" data-delay="200">
-            <span className="stat__number">100%</span>
-            <span className="stat__label">Fresh Daily</span>
+            <span className="stat__number">9</span>
+            <span className="stat__label">States</span>
           </div>
           <div className="stat__divider" />
           <div className="stat" data-animate="scale-up" data-delay="300">
-            <span className="stat__number">3</span>
-            <span className="stat__label">Wing Styles</span>
+            <span className="stat__number">2017</span>
+            <span className="stat__label">Est. Livonia, MI</span>
           </div>
         </div>
       </section>
@@ -65,18 +65,17 @@ export default function Home() {
         <div className="container">
           <div className="why-section__header" data-animate="fade-up">
             <p className="section-label">Why Wing Snob</p>
-            <h2 className="section-title">We're Not Your<br />Average Wing Spot</h2>
+            <h2 className="section-title">More Than Just<br />Better Wings</h2>
             <p className="section-subtitle">
-              Built to disrupt legacy chains with smaller kitchens, fresher ingredients,
-              and a Sauce Lab that actually excites you.
+              Born in Livonia, MI in 2017 — voted Best Chicken Wings in Metro Detroit and growing into a national brand.
             </p>
           </div>
           <div className="why-grid">
             {[
-              { icon: '🍗', title: 'Always Fresh', text: 'Never frozen, never compromised. Our wings go from delivery to fryer — period.' },
-              { icon: '🧪', title: 'The Sauce Lab', text: '16 handcrafted flavors from mild dry rubs to bone-melting heat. Your order, your rules.' },
-              { icon: '⚡', title: 'Made Fast', text: 'Small-footprint kitchens engineered for speed. Dine-in, takeout, or delivery — all fast.' },
-              { icon: '📱', title: 'Order Your Way', text: 'App, web, walk-in, DoorDash or UberEats. We meet you wherever you\'re ordering from.' },
+              { icon: '🍗', title: 'Better Wings', text: 'Made-to-order, never frozen. From bone-in traditional to cauli wings — quality is non-negotiable.' },
+              { icon: '🧪', title: '16 Sauces & Rubs', text: 'From Lemon Butter to Habanero Heat — 16 handcrafted flavors that cover every corner of the flavor map.' },
+              { icon: '🏆', title: 'Metro Detroit\'s Best', text: 'Voted Best Chicken Wings in Metro Detroit. Started as a single location — now 70+ strong across 9 states.' },
+              { icon: '📱', title: 'Snob Perks App', text: 'Order, earn rewards, and unlock exclusive deals. Download the Wing Snob app and get a free fry just for joining.' },
             ].map((card, i) => (
               <div className="why-card" key={card.title} data-animate="fade-up" data-delay={String(i * 100)}>
                 <div className="why-card__icon">{card.icon}</div>
@@ -93,9 +92,9 @@ export default function Home() {
         <div className="container">
           <div className="sauce-preview__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
-            <h2 className="section-title">Pick Your Poison</h2>
+            <h2 className="section-title">16 Sauces & Rubs</h2>
             <p className="section-subtitle">
-              From zero-heat dry rubs to sauces that'll make you question your life choices.
+              From Lemon Butter to Habanero Heat — handcrafted flavors at every heat level.
               Mix up to 2 per order.
             </p>
           </div>
@@ -120,7 +119,7 @@ export default function Home() {
             ))}
           </div>
           <div className="sauce-preview__cta" data-animate="fade-up">
-            <Link to="/menu" className="btn-secondary">See All 16 Sauces</Link>
+            <Link to="/menu" className="btn-secondary">See All 16 Sauces & Rubs</Link>
             <Link to="/order" className="btn-primary">Start Your Order</Link>
           </div>
         </div>
@@ -194,17 +193,17 @@ export default function Home() {
             <p className="section-label">Own a Wing Snob</p>
             <h2 className="section-title">Be Part of the<br />Fastest Growing<br />Wing Brand</h2>
             <p className="section-subtitle">
-              Low overhead. High throughput. Initial investment from $340K.
-              Join 50+ franchisees already cashing in on the wing revolution.
+              Low overhead, proven systems, and 50%+ year-over-year growth.
+              Initial investment starting at $195K — far below the industry average.
             </p>
             <Link to="/franchise" className="btn-gold">Learn More</Link>
           </div>
           <div className="franchise-cta__metrics">
             {[
-              { value: '$340K', label: 'Starting Investment' },
-              { value: '1,500', label: 'Avg Sq Ft' },
-              { value: '6%', label: 'Royalty Fee' },
-              { value: '100+', label: 'Locations in Pipeline' },
+              { value: '$195K', label: 'Starting Investment' },
+              { value: '$950K', label: 'Avg Unit Volume' },
+              { value: '70+', label: 'Open Locations' },
+              { value: '50%+', label: 'YoY Growth' },
             ].map((m, i) => (
               <div className="metric" key={m.label} data-animate="scale-up" data-delay={String(i * 80)}>
                 <span className="metric__value">{m.value}</span>

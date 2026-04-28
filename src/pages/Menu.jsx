@@ -42,13 +42,13 @@ const SANDOS = [
 ]
 
 const SIDES = [
-  { name: 'Loaded Fries', desc: 'Hand-cut fries loaded with cheese sauce, bacon, jalapeños, and ranch.', price: 7.99, emoji: '🍟' },
-  { name: 'Classic Fries', desc: 'Golden, hand-cut, perfectly salted.', price: 3.49, emoji: '🍟' },
-  { name: 'Seasoned Fries', desc: 'Our signature house seasoning blend.', price: 3.99, emoji: '🍟' },
-  { name: 'Mac & Cheese', desc: 'Creamy, three-cheese blend.', price: 4.49, emoji: '🧀' },
-  { name: 'Coleslaw', desc: 'Cool and tangy — the perfect wing companion.', price: 2.99, emoji: '🥗' },
-  { name: 'Corn on the Cob', desc: 'Grilled, seasoned, buttered.', price: 2.99, emoji: '🌽' },
-  { name: 'Celery & Ranch', desc: 'Classic cool-down. Ranch house-made daily.', price: 1.99, emoji: '🥬' },
+  { name: 'Loaded Fries',             desc: 'Fries loaded with cheese sauce, bacon, jalapeños, and ranch. The Fry Snob special.', price: 7.99, emoji: '🍟' },
+  { name: 'Fries',                    desc: 'Golden, perfectly seasoned fries. Simple, necessary, perfect.', price: 3.49, emoji: '🍟' },
+  { name: 'Mac & Cheese',             desc: 'Creamy, cheesy, comforting. The real kind.', price: 4.49, emoji: '🧀' },
+  { name: 'Street Corn',              desc: 'Seasoned corn with a bold kick — Snob style.', price: 3.99, emoji: '🌽' },
+  { name: 'Soft Pretzels with Cheese',desc: 'Warm soft pretzels served with a side of creamy cheese sauce.', price: 5.99, emoji: '🥨' },
+  { name: 'Onion Rings',              desc: 'Thick-cut, crispy, golden onion rings.', price: 3.99, emoji: '🧅' },
+  { name: 'Coleslaw',                 desc: 'Cool and tangy — the perfect wing companion.', price: 2.99, emoji: '🥗' },
 ]
 
 const DESSERTS = [
@@ -83,9 +83,9 @@ export default function Menu() {
       <section className="menu-hero">
         <div className="container">
           <p className="section-label" data-animate="blur-in">The Menu</p>
-          <h1 className="section-title" data-animate="blur-in" data-delay="80">Built for Flavor.<br />Made for You.</h1>
+          <h1 className="section-title" data-animate="blur-in" data-delay="80">We Just Have<br />Better Wings.</h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="180">
-            Every order is made fresh to order. Pick your style, pick your sauce, enjoy.
+            Traditional, boneless, tenders, cauli wings, minis, sandos, and sides — all made to order with 16 handcrafted sauces & rubs.
           </p>
           <Link to="/order" className="btn-primary" style={{ marginTop: '28px' }} data-animate="fade-up" data-delay="280">Start Your Order</Link>
         </div>
@@ -153,9 +153,9 @@ export default function Menu() {
         <div className="container">
           <div className="menu-section__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
-            <h2 className="section-title">16 Signature Flavors</h2>
+            <h2 className="section-title">16 Sauces & Rubs</h2>
             <p className="section-subtitle">
-              Handcrafted from scratch. From zero heat to calling-your-mom levels of spicy.
+              Handcrafted from scratch. From Lemon Butter to Habanero Heat — there's a flavor for everyone and a heat level for the fearless.
             </p>
           </div>
 
