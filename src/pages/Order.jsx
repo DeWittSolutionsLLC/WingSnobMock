@@ -3,9 +3,9 @@ import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
 import './Order.css'
 
 const WING_TYPES = [
-  { id: 'traditional', label: 'Traditional', emoji: '🍗', desc: 'Classic bone-in, crispy skin' },
-  { id: 'boneless', label: 'Boneless', emoji: '🍖', desc: 'All-white-meat, no bones' },
-  { id: 'cauliflower', label: 'Cauliflower', emoji: '🥦', desc: 'Plant-based, crispy florets' },
+  { id: 'traditional', label: 'Traditional', desc: 'Classic bone-in, crispy skin' },
+  { id: 'boneless', label: 'Boneless', desc: 'All-white-meat, no bones' },
+  { id: 'cauliflower', label: 'Cauliflower', desc: 'Plant-based, crispy florets' },
 ]
 
 const SIZES = [
@@ -17,12 +17,12 @@ const SIZES = [
 ]
 
 const SIDES = [
-  { id: 's1', name: 'Classic Fries', price: 3.49, emoji: '🍟' },
-  { id: 's2', name: 'Seasoned Fries', price: 3.99, emoji: '🍟' },
-  { id: 's3', name: 'Mac & Cheese', price: 4.49, emoji: '🧀' },
-  { id: 's4', name: 'Coleslaw', price: 2.99, emoji: '🥗' },
-  { id: 's5', name: 'Corn on the Cob', price: 2.99, emoji: '🌽' },
-  { id: 's6', name: 'Cheesecake Bites', price: 5.99, emoji: '🍰' },
+  { id: 's1', name: 'Classic Fries', price: 3.49 },
+  { id: 's2', name: 'Seasoned Fries', price: 3.99 },
+  { id: 's3', name: 'Mac & Cheese', price: 4.49 },
+  { id: 's4', name: 'Coleslaw', price: 2.99 },
+  { id: 's5', name: 'Corn on the Cob', price: 2.99 },
+  { id: 's6', name: 'Cheesecake Bites', price: 5.99 },
 ]
 
 export default function Order() {
@@ -66,7 +66,11 @@ export default function Order() {
     return (
       <div className="order-success">
         <div className="order-success__inner">
-          <div className="order-success__icon">🔥</div>
+          <div className="order-success__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="48" height="48">
+              <path d="M20 6L9 17l-5-5"/>
+            </svg>
+          </div>
           <h2>Order Placed!</h2>
           <p>Your Wing Snob order is being prepared. You'll receive a confirmation shortly.</p>
           <div className="order-success__summary">
@@ -109,7 +113,6 @@ export default function Order() {
                     className={`wing-type-btn ${wingType?.id === type.id ? 'wing-type-btn--active' : ''}`}
                     onClick={() => setWingType(type)}
                   >
-                    <span className="wing-type-btn__emoji">{type.emoji}</span>
                     <strong>{type.label}</strong>
                     <span>{type.desc}</span>
                   </button>
@@ -184,7 +187,6 @@ export default function Order() {
                       className={`side-select-btn ${selected ? 'side-select-btn--active' : ''}`}
                       onClick={() => toggleSide(side)}
                     >
-                      <span className="side-select-btn__emoji">{side.emoji}</span>
                       <span className="side-select-btn__name">{side.name}</span>
                       <span className="side-select-btn__price">${side.price.toFixed(2)}</span>
                       {selected && <div className="side-select-btn__check">✓</div>}
@@ -281,8 +283,8 @@ export default function Order() {
           )}
 
           <div className="order-summary__delivery">
-            <p>🚗 Pickup or delivery available</p>
-            <p>📱 Track via app or DoorDash / Uber Eats</p>
+            <p>Pickup or delivery available</p>
+            <p>Track via app or DoorDash / Uber Eats</p>
           </div>
         </div>
       </div>

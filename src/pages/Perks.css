@@ -124,8 +124,18 @@
 }
 
 .tier-detail__badge {
-  font-size: 3rem;
-  margin-bottom: 12px;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.07);
+  font-family: var(--font-display);
+  font-size: 1.8rem;
+  letter-spacing: 0.05em;
+  color: var(--tier-color);
+  margin-bottom: 16px;
 }
 
 .tier-detail__left h3 {
@@ -198,8 +208,18 @@
 }
 
 .tier-all-card__emoji {
-  font-size: 2rem;
-  margin-bottom: 12px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.06);
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  color: var(--tc);
+  margin-bottom: 16px;
 }
 
 .tier-all-card h4 {
@@ -411,7 +431,15 @@
 }
 
 .perks-signup__success-icon {
-  font-size: 4rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245,166,35,0.12);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  color: var(--gold);
 }
 
 .perks-signup__success h2 {

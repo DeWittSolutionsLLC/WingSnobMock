@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
-import wingHeroImg from '../assets/ws-traditional.png'
+import wingHeroImg from '../assets/ws-traditional.webp'
 import './Home.css'
 
 // Pick a representative spread across heat levels
@@ -73,10 +73,44 @@ export default function Home() {
           </div>
           <div className="why-grid">
             {[
-              { icon: '🍗', title: 'Better Wings', text: 'Made-to-order, never frozen. From bone-in traditional to cauli wings — quality is non-negotiable.' },
-              { icon: '🧪', title: '20 Sauces & Rubs', text: 'From Garlic Parmesan to Blazin Q — 20 handcrafted flavors covering every corner of the heat map.' },
-              { icon: '🏆', title: 'Metro Detroit\'s Best', text: 'Voted Best Chicken Wings in Metro Detroit. Started as a single location — now 70+ strong across 9 states.' },
-              { icon: '📱', title: 'Snob Perks App', text: 'Order, earn rewards, and unlock exclusive deals. Download the Wing Snob app and get a free fry just for joining.' },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2C8 2 5 5 5 9c0 5 4 9 7 11 3-2 7-6 7-11 0-4-3-7-7-7z"/>
+                    <path d="M12 6c-2 0-3.5 1.5-3.5 3.5"/>
+                  </svg>
+                ),
+                title: 'Better Wings',
+                text: 'Made-to-order, never frozen. From bone-in traditional to cauli wings — quality is non-negotiable.',
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+                  </svg>
+                ),
+                title: '20 Sauces & Rubs',
+                text: 'From Garlic Parmesan to Blazin Q — 20 handcrafted flavors covering every corner of the heat map.',
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                ),
+                title: "Metro Detroit's Best",
+                text: 'Voted Best Chicken Wings in Metro Detroit. Started as a single location — now 70+ strong across 9 states.',
+              },
+              {
+                icon: (
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                  </svg>
+                ),
+                title: 'Snob Perks App',
+                text: 'Order, earn rewards, and unlock exclusive deals. Download the Wing Snob app and get a free fry just for joining.',
+              },
             ].map((card, i) => (
               <div className="why-card" key={card.title} data-animate="fade-up" data-delay={String(i * 100)}>
                 <div className="why-card__icon">{card.icon}</div>
@@ -113,8 +147,7 @@ export default function Home() {
                   className="sauce-card__heat"
                   style={{ color: HEAT_COLORS[sauce.heat] }}
                 >
-                  {'🌶'.repeat(sauce.heat || 1).slice(0, sauce.heat ? sauce.heat : 0)}
-                  {sauce.heat === 0 ? '✦ Mild' : HEAT_LABELS[sauce.heat]}
+                  {HEAT_LABELS[sauce.heat]}
                 </div>
               </div>
             ))}
@@ -169,17 +202,25 @@ export default function Home() {
           </div>
           <div className="perks-teaser__tiers" data-animate="fade-right" data-delay="100">
             <div className="tier-card tier-card--snob">
-              <div className="tier-card__badge">🍗</div>
+              <div className="tier-card__badge">S</div>
               <h4>Snob</h4>
               <p>0–199 pts</p>
             </div>
             <div className="tier-card tier-card--king">
-              <div className="tier-card__badge">👑</div>
+              <div className="tier-card__badge">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M2 20h20v2H2v-2zm2-4l3-8 5 5 5-5 3 8H4z"/>
+                </svg>
+              </div>
               <h4>Wing King</h4>
               <p>200–499 pts</p>
             </div>
             <div className="tier-card tier-card--boss">
-              <div className="tier-card__badge">🔥</div>
+              <div className="tier-card__badge">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+                  <path d="M13.5 .67s.74 2.65.74 4.8c0 2.06-1.35 3.73-3.41 3.73-2.07 0-3.63-1.67-3.63-3.73l.03-.36C5.21 7.51 4 10.62 4 14c0 4.42 3.58 8 8 8s8-3.58 8-8C20 8.61 17.41 3.8 13.5.67zM11.71 19c-1.78 0-3.22-1.4-3.22-3.14 0-1.62 1.05-2.76 2.81-3.12 1.77-.36 3.6-1.21 4.62-2.58.39 1.29.59 2.65.59 4.04 0 2.65-2.15 4.8-4.8 4.8z"/>
+                </svg>
+              </div>
               <h4>Sauce Boss</h4>
               <p>500+ pts</p>
             </div>

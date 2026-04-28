@@ -101,8 +101,20 @@
 }
 
 .franchise-why-card__icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(214,43,43,0.1);
+  border-radius: var(--radius-md);
+  margin-bottom: 20px;
+  color: var(--red-light);
+}
+
+.franchise-why-card__icon svg {
+  width: 26px;
+  height: 26px;
 }
 
 .franchise-why-card h3 {
@@ -438,7 +450,14 @@
 }
 
 .franchise-inquiry__success-icon {
-  font-size: 4rem;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(214,43,43,0.12);
+  border-radius: 50%;
+  color: var(--red-light);
 }
 
 .franchise-inquiry__success h3 {

@@ -164,8 +164,20 @@
 }
 
 .why-card__icon {
-  font-size: 2.2rem;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(214,43,43,0.1);
+  border-radius: var(--radius-md);
   margin-bottom: 20px;
+  color: var(--red-light);
+}
+
+.why-card__icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .why-card h3 {
@@ -357,9 +369,22 @@
 }
 
 .tier-card__badge {
-  font-size: 1.8rem;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
   flex-shrink: 0;
+  background: rgba(255,255,255,0.08);
 }
+
+.tier-card--snob .tier-card__badge { color: #aaa; }
+.tier-card--king .tier-card__badge { color: var(--gold); }
+.tier-card--boss .tier-card__badge { color: var(--red-light); }
 
 .tier-card h4 {
   font-size: 1.3rem;

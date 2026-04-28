@@ -1,14 +1,14 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
-import traditionalImg from '../assets/ws-traditional.png'
-import bonelessImg from '../assets/ws-boneless.png'
-import cauliImg from '../assets/ws-cauli.png'
-import friesImg from '../assets/ws-loaded-fries.png'
-import tendersImg from '../assets/ws-tenders.png'
-import minisImg from '../assets/ws-minis.png'
-import sandoImg from '../assets/ws-sando.png'
-import cheesecakeImg from '../assets/ws-cheesecake.png'
+import traditionalImg from '../assets/ws-traditional.webp'
+import bonelessImg from '../assets/ws-boneless.webp'
+import cauliImg from '../assets/ws-cauli.webp'
+import friesImg from '../assets/ws-loaded-fries.webp'
+import tendersImg from '../assets/ws-tenders.webp'
+import minisImg from '../assets/ws-minis.webp'
+import sandoImg from '../assets/ws-sando.webp'
+import cheesecakeImg from '../assets/ws-cheesecake.webp'
 import './Menu.css'
 
 const WING_TYPES = ['Traditional', 'Boneless', 'Cauli Wings']
@@ -110,9 +110,6 @@ export default function Menu() {
                 className={`wing-tab ${activeWingType === type ? 'wing-tab--active' : ''}`}
                 onClick={() => setActiveWingType(type)}
               >
-                {type === 'Traditional' && '🍗 '}
-                {type === 'Boneless' && '🍖 '}
-                {type === 'Cauli Wings' && '🥦 '}
                 {type}
               </button>
             ))}
@@ -133,7 +130,7 @@ export default function Menu() {
             <img
               src={WING_IMAGES[activeWingType]}
               alt={`${activeWingType} wings`}
-              className="wing-type-photo"
+              loading="lazy" className="wing-type-photo"
             />
           </div>
 
@@ -224,7 +221,7 @@ export default function Menu() {
               <h2 className="section-title">Chicken Tenders</h2>
               <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
             </div>
-            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo" />
+            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo" loading="lazy" />
           </div>
           <div className="size-grid size-grid--3">
             {TENDER_SIZES.map((size, i) => (
@@ -248,12 +245,11 @@ export default function Menu() {
               <h2 className="section-title">Chicken Minis & Sliders</h2>
               <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
             </div>
-            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo" />
+            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SLIDERS.map((item, i) => (
               <div key={item.name} className="extras-card" data-animate="fade-left" data-delay={String(i * 80)}>
-                <span className="extras-card__emoji">{item.emoji}</span>
                 <div>
                   <h4>{item.name}</h4>
                   <p>{item.desc}</p>
@@ -273,12 +269,11 @@ export default function Menu() {
               <h2 className="section-title">Sandos</h2>
               <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
             </div>
-            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo" />
+            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SANDOS.map((item, i) => (
               <div key={item.name} className="extras-card" data-animate="fade-up" data-delay={String(i * 100)}>
-                <span className="extras-card__emoji">{item.emoji}</span>
                 <div>
                   <h4>{item.name}</h4>
                   <p>{item.desc}</p>
@@ -295,12 +290,11 @@ export default function Menu() {
         <div className="container">
           <div className="sides-header" data-animate="fade-up">
             <h2 className="section-title">Sides</h2>
-            <img src={friesImg} alt="Wing Snob fries" className="sides-photo" />
+            <img src={friesImg} alt="Wing Snob fries" className="sides-photo" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SIDES.map((item, i) => (
               <div key={item.name} className="extras-card" data-animate="fade-up" data-delay={String(i * 60)}>
-                <span className="extras-card__emoji">{item.emoji}</span>
                 <div>
                   <h4>{item.name}</h4>
                   <p>{item.desc}</p>
@@ -319,7 +313,7 @@ export default function Menu() {
             <div>
               <div className="menu-dd-header">
                 <h2 className="section-title" style={{ marginBottom: '28px' }}>Desserts</h2>
-                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo" />
+                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo" loading="lazy" />
               </div>
               <div className="extras-grid extras-grid--col1">
                 {DESSERTS.map(item => (

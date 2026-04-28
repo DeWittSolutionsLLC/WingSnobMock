@@ -3,32 +3,61 @@ import './Franchise.css'
 
 const WHY_ITEMS = [
   {
-    emoji: '📐',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2"/>
+        <path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>
+      </svg>
+    ),
     title: 'Small Footprint',
     desc: '1,200–1,500 sq ft locations. Low overhead, high throughput — less rent, more profit.',
   },
   {
-    emoji: '🚀',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 11l3 3L22 4"/>
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+      </svg>
+    ),
     title: 'Proven System',
     desc: '50+ successful franchisees. A fully documented playbook from day 1 to grand opening.',
   },
   {
-    emoji: '📱',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+        <line x1="12" y1="18" x2="12.01" y2="18"/>
+      </svg>
+    ),
     title: 'Tech-Enabled',
     desc: 'Appfront POS, loyalty integration, and digital ordering built in from the start.',
   },
   {
-    emoji: '💰',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23"/>
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+      </svg>
+    ),
     title: 'Multi-Channel Revenue',
     desc: 'Dine-in, pickup, DoorDash, Uber Eats, catering, and branded food truck options.',
   },
   {
-    emoji: '🎓',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 10v6M2 10l10-5 10 5-10 5z"/>
+        <path d="M6 12v5c3 3 9 3 12 0v-5"/>
+      </svg>
+    ),
     title: 'Full Training',
     desc: '2-week intensive training program. Ongoing support from our ops team, always.',
   },
   {
-    emoji: '📣',
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+      </svg>
+    ),
     title: 'National Marketing',
     desc: '2% brand fund drives national campaigns, social, and influencer marketing for you.',
   },
@@ -127,7 +156,7 @@ export default function Franchise() {
           <div className="franchise-why-grid">
             {WHY_ITEMS.map((item, i) => (
               <div key={item.title} className="franchise-why-card" data-animate="fade-up" data-delay={String(i * 80)}>
-                <div className="franchise-why-card__icon">{item.emoji}</div>
+                <div className="franchise-why-card__icon">{item.icon}</div>
                 <h3>{item.title}</h3>
                 <p>{item.desc}</p>
               </div>
@@ -156,7 +185,13 @@ export default function Franchise() {
                 </div>
               ))}
               <div className="investment-note">
-                <span>ℹ️</span>
+                <span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                    <circle cx="12" cy="12" r="10"/>
+                    <line x1="12" y1="8" x2="12" y2="12"/>
+                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                  </svg>
+                </span>
                 <p>
                   Total investment varies by location, buildout costs, and market.
                   Our team will provide a detailed breakdown during your discovery call.
@@ -238,7 +273,11 @@ export default function Franchise() {
 
             {submitted ? (
               <div className="franchise-inquiry__success">
-                <div className="franchise-inquiry__success-icon">🎉</div>
+                <div className="franchise-inquiry__success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="48" height="48">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
                 <h3>Inquiry Received!</h3>
                 <p>
                   Thank you, {formData.name}! Our franchise development team will

@@ -485,8 +485,15 @@
 }
 
 .order-success__icon {
-  font-size: 4rem;
-  margin-bottom: 8px;
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(214,43,43,0.12);
+  border-radius: 50%;
+  margin-bottom: 16px;
+  color: var(--red-light);
 }
 
 .order-success__inner h2 {

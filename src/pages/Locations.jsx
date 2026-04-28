@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import truckImg from '../assets/ws-truck.png'
+import truckImg from '../assets/ws-truck.webp'
 import './Locations.css'
 
 const LOCATIONS = [
@@ -148,7 +148,12 @@ export default function Locations() {
             From Michigan to Texas — we're spreading the flavor nationwide. Use the search below or visit us online to order pickup or delivery.
           </p>
           <div className="locations-search" data-animate="fade-up" data-delay="240">
-            <span className="locations-search__icon">🔍</span>
+            <span className="locations-search__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="18" height="18">
+                <circle cx="11" cy="11" r="8"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+              </svg>
+            </span>
             <input
               type="text"
               placeholder="Search by city or state..."
@@ -165,7 +170,12 @@ export default function Locations() {
         <div className="container">
           <div className="map-placeholder" data-animate="scale-up">
             <div className="map-placeholder__inner">
-              <span className="map-placeholder__icon">📍</span>
+              <span className="map-placeholder__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" width="40" height="40">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+              </span>
               <p>Interactive map — 70+ Wing Snob locations across 9 states</p>
               <p className="map-placeholder__sub">Connect Google Maps API for live map</p>
             </div>
@@ -178,9 +188,7 @@ export default function Locations() {
                   left: `${15 + (loc.id * 13) % 70}%`,
                 }}
                 title={loc.city}
-              >
-                📍
-              </div>
+              />
             ))}
           </div>
         </div>
@@ -206,12 +214,21 @@ export default function Locations() {
                     </div>
                     <div className="location-card__details">
                       <div className="location-detail">
-                        <span>🕐</span>
+                        <span>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                          </svg>
+                        </span>
                         <p>{loc.hours}</p>
                       </div>
                       {loc.phone && (
                         <div className="location-detail">
-                          <span>📞</span>
+                          <span>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                              <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.26h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.84a16 16 0 0 0 6.29 6.29l.96-.96a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                          </span>
                           <p>{loc.phone}</p>
                         </div>
                       )}
@@ -241,7 +258,12 @@ export default function Locations() {
                     </div>
                     <div className="location-card__details">
                       <div className="location-detail">
-                        <span>🕐</span>
+                        <span>
+                          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" width="16" height="16">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                          </svg>
+                        </span>
                         <p>{loc.hours}</p>
                       </div>
                     </div>
@@ -276,7 +298,7 @@ export default function Locations() {
             <a href="https://www.wingsnob.com/catering" className="btn-gold" style={{ marginTop: '28px' }}>Book Catering</a>
           </div>
           <div className="food-truck-visual" data-animate="fade-right" data-delay="150">
-            <img src={truckImg} alt="Wing Snob food truck" className="food-truck-img" />
+            <img src={truckImg} alt="Wing Snob food truck" className="food-truck-img" loading="lazy" />
           </div>
         </div>
       </section>

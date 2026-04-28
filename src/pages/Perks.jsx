@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import iphoneImg from '../assets/ws-app-iphone.png'
+import iphoneImg from '../assets/ws-app-iphone.webp'
 import './Perks.css'
 
 const TIERS = [
   {
     id: 'snob',
     name: 'Snob',
-    emoji: '🍗',
+    emoji: 'S',
     range: '0–199 pts',
     color: '#888',
     benefits: [
@@ -19,7 +19,7 @@ const TIERS = [
   {
     id: 'king',
     name: 'Wing King',
-    emoji: '👑',
+    emoji: 'K',
     range: '200–499 pts',
     color: '#F5A623',
     benefits: [
@@ -33,7 +33,7 @@ const TIERS = [
   {
     id: 'boss',
     name: 'Sauce Boss',
-    emoji: '🔥',
+    emoji: 'B',
     range: '500+ pts',
     color: '#D62B2B',
     benefits: [
@@ -188,10 +188,10 @@ export default function Perks() {
             </div>
             <div className="perks-value__examples">
               {[
-                { pts: '500 pts', reward: 'Free 6pc Wings 🍗' },
-                { pts: '300 pts', reward: 'Free Side 🍟' },
-                { pts: '200 pts', reward: 'Free Drink 🥤' },
-                { pts: '1000 pts', reward: 'Free 10pc Wings 🎉' },
+                { pts: '500 pts', reward: 'Free 6pc Wings' },
+                { pts: '300 pts', reward: 'Free Side' },
+                { pts: '200 pts', reward: 'Free Drink' },
+                { pts: '1000 pts', reward: 'Free 10pc Wings' },
               ].map((ex, i) => (
                 <div className="reward-example" key={ex.pts} data-animate="fade-right" data-delay={String(i * 80)}>
                   <span className="reward-example__pts">{ex.pts}</span>
@@ -201,7 +201,7 @@ export default function Perks() {
               ))}
             </div>
             <div className="perks-value__phone" data-animate="fade-right" data-delay="200">
-              <img src={iphoneImg} alt="Wing Snob app on iPhone" className="perks-iphone-img" />
+              <img src={iphoneImg} alt="Wing Snob app on iPhone" className="perks-iphone-img" loading="lazy" />
             </div>
           </div>
         </div>
@@ -213,7 +213,11 @@ export default function Perks() {
           <div className="perks-signup__inner">
             {submitted ? (
               <div className="perks-signup__success">
-                <div className="perks-signup__success-icon">🔥</div>
+                <div className="perks-signup__success-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="48" height="48">
+                  <path d="M20 6L9 17l-5-5"/>
+                </svg>
+              </div>
                 <h2>Welcome to the Squad!</h2>
                 <p>
                   You're officially a Wing Snob. Check your email for a confirmation
@@ -229,7 +233,6 @@ export default function Perks() {
                     Download the Wing Snob app or sign up online. Get exclusive daily deals, member-only offers, and rewards on every order.
                   </p>
                   <div className="perks-signup__bonus">
-                    <span>🍟</span>
                     <p>Sign up and get a <strong>FREE order of fries</strong> — no purchase required.</p>
                   </div>
                 </div>

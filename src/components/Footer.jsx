@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/ws-logo.webp'
 import './Footer.css'
 
 export default function Footer() {
@@ -8,7 +9,7 @@ export default function Footer() {
         <div className="footer__top">
           <div className="footer__brand">
             <Link to="/" className="footer__logo">
-              <span>🔥</span> WING<span className="footer__logo-accent">SNOB</span>
+              <img src={logo} alt="Wing Snob" className="footer__logo-img" />
             </Link>
             <p className="footer__tagline">Fresh. Never Frozen.</p>
             <p className="footer__desc">
