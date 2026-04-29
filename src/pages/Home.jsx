@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
 import wingHeroImg from '../assets/ws-traditional.webp'
+import truckImg from '../assets/ws-truck.webp'
 import './Home.css'
 
 // Pick a representative spread across heat levels
@@ -198,10 +199,7 @@ export default function Home() {
             <a href="https://www.wingsnob.com/catering" className="btn-gold">Book Catering</a>
           </div>
           <div className="catering-section__image" data-animate="fade-right" data-delay="150">
-            <div className="catering-placeholder">
-              <span>Truck Image Placeholder</span>
-              <p>Connect to Wing Snob API for truck photos</p>
-            </div>
+            <img src={truckImg} alt="Wing Snob catering truck" className="catering-truck-img photo-float" data-parallax="0.1" loading="lazy" />
           </div>
         </div>
       </section>
