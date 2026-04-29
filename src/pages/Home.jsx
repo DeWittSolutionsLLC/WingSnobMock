@@ -61,7 +61,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Wing Snob */}
+      {/* Why Wing Snob & Sauce Lab */}
       <section className="why-section">
         <div className="container">
           <div className="why-section__header" data-animate="fade-up">
@@ -119,13 +119,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Sauce Lab Preview */}
-      <section className="sauce-preview">
-        <div className="container">
-          <div className="sauce-preview__header" data-animate="fade-up">
+          <div className="sauce-preview__header" data-animate="fade-up" data-delay="400">
             <p className="section-label">The Sauce Lab</p>
             <h2 className="section-title">20 Sauces & Rubs</h2>
             <p className="section-subtitle">
@@ -134,8 +128,8 @@ export default function Home() {
             </p>
           </div>
           <div className="sauce-grid">
-            {FEATURED_SAUCES.map((sauce, i) => (
-              <div key={sauce.id} className="sauce-card" data-animate="scale-up" data-delay={String(Math.min(i * 60, 420))}>
+            {FEATURED_SAUCES.slice(0, 6).map((sauce, i) => (
+              <div key={sauce.id} className="sauce-card" data-animate="scale-up" data-delay={String(500 + i * 60)}>
                 <div
                   className="sauce-card__bowl"
                   style={{ background: sauce.color }}
@@ -152,7 +146,7 @@ export default function Home() {
               </div>
             ))}
           </div>
-          <div className="sauce-preview__cta" data-animate="fade-up">
+          <div className="sauce-preview__cta" data-animate="fade-up" data-delay="800">
             <Link to="/menu" className="btn-secondary">See All 20 Sauces & Rubs</Link>
             <Link to="/order" className="btn-primary">Start Your Order</Link>
           </div>
@@ -170,19 +164,43 @@ export default function Home() {
             <div className="how-step" data-animate="fade-up" data-delay="0">
               <div className="how-step__number">01</div>
               <h3>Choose Your Style</h3>
-              <p>Traditional bone-in, boneless, or cauliflower. You pick the base.</p>
+              <p>Traditional bone-in, boneless, or cauliflower.</p>
             </div>
             <div className="how-step__arrow" data-animate="fade-up" data-delay="100">→</div>
             <div className="how-step" data-animate="fade-up" data-delay="150">
               <div className="how-step__number">02</div>
               <h3>Pick Your Sauce</h3>
-              <p>Select up to 2 flavors from the Sauce Lab. Mix or double-down.</p>
+              <p>Select up to 2 flavors from the Sauce Lab.</p>
             </div>
             <div className="how-step__arrow" data-animate="fade-up" data-delay="200">→</div>
             <div className="how-step" data-animate="fade-up" data-delay="300">
               <div className="how-step__number">03</div>
               <h3>Add Your Sides</h3>
-              <p>Fries, mac, coleslaw — round out your order and enjoy.</p>
+              <p>Fries, mac, coleslaw — enjoy.</p>
+            </div>
+          </div>
+          <div className="how-section__cta" data-animate="fade-up" data-delay="400">
+            <Link to="/order" className="btn-primary">Start Your Order</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Catering Section */}
+      <section className="catering-section">
+        <div className="container catering-section__inner">
+          <div className="catering-section__text" data-animate="fade-left">
+            <p className="section-label">Plan Your Event</p>
+            <h2 className="section-title">With the Truck!</h2>
+            <p className="section-subtitle">
+              Need catering for weddings, graduations, birthdays? The Wing Snob truck is your solution.
+              Bringing better wings to your event, festival, or corporate gathering.
+            </p>
+            <a href="https://www.wingsnob.com/catering" className="btn-gold">Book Catering</a>
+          </div>
+          <div className="catering-section__image" data-animate="fade-right" data-delay="150">
+            <div className="catering-placeholder">
+              <span>Truck Image Placeholder</span>
+              <p>Connect to Wing Snob API for truck photos</p>
             </div>
           </div>
         </div>
