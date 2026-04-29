@@ -309,6 +309,7 @@
   align-items: center;
   justify-content: center;
   position: relative;
+  transform: translateY(-8px);
 }
 
 .perks-iphone-img {
@@ -317,14 +318,14 @@
   height: auto;
   border-radius: 32px;
   background: transparent;
-  box-shadow: 0 22px 60px rgba(214,43,43,0.16);
-  filter: drop-shadow(0 10px 24px rgba(245,166,35,0.12));
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: none;
+  filter: none;
+  transform: translateY(-6px);
+  transition: transform 0.35s ease;
 }
 
 .perks-iphone-img:hover {
-  transform: translateY(-3px) rotate(-0.4deg);
-  box-shadow: 0 28px 78px rgba(214,43,43,0.2);
+  transform: translateY(-9px) rotate(-0.4deg);
 }
 
 .perks-value__examples {

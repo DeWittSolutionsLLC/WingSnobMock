@@ -308,8 +308,9 @@
 .food-truck-visual {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   position: relative;
+  transform: translateX(10%) translateY(-6px);
 }
 
 .food-truck-img {
@@ -319,14 +320,14 @@
   border-radius: 28px;
   object-fit: cover;
   background: transparent;
-  box-shadow: 0 22px 60px rgba(214,43,43,0.16);
-  filter: drop-shadow(0 8px 24px rgba(214,43,43,0.18));
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  box-shadow: none;
+  filter: none;
+  transform: translateX(6%) translateY(-4px);
+  transition: transform 0.35s ease;
 }
 
 .food-truck-img:hover {
-  transform: translateY(-4px) rotateZ(-0.8deg);
-  box-shadow: 0 28px 78px rgba(214,43,43,0.2);
+  transform: translateX(10%) translateY(-8px) rotateZ(-0.8deg);
 }
 
 @media (max-width: 768px) {
