@@ -316,16 +316,15 @@
   width: 100%;
   height: auto;
   border-radius: 32px;
-  border: 1px solid rgba(245,166,35,0.18);
-  background: rgba(255,255,255,0.02);
-  box-shadow: 0 40px 120px rgba(214,43,43,0.22);
-  filter: drop-shadow(0 10px 38px rgba(245,166,35,0.2));
+  background: transparent;
+  box-shadow: 0 22px 60px rgba(214,43,43,0.16);
+  filter: drop-shadow(0 10px 24px rgba(245,166,35,0.12));
   transition: transform 0.35s ease, box-shadow 0.35s ease;
 }
 
 .perks-iphone-img:hover {
   transform: translateY(-3px) rotate(-0.4deg);
-  box-shadow: 0 48px 140px rgba(214,43,43,0.26);
+  box-shadow: 0 28px 78px rgba(214,43,43,0.2);
 }
 
 .perks-value__examples {
