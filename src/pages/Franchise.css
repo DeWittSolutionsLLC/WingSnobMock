@@ -2,7 +2,7 @@
   background:
     radial-gradient(circle at 18% 18%, rgba(214,43,43,0.12), transparent 22%),
     radial-gradient(circle at 82% 16%, rgba(245,166,35,0.08), transparent 20%),
-    linear-gradient(180deg, #0e0e0e 0%, #141414 100%);
+    var(--background-primary);
 }
 
 /* ── Hero ── */
@@ -12,8 +12,8 @@
   background:
     radial-gradient(circle at 20% 14%, rgba(245,166,35,0.18), transparent 24%),
     radial-gradient(circle at 78% 20%, rgba(214,43,43,0.14), transparent 22%),
-    linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.04));
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+    var(--background-primary);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   overflow: hidden;
 }
 
@@ -34,6 +34,7 @@
   font-size: clamp(3.5rem, 8vw, 6rem);
   line-height: 0.92;
   margin-bottom: 18px;
+  font-family: var(--love-of-thunder), cursive;
 }
 
 .franchise-hero__accent {
@@ -49,13 +50,15 @@
 
 /* ── Stats ── */
 .franchise-stats {
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(18,18,18,0.95));
+  background:var(--dark-3);
   border-bottom: 1px solid rgba(214,43,43,0.14);
   padding: 34px 0;
 }
 
 .franchise-stats__inner {
   display: flex;
+  
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
@@ -71,7 +74,7 @@
 }
 
 .fstat__value {
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 2rem;
   color: var(--gold);
   line-height: 1;
@@ -83,17 +86,19 @@
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
+  font-family: var(--american-typewriter), serif;
 }
 
 .fstat__div {
   width: 1px;
   height: 36px;
-  background: rgba(255,255,255,0.1);
+  background: rgba(0,0,0,0.1);
 }
 
 /* ── Why ── */
 .franchise-why {
   padding: 100px 0;
+  background: var(--background-secondary);
 }
 
 .franchise-why .section-subtitle {
@@ -107,16 +112,17 @@
 }
 
 .franchise-why-card {
-  background: transparent;
-  border: none;
+  background: var(--background-primary);
+  border: 1px solid rgba(0,0,0,0.06);
   border-left: 4px solid rgba(245,166,35,0.85);
   padding: 28px 24px;
-  transition: transform 0.25s ease, border-color 0.25s;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.2s;
 }
 
 .franchise-why-card:hover {
   border-color: rgba(245,166,35,0.45);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
 
 .franchise-why-card__icon {
@@ -138,20 +144,22 @@
 
 .franchise-why-card h3 {
   font-size: 1.4rem;
-  color: var(--white);
+  color: var(--dark-3);
   margin-bottom: 8px;
+  font-family: var(--love-of-thunder), cursive;
 }
 
 .franchise-why-card p {
   font-size: 0.875rem;
   color: var(--text-muted);
   line-height: 1.7;
+  font-family: var(--american-typewriter), serif;
 }
 
 /* ── Investment ── */
 .franchise-investment {
   padding: 100px 0;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(20,20,20,0.95));
+  background: var(--background-primary);
   border-top: 1px solid rgba(214,43,43,0.14);
   border-bottom: 1px solid rgba(214,43,43,0.14);
 }
@@ -164,8 +172,8 @@
 }
 
 .investment-table {
-  background: transparent;
-  border: none;
+  background: var(--background-secondary);
+  border: 1px solid rgba(0,0,0,0.06);
   border-radius: 0;
   overflow: visible;
 }
@@ -175,7 +183,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 16px 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .investment-row:last-of-type {
@@ -184,11 +192,12 @@
 
 .investment-row__label {
   font-size: 0.875rem;
-  color: var(--text-secondary);
+  color: var(--text-muted);
+  font-family: var(--american-typewriter), serif;
 }
 
 .investment-row__value {
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 1.15rem;
   color: var(--gold);
 }
@@ -197,8 +206,8 @@
   display: flex;
   gap: 12px;
   padding: 16px 24px;
-  background: rgba(255,255,255,0.02);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  background: var(--light-2);
+  border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .investment-note span {
@@ -210,11 +219,13 @@
   font-size: 0.78rem;
   color: var(--text-muted);
   line-height: 1.6;
+  font-family: var(--american-typewriter), serif;
 }
 
 /* ── Steps ── */
 .franchise-steps {
   padding: 100px 0;
+  background: var(--background-secondary);
 }
 
 .franchise-steps-list {
@@ -230,7 +241,7 @@
   gap: 28px;
   position: relative;
   padding: 30px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .franchise-step:last-child {
@@ -238,7 +249,7 @@
 }
 
 .franchise-step__number {
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 1.6rem;
   color: var(--gold);
   min-width: 52px;
@@ -252,14 +263,16 @@
 
 .franchise-step__content h3 {
   font-size: 1.5rem;
-  color: var(--white);
+  color: var(--dark-3);
   margin-bottom: 8px;
+  font-family: var(--love-of-thunder), cursive;
 }
 
 .franchise-step__content p {
   font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.7;
+  font-family: var(--american-typewriter), serif;
 }
 
 .franchise-step__connector {
@@ -274,23 +287,23 @@
 /* ── Testimonial ── */
 .franchise-testimonial {
   padding: 80px 0;
-  background: var(--dark-2);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
+  background: var(--background-secondary);
+  border-top: 1px solid rgba(0,0,0,0.05);
+  border-bottom: 1px solid rgba(0,0,0,0.05);
 }
 
 .testimonial-card {
   max-width: 760px;
   margin: 0 auto;
   text-align: center;
-  background: transparent;
-  border: none;
+  background: var(--background-primary);
+  border: 1px solid rgba(0,0,0,0.06);
   border-left: 4px solid rgba(245,166,35,0.85);
   padding: 46px 0 42px;
 }
 
 .testimonial-card__quote {
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 6rem;
   color: var(--gold);
   opacity: 0.28;
@@ -300,10 +313,11 @@
 
 .testimonial-card__text {
   font-size: 1.15rem;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   line-height: 1.8;
   font-style: italic;
   margin-bottom: 32px;
+  font-family: var(--american-typewriter), serif;
 }
 
 .testimonial-card__author {
@@ -321,7 +335,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 1rem;
   color: var(--white);
   flex-shrink: 0;
@@ -330,18 +344,20 @@
 .testimonial-card__author strong {
   display: block;
   font-size: 0.95rem;
-  color: var(--white);
+  color: var(--dark-3);
   font-weight: 700;
 }
 
 .testimonial-card__author span {
   font-size: 0.78rem;
   color: var(--text-muted);
+  font-family: var(--american-typewriter), serif;
 }
 
 /* ── Inquiry Form ── */
 .franchise-inquiry {
   padding: 100px 0;
+  background: var(--background-primary);
 }
 
 .franchise-inquiry__inner {
@@ -376,11 +392,12 @@
   text-transform: uppercase;
   color: var(--text-muted);
   margin-bottom: 20px;
+  font-family: var(--american-typewriter), serif;
 }
 
 .faq-item {
   padding: 16px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
 }
 
 .faq-item:last-child {
@@ -390,7 +407,7 @@
 .faq-item strong {
   display: block;
   font-size: 0.9rem;
-  color: var(--white);
+  color: var(--dark-3);
   margin-bottom: 6px;
 }
 
@@ -398,13 +415,15 @@
   font-size: 0.82rem;
   color: var(--text-muted);
   line-height: 1.6;
+  font-family: var(--american-typewriter), serif;
 }
 
 /* ── Franchise Form ── */
 .franchise-form {
-  background: transparent;
-  border: none;
-  padding: 0;
+  background: var(--background-secondary);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: var(--radius-lg);
+  padding: 36px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -412,8 +431,9 @@
 
 .franchise-form h3 {
   font-size: 1.8rem;
-  color: var(--white);
+  color: var(--dark-3);
   margin-bottom: 4px;
+  font-family: var(--love-of-thunder), cursive;
 }
 
 .franchise-form__row {
@@ -434,17 +454,18 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--text-muted);
+  font-family: var(--american-typewriter), serif;
 }
 
 .form-group input,
 .form-group select,
 .form-group textarea {
-  background: var(--dark-4);
-  border: 1px solid rgba(255,255,255,0.1);
+  background: var(--background-primary);
+  border: 1px solid rgba(0,0,0,0.1);
   border-radius: var(--radius-sm);
   padding: 12px 16px;
-  color: var(--white);
-  font-family: var(--font-body);
+  color: var(--dark-3);
+  font-family: var(--american-typewriter), serif;
   font-size: 0.9rem;
   outline: none;
   transition: border-color 0.2s;
@@ -452,7 +473,7 @@
 }
 
 .form-group select option {
-  background: var(--dark-3);
+  background: var(--background-primary);
 }
 
 .form-group textarea {
@@ -476,12 +497,13 @@
   color: var(--text-muted);
   text-align: center;
   line-height: 1.6;
+  font-family: var(--american-typewriter), serif;
 }
 
 /* ── Success ── */
 .franchise-inquiry__success {
-  background: transparent;
-  border: none;
+  background: var(--background-secondary);
+  border: 1px solid rgba(0,0,0,0.06);
   border-left: 6px solid rgba(245, 166, 35, 0.75);
   padding: 48px 0 40px;
   text-align: center;
@@ -490,6 +512,7 @@
   align-items: center;
   gap: 16px;
 }
+
 .franchise-inquiry__success-icon {
   width: 80px;
   height: 80px;
@@ -503,14 +526,16 @@
 
 .franchise-inquiry__success h3 {
   font-size: 2.2rem;
-  color: var(--white);
+  color: var(--dark-3);
+  font-family: var(--love-of-thunder), cursive;
 }
 
 .franchise-inquiry__success p {
   font-size: 0.95rem;
-  color: var(--text-secondary);
+  color: var(--text-muted);
   max-width: 400px;
   line-height: 1.7;
+  font-family: var(--american-typewriter), serif;
 }
 
 /* ── Responsive ── */

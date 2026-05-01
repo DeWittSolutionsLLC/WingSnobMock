@@ -71,7 +71,7 @@ export default function Perks() {
   return (
     <div className="perks-page">
       {/* Hero */}
-      <section className="perks-hero" data-parallax="0.04">
+      <section className="perks-hero">
         <div className="container">
           <p className="section-label" data-animate="blur-in">Snob Perks</p>
           <h1 className="perks-hero__title" data-animate="blur-in" data-delay="80">
@@ -201,7 +201,7 @@ export default function Perks() {
               ))}
             </div>
             <div className="perks-value__phone" data-animate="fade-right" data-delay="200">
-              <img src={iphoneImg} alt="Wing Snob app on iPhone" className="perks-iphone-img photo-float" data-parallax="0.12" loading="lazy" />
+              <img src={iphoneImg} alt="Wing Snob app on iPhone" className="perks-iphone-img photo-float" loading="lazy" />
             </div>
           </div>
         </div>

@@ -11,12 +11,15 @@ import sandoImg from '../assets/ws-sando.webp'
 import cheesecakeImg from '../assets/ws-cheesecake.webp'
 import './Menu.css'
 
-const WING_TYPES = ['Traditional', 'Boneless', 'Cauli Wings']
+const WING_TYPES = ['Traditional', 'Boneless', 'Cauli Wings','Tenders','Mini Slider','Sandos']
 
 const WING_IMAGES = {
   Traditional: traditionalImg,
   Boneless: bonelessImg,
   'Cauli Wings': cauliImg,
+  Tenders: tendersImg,
+  'Mini Slider': minisImg,
+  Sandos: sandoImg,
 }
 
 const SIZES = [
@@ -42,7 +45,9 @@ const SLIDERS = [
 const SANDOS = [
   { name: 'Classic Sando', desc: 'Crispy chicken, lettuce, tomato, pickles, house sauce on a toasted brioche bun.', price: 11.99, emoji: '🥪' },
   { name: 'Spicy Sando', desc: 'Same as the classic, hit with your sauce of choice from the Sauce Lab.', price: 12.49, emoji: '🥪' },
-  { name: 'Nashville Hot Sando', desc: 'Bone-dry Nashville heat, coleslaw, pickles. Not for the faint of heart.', price: 12.99, emoji: '🥪' },
+  { name: 'Buffalo Ranch Sando', desc: 'Crispy chicken tossed in Buffalo sauce, topped with ranch, and pickles on a toasted brioche bun.', price: 12.99, emoji: '🥪' },
+  { name: 'Boom Boom Sando', desc: 'Crispy chicken tossed in Boom Boom sauce, topped with pickles and an onion ring on a toasted brioche bun.', price: 12.99, emoji: '🥪' },
+  { name: 'Big Texan Sando', desc: 'Crispy chicken with Boom Boom Sauce Drizzled on top, topped with coleslaw and pickles on a toasted brioche bun.', price: 13.49, emoji: '🥪' },
 ]
 
 const SIDES = [
@@ -53,15 +58,17 @@ const SIDES = [
   { name: 'Soft Pretzels with Cheese',desc: 'Warm soft pretzels served with a side of creamy cheese sauce.', price: 5.99, emoji: '🥨' },
   { name: 'Onion Rings',              desc: 'Thick-cut, crispy, golden onion rings.', price: 3.99, emoji: '🧅' },
   { name: 'Coleslaw',                 desc: 'Cool and tangy — the perfect wing companion.', price: 2.99, emoji: '🥗' },
+  { name: 'Veggie Sticks with Ranch',  desc: 'Crisp celery and carrot sticks served with a side of ranch dressing.', price: 3.49, emoji: '🥕' },
+  { name: 'Cornbread',              desc: 'Sweet, buttery cornbread — a Southern classic.', price: 3.99, emoji: '🍞' },
 ]
 
 const DESSERTS = [
-  { name: 'Cheesecake Bites', desc: 'Fried cheesecake bites with strawberry dipping sauce.', price: 5.99, emoji: '🍰' },
+  { name: 'Cheesecake', desc: 'Fried cheesecake bites with strawberry dipping sauce.', price: 5.99, emoji: '🍰' },
+  { name: 'Chocolate Chip Cookies', desc: 'Warm, gooey chocolate chip cookies. The ultimate comfort dessert.', price: 2.00, emoji: '🍪' },
 ]
 
 const DRINKS = [
   { name: 'Lemonade', desc: 'Fresh-squeezed, house-made.', price: 2.99, emoji: '🍋' },
-  { name: 'Sweet Tea', desc: 'Southern-style. Brewed daily.', price: 2.49, emoji: '🧋' },
   { name: 'Fountain Soda', desc: 'Pepsi products.', price: 2.49, emoji: '🥤' },
   { name: 'Water Bottle', desc: '16.9 fl oz.', price: 1.49, emoji: '💧' },
 ]
@@ -83,15 +90,20 @@ export default function Menu() {
 
   return (
     <div className="menu-page">
-      {/* Page Hero */}
+{/* Page Hero */}
       <section className="menu-hero">
-        <div className="container">
-          <p className="section-label" data-animate="blur-in">The Menu</p>
-          <h1 className="section-title" data-animate="blur-in" data-delay="80">We Just Have<br />Better Wings.</h1>
-          <p className="section-subtitle" data-animate="fade-up" data-delay="180">
-            Traditional, boneless, tenders, cauli wings, minis, sandos, and sides — all made to order with 20 handcrafted sauces & rubs.
-          </p>
-          <Link to="/order" className="btn-primary" style={{ marginTop: '28px' }} data-animate="fade-up" data-delay="280">Start Your Order</Link>
+        <div className="container menu-hero__inner">
+          <div className="menu-hero__text" data-animate="blur-in">
+            <p className="section-label">The Menu</p>
+            <h1 className="section-title" data-animate="blur-in" data-delay="80">We Just Have<br /><span className="section-title--highlight">Better Wings.</span></h1>
+            <p className="section-subtitle" data-animate="fade-up" data-delay="180">
+              Traditional, boneless, tenders, cauli wings, minis, sandos, and sides — all made to order with 20 handcrafted sauces & rubs.
+            </p>
+            <Link to="/order" className="btn-primary menu-hero__btn" style={{ marginTop: '28px' }} data-animate="fade-up" data-delay="280">Start Your Order</Link>
+          </div>
+          <div className="menu-hero__image" data-animate="fade-right" data-delay="150">
+            <img src={bonelessImg} alt="Wing Snob wings" className="menu-hero__wing-img photo-float" />
+          </div>
         </div>
       </section>
 
@@ -126,13 +138,20 @@ export default function Menu() {
               {activeWingType === 'Cauli Wings' && (
                 <p>Our plant-based option — crispy cauliflower florets that hold sauce just as well as the real thing.</p>
               )}
+              {activeWingType === 'Tenders' && (
+                <p>Thick, juicy chicken tenders — perfect for dipping or tossing in your favorite sauce.</p>
+              )}
+              {activeWingType === 'Mini Slider' && (
+                <p>Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
+              )}{activeWingType === 'Sandos' && (
+                <p>Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
+              )}
             </div>
             <img
               src={WING_IMAGES[activeWingType]}
               alt={`${activeWingType} wings`}
               loading="lazy"
               className="wing-type-photo photo-float"
-              data-parallax="0.1"
             />
           </div>
 
@@ -223,7 +242,7 @@ export default function Menu() {
               <h2 className="section-title">Chicken Tenders</h2>
               <p className="section-subtitle">Crispy, all-white-meat tenders. Tossed or dipped in any Sauce Lab flavor.</p>
             </div>
-            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo photo-float" loading="lazy" data-parallax="0.08" />
+            <img src={tendersImg} alt="Wing Snob chicken tenders" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="size-grid size-grid--3">
             {TENDER_SIZES.map((size, i) => (
@@ -247,7 +266,7 @@ export default function Menu() {
               <h2 className="section-title">Chicken Minis & Sliders</h2>
               <p className="section-subtitle">Crispy chicken breast on a toasted brioche bun. Sauce 'em up from the Sauce Lab.</p>
             </div>
-            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo photo-float" loading="lazy" data-parallax="0.09" />
+            <img src={minisImg} alt="Wing Snob chicken minis" className="sides-photo photo-float" loading="lazy"/>
           </div>
           <div className="extras-grid">
             {SLIDERS.map((item, i) => (
@@ -271,7 +290,7 @@ export default function Menu() {
               <h2 className="section-title">Sandos</h2>
               <p className="section-subtitle">Full-size crispy chicken sandwiches on a toasted brioche bun. Pick your heat.</p>
             </div>
-            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo photo-float" loading="lazy" data-parallax="0.08" />
+            <img src={sandoImg} alt="Wing Snob sando" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SANDOS.map((item, i) => (
@@ -292,7 +311,7 @@ export default function Menu() {
         <div className="container">
           <div className="sides-header" data-animate="fade-up">
             <h2 className="section-title">Sides</h2>
-            <img src={friesImg} alt="Wing Snob fries" className="sides-photo photo-float" loading="lazy" data-parallax="0.08" />
+            <img src={friesImg} alt="Wing Snob fries" className="sides-photo photo-float" loading="lazy" />
           </div>
           <div className="extras-grid">
             {SIDES.map((item, i) => (
@@ -315,7 +334,7 @@ export default function Menu() {
             <div>
               <div className="menu-dd-header">
                 <h2 className="section-title" style={{ marginBottom: '28px' }}>Desserts</h2>
-                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo photo-float" loading="lazy" data-parallax="0.1" />
+                <img src={cheesecakeImg} alt="Wing Snob cheesecake bites" className="menu-dd-photo photo-float" loading="lazy" />
               </div>
               <div className="extras-grid extras-grid--col1">
                 {DESSERTS.map(item => (
