@@ -1,13 +1,15 @@
+import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
 import wingHeroImg from '../assets/ws-traditional.webp'
 import truckImg from '../assets/ws-truck.webp'
 import './Home.css'
 
-// Pick a representative spread across heat levels
-const FEATURED_SAUCES = [1, 2, 4, 5, 9, 13, 17, 20].map(id => SAUCES.find(s => s.id === id))
+const MARQUEE_SAUCES = SAUCES.filter(s => s.id !== 1)
 
 export default function Home() {
+  const [hoveredSauce, setHoveredSauce] = useState(null)
+
   return (
     <div className="home">
       {/* Hero */}
@@ -24,7 +26,7 @@ export default function Home() {
               20 sauces & rubs. Made-to-order in 70+ locations across 9 states. One obsession: flavor.
             </p>
             <div className="hero__actions" data-animate="fade-up" data-delay="300">
-              <Link to="/order" className="btn-primary">Order Now</Link>
+              <Link to="/order" className="btn-primary order-btn">Order Now</Link>
               <Link to="/locations" className="btn-secondary">Find a Location</Link>
             </div>
           </div>
@@ -124,28 +126,29 @@ export default function Home() {
             <p className="section-label">The Sauce Lab</p>
             <h2 className="section-title">20 Sauces & Rubs</h2>
             <p className="section-subtitle">
-              From Lemon Butter to Habanero Heat — handcrafted flavors at every heat level.
+              From Lemon Butter to Mango Habanero — handcrafted flavors at every heat level.
               Mix up to 2 per order.
             </p>
           </div>
-          <div className="sauce-grid">
-            {FEATURED_SAUCES.slice(0, 6).map((sauce, i) => (
-              <div key={sauce.id} className="sauce-card" data-animate="scale-up" data-delay={String(500 + i * 60)}>
-                <div
-                  className="sauce-card__bowl"
-                  style={{ background: sauce.color }}
-                >
-                  {sauce.type === 'dry' && <div className="sauce-card__dry-texture" />}
+          <div className="sauce-marquee">
+            <div className="sauce-marquee__track sauce-marquee__track--fwd">
+              {[...MARQUEE_SAUCES, ...MARQUEE_SAUCES].map((sauce, i) => (
+                <div key={i} className="sauce-marquee__item">
+                  <span className="sauce-marquee__dot" style={{ background: sauce.color }} />
+                  <span className="sauce-marquee__name">{sauce.name}</span>
+                  <span className="sauce-marquee__heat" style={{ color: HEAT_COLORS[sauce.heat] }}>{HEAT_LABELS[sauce.heat]}</span>
                 </div>
-                <p className="sauce-card__name">{sauce.name}</p>
-                <div
-                  className="sauce-card__heat"
-                  style={{ color: HEAT_COLORS[sauce.heat] }}
-                >
-                  {HEAT_LABELS[sauce.heat]}
+              ))}
+            </div>
+            <div className="sauce-marquee__track sauce-marquee__track--rev">
+              {[...MARQUEE_SAUCES, ...MARQUEE_SAUCES].map((sauce, i) => (
+                <div key={i} className="sauce-marquee__item">
+                  <span className="sauce-marquee__dot" style={{ background: sauce.color }} />
+                  <span className="sauce-marquee__name">{sauce.name}</span>
+                  <span className="sauce-marquee__heat" style={{ color: HEAT_COLORS[sauce.heat] }}>{HEAT_LABELS[sauce.heat]}</span>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
           <div className="sauce-preview__cta" data-animate="fade-up" data-delay="800">
             <Link to="/menu" className="btn-secondary">See All 20 Sauces & Rubs</Link>
@@ -171,7 +174,7 @@ export default function Home() {
             <div className="how-step" data-animate="fade-up" data-delay="150">
               <div className="how-step__number">02</div>
               <h3>Pick Your Sauce</h3>
-              <p>Select up to 2 flavors from the Sauce Lab.</p>
+              <p>Select your flavors either on the wings or on the side.</p>
             </div>
             <div className="how-step__arrow" data-animate="fade-up" data-delay="200">→</div>
             <div className="how-step" data-animate="fade-up" data-delay="300">
@@ -199,7 +202,7 @@ export default function Home() {
             <a href="https://www.wingsnob.com/catering" className="btn-gold">Book Catering</a>
           </div>
           <div className="catering-section__image" data-animate="fade-right" data-delay="150">
-            <img src={truckImg} alt="Wing Snob catering truck" className="catering-truck-img photo-float" data-parallax="0.1" loading="lazy" />
+            <img src={truckImg} alt="Wing Snob catering truck" className="catering-truck-img" loading="lazy" />
           </div>
         </div>
       </section>
