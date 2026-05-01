@@ -38,8 +38,11 @@
 
 .hero__inner {
   position: relative;
+  min-height:fit-content;
+  max-height:90vh;
   z-index: 1;
   padding-top: 60px;
+  padding-bottom:60px;
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(260px, 1fr);
   gap: 10px;

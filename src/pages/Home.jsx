@@ -168,7 +168,7 @@ export default function Home() {
             <div className="how-step" data-animate="fade-up" data-delay="0">
               <div className="how-step__number">01</div>
               <h3>Choose Your Style</h3>
-              <p>Traditional bone-in, boneless, or cauliflower.</p>
+              <p>Traditional bone-in, Boneless,Tenders, Cauliflower and More.</p>
             </div>
             <div className="how-step__arrow" data-animate="fade-up" data-delay="100">→</div>
             <div className="how-step" data-animate="fade-up" data-delay="150">
@@ -194,7 +194,7 @@ export default function Home() {
         <div className="container catering-section__inner">
           <div className="catering-section__text" data-animate="fade-left">
             <p className="section-label">Plan Your Event</p>
-            <h2 className="section-title">With the Truck!</h2>
+            <h2 className="section-title dark">With the Truck!</h2>
             <p className="section-subtitle">
               Need catering for weddings, graduations, birthdays? The Wing Snob truck is your solution.
               Bringing better wings to your event, festival, or corporate gathering.
@@ -252,7 +252,7 @@ export default function Home() {
         <div className="container franchise-cta__inner">
           <div className="franchise-cta__content" data-animate="fade-left">
             <p className="section-label">Own a Wing Snob</p>
-            <h2 className="section-title">Be Part of the<br />Fastest Growing<br />Wing Brand</h2>
+            <h2 className="section-title dark">Be Part of the<br />Fastest Growing<br />Wing Brand</h2>
             <p className="section-subtitle">
               Low overhead, proven systems, and 50%+ year-over-year growth.
               Initial investment starting at $195K — far below the industry average.

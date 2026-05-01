@@ -182,6 +182,12 @@ ul { list-style: none; }
   color: #1a1a1a;
   margin-bottom: 20px;
 }
+.section-title.dark
+  {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--red) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
 .section-subtitle {
   font-size: 1.1rem;

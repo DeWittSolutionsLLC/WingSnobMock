@@ -1,5 +1,5 @@
 .footer {
-  background: var(--background-secondary);
+  background: var(--dark-3);
   border-top: 1px solid rgba(0,0,0,0.07);
   padding: 64px 0 0;
 }
@@ -23,7 +23,7 @@
 }
 
 .footer__tagline {
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 1rem;
   letter-spacing: 0.15em;
   color: var(--red);
@@ -32,6 +32,7 @@
 }
 
 .footer__desc {
+  font-family:var(--american-typewriter), serif;
   font-size: 0.875rem;
   color: #666;
   line-height: 1.7;
@@ -65,7 +66,7 @@
 }
 
 .footer__nav-group h4 {
-  font-family: var(--font-body);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -82,6 +83,7 @@
 
 .footer__nav-group a {
   font-size: 0.9rem;
+  font-family:var(--american-typewriter), serif;
   color: var(--text-secondary);
   transition: color 0.2s;
 }
