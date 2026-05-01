@@ -19,8 +19,8 @@ const WHY_ITEMS = [
         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
       </svg>
     ),
-    title: 'Proven System',
-    desc: '50+ successful franchisees. A fully documented playbook from day 1 to grand opening.',
+    title: 'A Playbook That Works',
+    desc: '50+ franchisees have followed the same documented system — from lease signing to grand opening week.',
   },
   {
     icon: (
@@ -29,8 +29,8 @@ const WHY_ITEMS = [
         <line x1="12" y1="18" x2="12.01" y2="18"/>
       </svg>
     ),
-    title: 'Tech-Enabled',
-    desc: 'Appfront POS, loyalty integration, and digital ordering built in from the start.',
+    title: 'Real Tech, Not Buzzwords',
+    desc: 'Appfront POS, loyalty integration, and digital ordering — wired in from day one, not bolted on later.',
   },
   {
     icon: (
@@ -39,8 +39,8 @@ const WHY_ITEMS = [
         <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
       </svg>
     ),
-    title: 'Multi-Channel Revenue',
-    desc: 'Dine-in, pickup, DoorDash, Uber Eats, catering, and branded food truck options.',
+    title: 'Seven Ways to Make Money',
+    desc: 'Dine-in, pickup, DoorDash, Uber Eats, catering, food truck, and corporate orders — all under one roof.',
   },
   {
     icon: (
@@ -49,8 +49,8 @@ const WHY_ITEMS = [
         <path d="M6 12v5c3 3 9 3 12 0v-5"/>
       </svg>
     ),
-    title: 'Full Training',
-    desc: '2-week intensive training program. Ongoing support from our ops team, always.',
+    title: 'Two Weeks, You\'re Ready',
+    desc: '2-week intensive at Wing Snob University. Then ongoing ops support — you call, we pick up.',
   },
   {
     icon: (
@@ -58,8 +58,8 @@ const WHY_ITEMS = [
         <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
       </svg>
     ),
-    title: 'National Marketing',
-    desc: '2% brand fund drives national campaigns, social, and influencer marketing for you.',
+    title: 'We Handle Marketing',
+    desc: '2% brand fund goes to national campaigns, social, and influencer drops — you focus on the store.',
   },
 ]
 
@@ -104,8 +104,8 @@ export default function Franchise() {
             <span className="franchise-hero__accent">Wing Snob</span>
           </h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="200">
-            Born in Livonia, MI in 2017. Voted Best Chicken Wings in Metro Detroit.
-            Now 70+ locations across 9 states — and growing 50%+ year over year.
+            One spot in Livonia, MI. Voted Best Wings in Metro Detroit before year two.
+            Now 70+ locations, 9 states, and 50%+ growth every single year.
           </p>
           <div className="franchise-hero__actions" data-animate="fade-up" data-delay="300">
             <a href="#inquire" className="btn-gold">Start Your Inquiry</a>
@@ -148,10 +148,10 @@ export default function Franchise() {
       <section className="franchise-why">
         <div className="container">
           <p className="section-label">Why Wing Snob</p>
-          <h2 className="section-title">The Anti-Legacy<br />Franchise Model</h2>
+          <h2 className="section-title">Built Different<br />From the Start</h2>
           <p className="section-subtitle">
-            Wing Snob University trains every franchisee from day one. Simple operations,
-            proven systems, and a product voted best in Metro Detroit — built to scale.
+            No corporate bloat. No 200-page menu. Wing Snob University gets you running in two weeks —
+            with a product that already won Best Wings in Metro Detroit before we franchised anything.
           </p>
           <div className="franchise-why-grid">
             {WHY_ITEMS.map((item, i) => (
@@ -171,10 +171,10 @@ export default function Franchise() {
           <div className="franchise-investment__inner">
             <div>
               <p className="section-label">Investment Overview</p>
-              <h2 className="section-title">Clear Numbers.<br />No Surprises.</h2>
+              <h2 className="section-title">What You're<br />Actually Paying</h2>
               <p className="section-subtitle">
-                Lower entry cost than most competitors ($300K–$750K industry range).
-                Here's exactly what it takes to own a Wing Snob.
+                Most competitors run $300K–$750K to get in the door. Here's exactly what Wing Snob costs —
+                nothing hidden, nothing inflated.
               </p>
             </div>
             <div className="investment-table">
@@ -249,10 +249,10 @@ export default function Franchise() {
           <div className="franchise-inquiry__inner">
             <div className="franchise-inquiry__text" data-animate="fade-left">
               <p className="section-label">Get Started</p>
-              <h2 className="section-title">Ready to Own<br />Your Market?</h2>
+              <h2 className="section-title">Let's Talk<br />Shop</h2>
               <p className="section-subtitle">
-                Submit your inquiry and a member of our franchise development
-                team will reach out within 5 business days.
+                Fill out the form and our franchise development team gets back to you
+                in 5 business days. No hard sell — just a real conversation.
               </p>
               <div className="franchise-inquiry__faq">
                 <h4>Common Questions</h4>

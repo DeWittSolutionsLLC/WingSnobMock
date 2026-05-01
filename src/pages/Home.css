@@ -163,7 +163,8 @@
 .stat__divider {
   width: 1px;
   height: 40px;
-  background: rgba(0,0,0,0.1);
+  background: var(--gold);
+  opacity: 0.35;
 }
 
 /* ── Why Section ── */
@@ -177,6 +178,7 @@
 }
 
 .why-grid {
+  counter-reset: why-counter;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
@@ -189,27 +191,45 @@
   color:var(--text-secondary) !important;
 }
 .why-card {
+  counter-increment: why-counter;
   background: transparent;
   border: none;
-  border-left: 5px solid rgba(245,166,35,0.85);
+  border-left: 3px solid var(--gold);
   padding: 32px 24px;
   transition: border-color 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-card::after {
+  content: counter(why-counter, upper-roman);
+  font-family: var(--font-display);
+  font-size: 5.5rem;
+  font-style: italic;
+  color: var(--dark-3);
+  opacity: 0.05;
+  position: absolute;
+  bottom: 4px;
+  right: 14px;
+  line-height: 1;
+  pointer-events: none;
+  letter-spacing: -0.02em;
 }
 
 .why-card:hover {
-  border-color: rgba(245,166,35,1);
+  border-color: var(--gold);
 }
 
 .why-card__icon {
-  width: 56px;
-  height: 56px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(214,43,43,0.1);
-  border-radius: var(--radius-md);
+  background: none;
+  border-radius: 0;
   margin-bottom: 20px;
-  color: var(--red-light);
+  color: var(--gold);
 }
 
 .why-card__icon svg {
@@ -357,21 +377,25 @@
 
 .how-step {
   flex: 1;
-  padding: 40px;
-  min-height:100%;
-  background: var(--background-secondary);
-  box-shadow:4px 4px 8px var(--dark-3);
-  border: 1px solid rgba(255,255,255,0.07);
-  border-radius: var(--radius-md);
+  padding: 36px 32px 36px 0;
+  min-height: 100%;
+  background: transparent;
+  box-shadow: none;
+  border: none;
+  border-top: 2px solid var(--gold);
+  border-radius: 0;
 }
 
 .how-step__number {
-  font-family: var(--love-of-thunder), cursive;
-  font-size: 3.5rem;
-  color: var(--red);
-  opacity: 1;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
   line-height: 1;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
+  opacity: 1;
 }
 
 .how-step h3 {

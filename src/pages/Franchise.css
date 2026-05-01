@@ -92,7 +92,8 @@
 .fstat__div {
   width: 1px;
   height: 36px;
-  background: rgba(0,0,0,0.1);
+  background: var(--gold);
+  opacity: 0.35;
 }
 
 /* ── Why ── */
@@ -106,35 +107,51 @@
 }
 
 .franchise-why-grid {
+  counter-reset: why-counter;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
 .franchise-why-card {
-  background: var(--background-primary);
-  border: 1px solid rgba(0,0,0,0.06);
-  border-left: 4px solid rgba(245,166,35,0.85);
-  padding: 28px 24px;
-  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.2s;
+  counter-increment: why-counter;
+  background: transparent;
+  border: none;
+  border-top: 2px solid var(--gold);
+  padding: 28px 24px 28px 0;
+  transition: border-color 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.franchise-why-card::after {
+  content: counter(why-counter, upper-roman);
+  font-family: var(--font-display);
+  font-size: 5rem;
+  font-style: italic;
+  color: var(--dark-3);
+  opacity: 0.05;
+  position: absolute;
+  bottom: 4px;
+  right: 12px;
+  line-height: 1;
+  pointer-events: none;
 }
 
 .franchise-why-card:hover {
-  border-color: rgba(245,166,35,0.45);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border-color: var(--gold);
 }
 
 .franchise-why-card__icon {
-  width: 52px;
-  height: 52px;
+  width: 30px;
+  height: 30px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(214,43,43,0.1);
-  border-radius: var(--radius-md);
+  background: none;
+  border-radius: 0;
   margin-bottom: 20px;
-  color: var(--red-light);
+  color: var(--gold);
 }
 
 .franchise-why-card__icon svg {

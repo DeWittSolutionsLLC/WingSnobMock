@@ -50,7 +50,7 @@ const TIERS = [
 const HOW_IT_WORKS = [
   { step: '01', title: 'Sign Up Free', desc: 'Create your account in the app or online. Takes 60 seconds.' },
   { step: '02', title: 'Order & Earn', desc: 'Every dollar you spend earns you points. No scanner needed.' },
-  { step: '03', title: 'Level Up', desc: 'Hit tier thresholds to unlock better rewards and perks.' },
+  { step: '03', title: 'Level Up', desc: 'Keep ordering and your tier climbs automatically — more wings, more free stuff.' },
   { step: '04', title: 'Redeem', desc: 'Cash in points for free wings, sauces, sides, and more.' },
 ]
 
@@ -79,8 +79,8 @@ export default function Perks() {
             <span style={{ color: 'var(--gold)' }}>For Being a Snob</span>
           </h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="200">
-            Order, earn, and unlock exclusive deals through the Wing Snob app.
-            Sign up and get a free order of fries — no purchase needed.
+            Every order earns you points. Every point puts you closer to free wings.
+            Sign up now and we'll throw in a free order of fries just for showing up.
           </p>
           <div className="perks-hero__actions" data-animate="fade-up" data-delay="300">
             <a href="#join" className="btn-gold">Join for Free</a>
@@ -180,10 +180,10 @@ export default function Perks() {
           <div className="perks-value__inner">
             <div className="perks-value__text" data-animate="fade-left">
               <p className="section-label">Points Value</p>
-              <h2 className="section-title">Your Points,<br />Your Way</h2>
+              <h2 className="section-title">Wings That<br />Pay You Back</h2>
               <p className="section-subtitle">
-                100 points = $1 in Wing Snob credit. Redeem anytime
-                on any item in the app or at the counter.
+                100 points = $1 off your next order. No expiration games, no blackout dates —
+                just tap redeem in the app or tell us at the counter.
               </p>
             </div>
             <div className="perks-value__examples">
@@ -230,7 +230,7 @@ export default function Perks() {
                   <p className="section-label">Join Free</p>
                   <h2 className="section-title">Start Earning Today</h2>
                   <p className="section-subtitle">
-                    Download the Wing Snob app or sign up online. Get exclusive daily deals, member-only offers, and rewards on every order.
+                    Download the app or sign up right here. Daily deals, member-only drops, and points on every single order.
                   </p>
                   <div className="perks-signup__bonus">
                     <p>Sign up and get a <strong>FREE order of fries</strong> — no purchase required.</p>
@@ -270,7 +270,7 @@ export default function Perks() {
                     Join Snob Perks — It's Free
                   </button>
                   <p className="perks-form__disclaimer">
-                    By joining you agree to receive Wing Snob marketing emails. Unsubscribe anytime.
+                    We'll send you deals, not spam. Unsubscribe whenever you want.
                   </p>
                 </form>
               </>

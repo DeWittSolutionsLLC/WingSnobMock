@@ -145,7 +145,7 @@ export default function Locations() {
           <p className="section-label" data-animate="blur-in">70+ Locations Across 9 States</p>
           <h1 className="section-title" data-animate="blur-in" data-delay="80">Find Your<br />Wing Snob</h1>
           <p className="section-subtitle" data-animate="fade-up" data-delay="160">
-            From Michigan to Texas — we're spreading the flavor nationwide. Use the search below or visit us online to order pickup or delivery.
+            Detroit to Dallas. Livonia to Phoenix. 70+ spots and still going — search below to find the one closest to you.
           </p>
           <div className="locations-search" data-animate="fade-up" data-delay="240">
             <span className="locations-search__icon">
@@ -289,11 +289,11 @@ export default function Locations() {
       <section className="food-truck-banner">
         <div className="container food-truck-banner__inner">
           <div data-animate="fade-left">
-            <p className="section-label">Be Snobby With Your Event</p>
+            <p className="section-label">Book the Truck</p>
             <h2 className="section-title">Wing Snob Catering</h2>
             <p className="section-subtitle">
-              Bringing better wings to your event, festival, or corporate gathering.
-              Let us know your date, location, and guest count — we'll handle the rest.
+              Weddings, festivals, tailgates, company events — the truck shows up ready.
+              Tell us the date and headcount, and we take it from there.
             </p>
             <a href="https://www.wingsnob.com/catering" className="btn-gold" style={{ marginTop: '28px' }}>Book Catering</a>
           </div>

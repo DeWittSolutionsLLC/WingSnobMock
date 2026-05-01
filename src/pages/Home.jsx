@@ -23,7 +23,7 @@ export default function Home() {
               <span className="hero__title-accent">Better Wings.</span>
             </h1>
             <p className="hero__subtitle" data-animate="fade-up" data-delay="200">
-              20 sauces & rubs. Made-to-order in 70+ locations across 9 states. One obsession: flavor.
+              20 sauces & rubs. Made-to-order. 70+ locations across 9 states — and still spreading.
             </p>
             <div className="hero__actions" data-animate="fade-up" data-delay="300">
               <Link to="/order" className="btn-primary order-btn">Order Now</Link>
@@ -180,7 +180,7 @@ export default function Home() {
             <div className="how-step" data-animate="fade-up" data-delay="300">
               <div className="how-step__number">03</div>
               <h3>Add Your Sides</h3>
-              <p>Fries, mac, coleslaw — enjoy.</p>
+              <p>Loaded fries, street corn, mac & cheese — stack your tray right.</p>
             </div>
           </div>
           <div className="how-section__cta" data-animate="fade-up" data-delay="400">
@@ -196,8 +196,8 @@ export default function Home() {
             <p className="section-label">Plan Your Event</p>
             <h2 className="section-title dark">With the Truck!</h2>
             <p className="section-subtitle">
-              Need catering for weddings, graduations, birthdays? The Wing Snob truck is your solution.
-              Bringing better wings to your event, festival, or corporate gathering.
+              Weddings, graduations, tailgates, office parties — we'll pull up with the truck and handle it.
+              You worry about the guest list. We've got the wings.
             </p>
             <a href="https://www.wingsnob.com/catering" className="btn-gold">Book Catering</a>
           </div>
@@ -214,8 +214,8 @@ export default function Home() {
             <p className="section-label">Snob Perks</p>
             <h2 className="section-title">Get Rewarded<br />For Being a Snob</h2>
             <p className="section-subtitle">
-              Earn points on every order. Unlock free wings, exclusive sauces,
-              and Sauce Boss status. The more you order, the more you get.
+              Earn points every time you order. Stack enough and your regulars eat free.
+              Sauce Boss status is real, and it comes with real perks.
             </p>
             <Link to="/perks" className="btn-gold">Join Snob Perks</Link>
           </div>
