@@ -14,6 +14,8 @@ function ScrollAnimator() {
   const location = useLocation()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
+
     let observer
     let rafId
 

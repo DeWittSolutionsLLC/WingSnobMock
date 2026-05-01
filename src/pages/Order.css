@@ -126,7 +126,7 @@
 }
 .menu-card h4{
   font-family: var(--love-of-thunder), cursive;
-  font-size: 2.1rem;
+  font-size:clamp(1.8rem, 2.5vw, 1.6rem);
   margin-bottom: 0.5rem;
   color:var(--red);
 }
@@ -180,6 +180,40 @@
   text-transform: uppercase;
 }
 
+/* ── Quick Add Modal ── */
+.quick-add-modal {
+  background: var(--background-secondary);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 12px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 360px;
+}
+
+.quick-add-modal h3 {
+  font-family: var(--love-of-thunder), cursive;
+  font-size: 2rem;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  color: var(--dark-3);
+}
+
+.quick-add-modal__desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-family: var(--american-typewriter), serif;
+  margin-bottom: 0.75rem;
+  line-height: 1.5;
+}
+
+.quick-add-modal__price {
+  font-family: var(--love-of-thunder), cursive;
+  font-size: 2.2rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
 
 .option-group {
   margin-top: 1.5rem;
@@ -568,7 +602,13 @@
   padding: 20px 0;
   font-family: var(--american-typewriter), serif;
 }
-
+.empty-msg{
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  font-style: italic;
+  padding: 20px 0;
+  font-family: var(--american-typewriter), serif;
+}
 .order-summary__items {
   display: flex;
   flex-direction: column;
@@ -804,7 +844,7 @@
   position: relative;
 }
 
-.sauce-btn:hover {
+.sauce-btn:hover:not(:disabled) {
   border-color: rgba(245,166,35,0.4);
   transform: translateY(-2px);
 }
@@ -812,6 +852,12 @@
 .sauce-btn.active {
   border-color: var(--gold);
   background: rgba(245,166,35,0.1);
+}
+
+.sauce-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  transform: none;
 }
 
 .sauce-color {
