@@ -2,6 +2,7 @@ import { useEffect } from 'react'
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import ScrollToast from './components/ScrollToast'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Order from './pages/Order'
@@ -87,6 +88,7 @@ function App() {
           <Route path="/franchise" element={<Franchise />} />
         </Routes>
       </main>
+      <ScrollToast />
       <Footer />
     </BrowserRouter>
   )
