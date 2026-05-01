@@ -312,21 +312,6 @@
   transform: translateY(-8px);
 }
 
-.perks-iphone-img {
-  max-width: 320px;
-  width: 100%;
-  height: auto;
-  border-radius: 32px;
-  background: transparent;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.45), 0 0 48px rgba(245, 166, 35, 0.12);
-  filter: drop-shadow(0 8px 24px rgba(245, 166, 35, 0.14));
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.perks-iphone-img:hover {
-  transform: translateY(-9px) rotate(-0.4deg) scale(1.01);
-  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.5), 0 0 60px rgba(245, 166, 35, 0.18);
-}
 
 .perks-value__examples {
   display: flex;

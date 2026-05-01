@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'A Love of Thunder';
+  src: url('/A Love of Thunder.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'American Typewriter';
+  src: url('/ufonts.com_american-typewriter.ttf') format('truetype');
+}
+
 *, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
@@ -38,10 +48,18 @@
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  --love-of-thunder: 'A Love of Thunder', cursive;
+  --american-typewriter: 'American Typewriter', serif;
 }
 
-html {
+html, body, #root {
+  min-width: 100%;
   scroll-behavior: smooth;
+}
+
+html, body {
+  overflow-x: hidden;
 }
 
 body {
@@ -69,10 +87,6 @@ a {
   text-decoration: none;
 }
 
-img {
-  max-width: 100%;
-  display: block;
-}
 
 button {
   cursor: pointer;
@@ -96,7 +110,7 @@ ul { list-style: none; }
   gap: 8px;
   background: var(--red);
   color: var(--white);
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;;
   font-size: 1rem;
   letter-spacing: 0.08em;
   padding: 16px 36px;
@@ -119,7 +133,7 @@ ul { list-style: none; }
   gap: 8px;
   background: transparent;
   color: var(--white);
-  font-family: var(--font-display);
+  font-family: var(--love-of-thunder), cursive;
   font-size: 1rem;
   letter-spacing: 0.08em;
   padding: 16px 36px;
@@ -169,6 +183,7 @@ ul { list-style: none; }
 }
 
 .section-title {
+  font-family:var(--love-of-thunder), cursive;
   font-size: clamp(2.8rem, 6vw, 4.5rem);
   color: var(--white);
   margin-bottom: 20px;
@@ -234,21 +249,9 @@ ul { list-style: none; }
 }
 .photo-float {
   --parallax-y: 0px;
-  animation: float-plate 8s ease-in-out infinite;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
   transform: translateY(var(--parallax-y));
-  will-change: transform;
 }
 .photo-float:hover {
   transform: translateY(calc(var(--parallax-y) - 6px)) rotateZ(-1deg) scale(1.01);
-}
-@keyframes float-plate {
-  0%, 100% { transform: translateY(calc(var(--parallax-y) + 0px)) rotateZ(0deg); }
-  20% { transform: translateY(calc(var(--parallax-y) - 10px)) rotateZ(-1deg); }
-  50% { transform: translateY(calc(var(--parallax-y) - 6px)) rotateZ(1deg); }
-  80% { transform: translateY(calc(var(--parallax-y) - 8px)) rotateZ(-0.5deg); }
-}
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 30px 90px rgba(214, 43, 43, 0.18); }
-  50% { box-shadow: 0 38px 110px rgba(214, 43, 43, 0.28); }
 }

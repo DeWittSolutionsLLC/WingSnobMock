@@ -312,22 +312,6 @@
   position: relative;
 }
 
-.food-truck-img {
-  max-width: 480px;
-  width: 100%;
-  height: auto;
-  border-radius: 28px;
-  object-fit: cover;
-  background: transparent;
-  box-shadow: 0 22px 60px rgba(214, 43, 43, 0.18);
-  filter: drop-shadow(0 12px 28px rgba(214, 43, 43, 0.15));
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.food-truck-img:hover {
-  transform: translateY(-6px) rotateZ(-0.8deg) scale(1.01);
-  box-shadow: 0 28px 76px rgba(214, 43, 43, 0.22);
-}
 
 @media (max-width: 768px) {
   .locations-grid {
@@ -339,7 +323,5 @@
     gap: 32px;
   }
 
-  .food-truck-img {
-    max-width: 100%;
-  }
+
 }

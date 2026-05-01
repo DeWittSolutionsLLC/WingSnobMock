@@ -17,11 +17,6 @@
   margin-bottom: 8px;
 }
 
-.footer__logo-img {
-  height: 32px;
-  width: auto;
-  object-fit: contain;
-}
 
 .footer__logo-accent {
   color: var(--red);
