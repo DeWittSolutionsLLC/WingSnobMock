@@ -137,6 +137,7 @@
   display: block;
   font-size: 1rem;
   font-weight: 600;
+  font-family:var(--american-typewriter), serif;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: var(--text-secondary);
@@ -153,6 +154,7 @@
 
 @media (max-width: 900px) {
   .navbar__links {
+    font-family:var(--american-typewriter), serif;
     display: none;
   }
 

@@ -86,7 +86,171 @@
 .step-dot--active span {
   color: var(--dark-3);
 }
+.menu-explorer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
+.menu-section h3 {
+  font-family:var(--love-of-thunder), cursive;
+  font-size: 3rem;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.menu-card {
+  background: var(--background-secondary);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 4px 4px 4px var(--red);
+  border-color: var(--primary);
+}
+.menu-card h4{
+  font-family: var(--love-of-thunder), cursive;
+  font-size: 2.1rem;
+  margin-bottom: 0.5rem;
+  color:var(--red);
+}
+.menu-card p {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  font-family: var(--american-typewriter), serif;
+}
+.price-tag {
+  font-family:var(--american-typewriter), serif;
+  display: block;
+  margin-top: 1rem;
+  font-size:1rem;
+  color: var(--primary);
+  font-weight: bold;
+}
+.price-tag--highlight{
+  font-family:var(--love-of-thunder), cursive;
+  color: var(--gold);
+  font-size:2.2rem;
+}
+/* Customizer Modal */
+.customizer-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.customizer-modal {
+  background: var(--background-secondary);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-height:90vh;
+  overflow-y: auto;
+  max-width: 500px;
+}
+.customizer-modal h3{
+  font-family:var(--love-of-thunder), cursive;
+  font-size: 1.5rem;
+  border-bottom: 2px solid var(--red);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+
+.option-group {
+  margin-top: 1.5rem;
+}
+
+.option-group label{
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  font-family: var(--american-typewriter), serif;
+}
+.size-chips {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+.size-chips button {
+  background: var(--red);
+  border: 1px solid var(--gold);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family:var(--american-typewriter), serif;
+  transition: all 0.2s ease;
+}
+
+.size-chips button.active {
+  background: var(--background-primary);
+  scale:0.9;
+  color:var(--dark-3);
+  border:var(--dark-3) solid 2px;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  border-bottom: 1px solid #333;
+}
+
+.cart-item small {
+  display: block;
+  color: #888;
+}
+
+.cart-item-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.cart-item-right button {
+  background: none;
+  border: none;
+  color: #ff4444;
+  cursor: pointer;
+}
+
+.checkout-btn {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  font-size: 1.1rem;
+}
 /* ── Step Panel ── */
 .step-panel {
   background: var(--background-primary);
@@ -383,6 +547,9 @@
   padding: 32px 26px 28px;
   position: sticky;
   top: calc(var(--nav-height) + 24px);
+  align-self: start;
+  max-height: calc(100vh - var(--nav-height) - 48px);
+  overflow-y: auto;
 }
 
 .order-summary__title {
@@ -557,9 +724,14 @@
 .order-success__total span {
   color: var(--gold);
 }
-
+.modal-actions{
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}
 /* ── Responsive ── */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .order-layout {
     grid-template-columns: 1fr;
   }
@@ -567,6 +739,8 @@
   .order-summary {
     position: static;
     order: -1;
+    max-height: none;
+    overflow-y: visible;
   }
 
   .sauce-select-grid {
@@ -576,7 +750,7 @@
 
 @media (max-width: 640px) {
   .wing-type-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .size-select-grid {
@@ -593,5 +767,120 @@
 
   .step-panel {
     padding: 24px 20px;
+  }
+
+  .order-page {
+    padding: 36px 0 72px;
+  }
+
+  .step-indicator {
+    margin-bottom: 28px;
+  }
+
+  .step-dot span {
+    font-size: 0.65rem;
+  }
+}
+
+/* Sauce Button Grid in Customizer Modal */
+.sauce-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.sauce-btn {
+  background: var(--background-secondary);
+  border: 2px solid rgba(0,0,0,0.08);
+  border-radius: var(--radius-lg);
+  padding: 12px 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.sauce-btn:hover {
+  border-color: rgba(245,166,35,0.4);
+  transform: translateY(-2px);
+}
+
+.sauce-btn.active {
+  border-color: var(--gold);
+  background: rgba(245,166,35,0.1);
+}
+
+.sauce-color {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.sauce-color .dry-texture {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(circle at 35% 35%, rgba(255,255,255,0.2) 1px, transparent 1px);
+  background-size: 5px 5px;
+}
+
+.sauce-name {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--dark-3);
+  text-align: center;
+  line-height: 1.2;
+}
+
+.sauce-heat {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.sauce-check {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 18px;
+  height: 18px;
+  background: var(--red);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.65rem;
+  color: var(--white);
+  font-weight: 700;
+}
+
+.sauce-count {
+  color: var(--gold);
+  font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .sauce-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .sauce-btn {
+    padding: 8px 4px;
+  }
+  
+  .sauce-color {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .sauce-name {
+    font-size: 0.65rem;
   }
 }

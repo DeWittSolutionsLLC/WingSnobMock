@@ -39,6 +39,7 @@
   --radius-sm: 4px;
   --radius-md: 8px;
   --radius-lg: 16px;
+  --radius-xl: 24px;
   --radius-full: 50px;
 
   --shadow-sm: 0 2px 8px rgba(0,0,0,0.6);
@@ -63,7 +64,7 @@ html, body, #root {
 }
 
 html, body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {

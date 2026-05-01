@@ -620,6 +620,23 @@
     grid-template-columns: 1fr;
     gap: 48px;
   }
+
+  .catering-section__inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .catering-section__image {
+    order: 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .catering-section__image img {
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+  }
 }
 
 @media (max-width: 768px) {
@@ -627,7 +644,8 @@
   .sauce-preview,
   .how-section,
   .perks-teaser,
-  .franchise-cta {
+  .franchise-cta,
+  .catering-section {
     padding: 72px 0;
   }
 
@@ -660,5 +678,22 @@
 
   .stats-bar__inner {
     gap: 20px;
+  }
+
+  .stat {
+    padding: 0 16px;
+  }
+
+  .franchise-cta__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .catering-section__image img {
+    max-height: 220px;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+    margin: 16px 0 28px;
   }
 }

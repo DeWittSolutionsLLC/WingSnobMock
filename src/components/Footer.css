@@ -15,8 +15,13 @@
 .footer__logo {
   display: inline-flex;
   margin-bottom: 8px;
+  width:240px;
 }
-
+.footer__logo img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
 
 .footer__logo-accent {
   color: var(--red);
@@ -114,6 +119,16 @@
 
   .footer__brand {
     grid-column: 1 / -1;
+  }
+  .footer__logo {
+    display: inline-flex;
+    margin-bottom: 8px;
+    width:140px;
+  }
+  .footer__logo img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
   }
 }
 

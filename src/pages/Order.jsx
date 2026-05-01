@@ -2,86 +2,56 @@ import { useState } from 'react'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
 import './Order.css'
 
-const WING_TYPES = [
-  { id: 'traditional', label: 'Traditional', desc: 'Classic bone-in, crispy skin' },
-  { id: 'boneless', label: 'Boneless', desc: 'All-white-meat, no bones' },
-  { id: 'cauliflower', label: 'Cauliflower', desc: 'Plant-based, crispy florets' },
-]
-
-const SIZES = [
-  { qty: 6, price: 9.99 },
-  { qty: 10, price: 15.99 },
-  { qty: 15, price: 22.99 },
-  { qty: 20, price: 28.99 },
-  { qty: 50, price: 64.99 },
-]
-
-const SIDES = [
-  { id: 's1', name: 'Classic Fries', price: 3.49 },
-  { id: 's2', name: 'Seasoned Fries', price: 3.99 },
-  { id: 's3', name: 'Mac & Cheese', price: 4.49 },
-  { id: 's4', name: 'Coleslaw', price: 2.99 },
-  { id: 's5', name: 'Corn on the Cob', price: 2.99 },
-  { id: 's6', name: 'Cheesecake Bites', price: 5.99 },
-]
+const MENU_DATA = {
+  wings: [
+    { id: 'traditional', label: 'Traditional Wings', desc: 'Classic bone-in', sizes: [{ qty: 6, price: 9.99 }, { qty: 10, price: 15.99 }, { qty: 20, price: 28.99 }] },
+    { id: 'boneless', label: 'Boneless Wings', desc: '100% white meat', sizes: [{ qty: 6, price: 8.99 }, { qty: 10, price: 13.99 }, { qty: 20, price: 24.99 }] },
+    { id: 'cauli', label: 'Cauli Wings', desc: 'Plant-based florets', sizes: [{ qty: 8, price: 10.99 }, { qty: 16, price: 19.99 }] },
+    { id: 'tenders', label: 'Chicken Tenders', desc: 'Hand-breaded', sizes: [{ qty: 3, price: 7.99 }, { qty: 5, price: 11.99 }] },
+  ],
+  sandwiches: [
+    { id: 'sando', label: 'The Sando', desc: 'Classic chicken sandwich', price: 8.49 },
+    { id: 'slider', label: 'Mini Sliders', desc: '2 per order', price: 6.99 },
+  ],
+  sides: [
+    { id: 'fries', label: 'Classic Fries', price: 3.49 },
+    { id: 'seasoned', label: 'Seasoned Fries', price: 3.99 },
+    { id: 'mac', label: 'Mac & Cheese', price: 4.49 },
+    { id: 'slaw', label: 'Coleslaw', price: 2.99 },
+  ],
+  drinks_desserts: [
+    { id: 'soda', label: 'Fountain Soda', price: 2.49 },
+    { id: 'water', label: 'Bottled Water', price: 1.99 },
+    { id: 'cheesecake', label: 'Cheesecake Bites', price: 5.99 },
+  ]
+}
 
 export default function Order() {
-  const [step, setStep] = useState(1)
-  const [wingType, setWingType] = useState(null)
-  const [size, setSize] = useState(null)
-  const [sauces, setSauces] = useState([])
-  const [sides, setSides] = useState([])
+  const [cart, setCart] = useState([])
+  const [activeItem, setActiveItem] = useState(null) // For the customization "modal"
   const [placed, setPlaced] = useState(false)
 
-  const maxSauces = size && size.qty <= 6 ? 1 : 2
-
-  function toggleSauce(sauce) {
-    if (sauces.find(s => s.id === sauce.id)) {
-      setSauces(sauces.filter(s => s.id !== sauce.id))
-    } else if (sauces.length < maxSauces) {
-      setSauces([...sauces, sauce])
-    }
-  }
-
-  function toggleSide(side) {
-    if (sides.find(s => s.id === side.id)) {
-      setSides(sides.filter(s => s.id !== side.id))
-    } else {
-      setSides([...sides, side])
-    }
-  }
-
-  const subtotal = (size ? size.price : 0) + sides.reduce((acc, s) => acc + s.price, 0)
+  // Subtotal Calculation
+  const subtotal = cart.reduce((acc, item) => acc + item.totalPrice, 0)
   const tax = subtotal * 0.06
   const total = subtotal + tax
 
-  function canProceed() {
-    if (step === 1) return !!wingType
-    if (step === 2) return !!size
-    if (step === 3) return sauces.length > 0
-    return true
+  const addToCart = (item) => {
+    setCart([...cart, { ...item, cartId: Date.now() }])
+    setActiveItem(null)
+  }
+
+  const removeFromCart = (cartId) => {
+    setCart(cart.filter(item => item.cartId !== cartId))
   }
 
   if (placed) {
     return (
       <div className="order-success">
         <div className="order-success__inner">
-          <div className="order-success__icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" width="48" height="48">
-              <path d="M20 6L9 17l-5-5"/>
-            </svg>
-          </div>
-          <h2>Order Placed!</h2>
-          <p>Your Wing Snob order is being prepared. You'll receive a confirmation shortly.</p>
-          <div className="order-success__summary">
-            <p><strong>{size?.qty}pc {wingType?.label} Wings</strong></p>
-            {sauces.map(s => <p key={s.id}>• {s.name}</p>)}
-            {sides.map(s => <p key={s.id}>• {s.name}</p>)}
-            <div className="order-success__total">Total: <span>${total.toFixed(2)}</span></div>
-          </div>
-          <button className="btn-primary" onClick={() => { setPlaced(false); setStep(1); setWingType(null); setSize(null); setSauces([]); setSides([]) }}>
-            Order Again
-          </button>
+          <h2>🔥 Order Received!</h2>
+          <p>We're getting your wings ready. Estimated time: 15-20 mins.</p>
+          <button className="btn-primary" onClick={() => {setCart([]); setPlaced(false)}}>Start New Order</button>
         </div>
       </div>
     )
@@ -90,202 +60,146 @@ export default function Order() {
   return (
     <div className="order-page">
       <div className="container order-layout">
-        {/* Left: Steps */}
-        <div className="order-steps">
-          {/* Step Indicator */}
-          <div className="step-indicator">
-            {[1,2,3,4].map(n => (
-              <div key={n} className={`step-dot ${step >= n ? 'step-dot--active' : ''} ${step > n ? 'step-dot--done' : ''}`}>
-                <div className="step-dot__circle">{step > n ? '✓' : n}</div>
-                <span>{['Wing Style','Size','Sauce','Sides'][n-1]}</span>
+        
+        {/* Menu Section */}
+        <div className="menu-explorer">
+          <section className="menu-section">
+            <h3>Wings & Tenders</h3>
+            <div className="menu-grid">
+              {MENU_DATA.wings.map(type => (
+                <div key={type.id} className="menu-card" onClick={() => setActiveItem({ ...type, type: 'wings', selectedSize: type.sizes[0], sauces: [] })}>
+                  <h4>{type.label}</h4>
+                  <p>{type.desc}</p>
+                  <span className="price-tag">From <span className="price-tag--highlight">${type.sizes[0].price}</span></span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="menu-section">
+            <h3>Sandwiches & More</h3>
+            <div className="menu-grid">
+              {MENU_DATA.sandwiches.map(item => (
+                <div key={item.id} className="menu-card" onClick={() => addToCart({ ...item, totalPrice: item.price })}>
+                  <h4>{item.label}</h4>
+                  <p>{item.desc}</p>
+                  <span className="price-tag"><span className="price-tag--highlight">${item.price.toFixed(2)}</span></span>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="menu-section">
+            <h3>Sides, Drinks & Sweets</h3>
+            <div className="menu-grid">
+              {[...MENU_DATA.sides, ...MENU_DATA.drinks_desserts].map(item => (
+                <div key={item.id} className="menu-card" onClick={() => addToCart({ ...item, totalPrice: item.price })}>
+                  <h4>{item.label}</h4>
+                  <span className="price-tag"><span className="price-tag--highlight">${item.price.toFixed(2)}</span></span>
+                </div>
+              ))}
+            </div>
+          </section>
+        </div>
+
+        {/* Floating Customizer (Simple Modal) */}
+        {activeItem && (
+          <div className="customizer-overlay">
+            <div className="customizer-modal">
+              <h3>Customize {activeItem.label}</h3>
+              
+              <div className="option-group">
+                <label>Select Size</label>
+                <div className="size-chips">
+                  {activeItem.sizes.map(s => (
+                    <button 
+                      key={s.qty} 
+                      className={activeItem.selectedSize.qty === s.qty ? 'active' : ''}
+                      onClick={() => setActiveItem({...activeItem, selectedSize: s})}
+                    >
+                      {s.qty}pc - ${s.price}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+<div className="option-group">
+                <label>Choose Sauce{activeItem.sauces.length > 0 && <span className="sauce-count"> ({activeItem.sauces.length} selected)</span>}</label>
+                <div className="sauce-grid">
+                  {SAUCES.map(sauce => (
+                    <button
+                      key={sauce.id}
+                      className={`sauce-btn ${activeItem.sauces.includes(sauce.name) ? 'active' : ''}`}
+                      onClick={() => {
+                        const isSelected = activeItem.sauces.includes(sauce.name)
+                        const newSauces = isSelected
+                          ? activeItem.sauces.filter(s => s !== sauce.name)
+                          : [...activeItem.sauces, sauce.name]
+                        setActiveItem({...activeItem, sauces: newSauces})
+                      }}
+                    >
+                      <span className="sauce-color" style={{ backgroundColor: sauce.color }}>
+                        {sauce.type === 'dry' && <span className="dry-texture"></span>}
+                      </span>
+                      <span className="sauce-name">{sauce.name}</span>
+                      {sauce.heat > 0 && (
+                        <span className="sauce-heat" style={{ color: HEAT_COLORS[sauce.heat] }}>
+                          {HEAT_LABELS[sauce.heat]}
+                        </span>
+                      )}
+                      {activeItem.sauces.includes(sauce.name) && (
+                        <span className="sauce-check">✓</span>
+                      )}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="modal-actions">
+                <button className="btn-secondary" onClick={() => setActiveItem(null)}>Cancel</button>
+                <button 
+                  className="btn-primary" 
+                  disabled={!activeItem.sauces.length}
+                  onClick={() => addToCart({
+                    label: `${activeItem.selectedSize.qty}pc ${activeItem.label}`,
+                    details: activeItem.sauces.join(', '),
+                    totalPrice: activeItem.selectedSize.price
+                  })}
+                >
+                  Add to Order
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Cart Sidebar */}
+        <div className="order-summary">
+          <h3 className="order-summary__title">Your Bag ({cart.length})</h3>
+          <div className="cart-items">
+            {cart.length === 0 && <p className="empty-msg">Your bag is empty. Add some wings!</p>}
+            {cart.map(item => (
+              <div key={item.cartId} className="cart-item">
+                <div>
+                  <strong>{item.label}</strong>
+                  {item.details && <small>{item.details}</small>}
+                </div>
+                <div className="cart-item-right">
+                  <span>${item.totalPrice.toFixed(2)}</span>
+                  <button onClick={() => removeFromCart(item.cartId)}>✕</button>
+                </div>
               </div>
             ))}
           </div>
 
-          {/* Step 1 — Wing Type */}
-          {step === 1 && (
-            <div className="step-panel">
-              <h2 className="step-panel__title">Choose Your Style</h2>
-              <div className="wing-type-grid">
-                {WING_TYPES.map(type => (
-                  <button
-                    key={type.id}
-                    className={`wing-type-btn ${wingType?.id === type.id ? 'wing-type-btn--active' : ''}`}
-                    onClick={() => setWingType(type)}
-                  >
-                    <strong>{type.label}</strong>
-                    <span>{type.desc}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 2 — Size */}
-          {step === 2 && (
-            <div className="step-panel">
-              <h2 className="step-panel__title">Pick Your Size</h2>
-              <div className="size-select-grid">
-                {SIZES.map(s => (
-                  <button
-                    key={s.qty}
-                    className={`size-select-btn ${size?.qty === s.qty ? 'size-select-btn--active' : ''}`}
-                    onClick={() => setSize(s)}
-                  >
-                    <span className="size-select-btn__qty">{s.qty}<small>pc</small></span>
-                    <span className="size-select-btn__price">${s.price.toFixed(2)}</span>
-                    <span className="size-select-btn__note">{s.qty <= 6 ? '1 sauce' : '2 sauces'}</span>
-                  </button>
-                ))}
-              </div>
-            </div>
-          )}
-
-          {/* Step 3 — Sauces */}
-          {step === 3 && (
-            <div className="step-panel">
-              <h2 className="step-panel__title">
-                Pick Your Sauce{maxSauces > 1 ? 's' : ''}
-                <span className="step-panel__sub"> — up to {maxSauces}</span>
-              </h2>
-              <div className="sauce-select-grid">
-                {SAUCES.map(sauce => {
-                  const selected = !!sauces.find(s => s.id === sauce.id)
-                  const disabled = !selected && sauces.length >= maxSauces
-                  return (
-                    <button
-                      key={sauce.id}
-                      className={`sauce-select-btn ${selected ? 'sauce-select-btn--active' : ''} ${disabled ? 'sauce-select-btn--disabled' : ''}`}
-                      onClick={() => toggleSauce(sauce)}
-                      disabled={disabled}
-                    >
-                      <div className="sauce-select-btn__bowl" style={{ background: sauce.color }}>
-                        {sauce.type === 'dry' && <div className="sauce-dry-tex" />}
-                      </div>
-                      <span className="sauce-select-btn__name">{sauce.name}</span>
-                      <span className="sauce-select-btn__heat" style={{ color: HEAT_COLORS[sauce.heat] }}>
-                        {HEAT_LABELS[sauce.heat]}
-                      </span>
-                      {selected && <div className="sauce-select-btn__check">✓</div>}
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Step 4 — Sides */}
-          {step === 4 && (
-            <div className="step-panel">
-              <h2 className="step-panel__title">Add Sides <span className="step-panel__sub">— optional</span></h2>
-              <div className="sides-select-grid">
-                {SIDES.map(side => {
-                  const selected = !!sides.find(s => s.id === side.id)
-                  return (
-                    <button
-                      key={side.id}
-                      className={`side-select-btn ${selected ? 'side-select-btn--active' : ''}`}
-                      onClick={() => toggleSide(side)}
-                    >
-                      <span className="side-select-btn__name">{side.name}</span>
-                      <span className="side-select-btn__price">${side.price.toFixed(2)}</span>
-                      {selected && <div className="side-select-btn__check">✓</div>}
-                    </button>
-                  )
-                })}
-              </div>
-            </div>
-          )}
-
-          {/* Step Navigation */}
-          <div className="step-nav">
-            {step > 1 && (
-              <button className="btn-secondary" onClick={() => setStep(step - 1)}>← Back</button>
-            )}
-            {step < 4 ? (
-              <button
-                className="btn-primary"
-                onClick={() => setStep(step + 1)}
-                disabled={!canProceed()}
-                style={{ marginLeft: 'auto' }}
-              >
-                Continue →
-              </button>
-            ) : (
-              <button
-                className="btn-primary"
-                onClick={() => setPlaced(true)}
-                style={{ marginLeft: 'auto' }}
-              >
-                Place Order · ${total.toFixed(2)}
-              </button>
-            )}
-          </div>
-        </div>
-
-        {/* Right: Order Summary */}
-        <div className="order-summary" >
-          <h3 className="order-summary__title">Your Order</h3>
-
-          {!wingType && !size && sauces.length === 0 && sides.length === 0 ? (
-            <p className="order-summary__empty">Nothing here yet — start building your order.</p>
-          ) : (
-            <div className="order-summary__items">
-              {wingType && size && (
-                <div className="summary-item">
-                  <span>{size.qty}pc {wingType.label} Wings</span>
-                  <span>${size.price.toFixed(2)}</span>
-                </div>
-              )}
-              {wingType && !size && (
-                <div className="summary-item summary-item--muted">
-                  <span>{wingType.label} Wings</span>
-                  <span>—</span>
-                </div>
-              )}
-              {sauces.length > 0 && (
-                <div className="summary-group">
-                  <p className="summary-group__label">Sauces</p>
-                  {sauces.map(s => (
-                    <div key={s.id} className="summary-item summary-item--indent">
-                      <span>• {s.name}</span>
-                      <span>incl.</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {sides.length > 0 && (
-                <div className="summary-group">
-                  <p className="summary-group__label">Sides</p>
-                  {sides.map(s => (
-                    <div key={s.id} className="summary-item summary-item--indent">
-                      <span>• {s.name}</span>
-                      <span>${s.price.toFixed(2)}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          )}
-
-          {subtotal > 0 && (
+          {cart.length > 0 && (
             <div className="order-summary__totals">
-              <div className="summary-line">
-                <span>Subtotal</span><span>${subtotal.toFixed(2)}</span>
-              </div>
-              <div className="summary-line">
-                <span>Tax (6%)</span><span>${tax.toFixed(2)}</span>
-              </div>
-              <div className="summary-line summary-line--total">
-                <span>Total</span><span>${total.toFixed(2)}</span>
-              </div>
+              <div className="summary-line"><span>Subtotal</span><span>${subtotal.toFixed(2)}</span></div>
+              <div className="summary-line"><span>Tax</span><span>${tax.toFixed(2)}</span></div>
+              <div className="summary-line total"><span>Total</span><span>${total.toFixed(2)}</span></div>
+              <button className="btn-primary checkout-btn" onClick={() => setPlaced(true)}>Checkout</button>
             </div>
           )}
-
-          <div className="order-summary__delivery">
-            <p>Pickup or delivery available</p>
-            <p>Track via app or DoorDash / Uber Eats</p>
-          </div>
         </div>
       </div>
     </div>

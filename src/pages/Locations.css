@@ -332,5 +332,42 @@
     gap: 32px;
   }
 
+  .locations-hero {
+    padding: 72px 0 56px;
+  }
 
+  .locations-list {
+    padding: 40px 0 56px;
+  }
+
+  .food-truck-banner {
+    padding: 56px 0;
+  }
+
+  .locations-map {
+    padding: 24px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .locations-hero {
+    padding: 56px 0 40px;
+  }
+
+  .locations-search {
+    padding: 12px 18px;
+  }
+
+  .location-card {
+    padding: 20px 18px 16px;
+  }
+
+  .location-card__actions {
+    flex-direction: column;
+  }
+
+  .location-card__btn {
+    flex: unset;
+    width: 100%;
+  }
 }

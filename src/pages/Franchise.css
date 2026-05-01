@@ -551,6 +551,22 @@
   }
 }
 
+@media (max-width: 768px) {
+  .franchise-hero,
+  .franchise-why,
+  .franchise-investment,
+  .franchise-steps,
+  .franchise-testimonial,
+  .franchise-inquiry {
+    padding: 72px 0;
+  }
+
+  .franchise-hero__actions {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 640px) {
   .franchise-why-grid {
     grid-template-columns: 1fr;
@@ -570,5 +586,26 @@
 
   .franchise-stats__inner {
     gap: 16px;
+  }
+
+  .franchise-hero,
+  .franchise-why,
+  .franchise-investment,
+  .franchise-steps,
+  .franchise-testimonial,
+  .franchise-inquiry {
+    padding: 56px 0;
+  }
+
+  .franchise-form {
+    padding: 24px 20px;
+  }
+
+  .testimonial-card {
+    padding: 32px 0 28px;
+  }
+
+  .testimonial-card__text {
+    font-size: 1rem;
   }
 }
