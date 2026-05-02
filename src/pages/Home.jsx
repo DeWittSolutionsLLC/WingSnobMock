@@ -7,6 +7,78 @@ import './Home.css'
 
 const MARQUEE_SAUCES = SAUCES.filter(s => s.id !== 1)
 
+const WHY_CARDS = [
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2C8 2 5 5 5 9c0 5 4 9 7 11 3-2 7-6 7-11 0-4-3-7-7-7z"/>
+        <path d="M12 6c-2 0-3.5 1.5-3.5 3.5"/>
+      </svg>
+    ),
+    title: 'Better Wings',
+    text: 'Made-to-order, never frozen. From bone-in traditional to cauli wings — quality is non-negotiable.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
+      </svg>
+    ),
+    title: '20 Sauces & Rubs',
+    text: 'From Garlic Parmesan to Blazin Q — 20 handcrafted flavors covering every corner of the heat map.',
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+      </svg>
+    ),
+    title: "Metro Detroit's Best",
+    text: "Voted Best Chicken Wings in Metro Detroit. Started as a single location — now 70+ strong across 9 states.",
+  },
+  {
+    icon: (
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+        <line x1="12" y1="18" x2="12.01" y2="18"/>
+      </svg>
+    ),
+    title: 'Snob Perks App',
+    text: 'Order, earn rewards, and unlock exclusive deals. Download the Wing Snob app and get a free fry just for joining.',
+  },
+]
+
+const WEEKLY_DEALS = [
+  {
+    name: '8 Piece Smash Box',
+    desc: '8 traditional or boneless wings your way, plus a side of fries.',
+    price: 13.99,
+    tag: 'Best Value',
+    icon: '🍗',
+  },
+  {
+    name: '3 Tender Meal Deal',
+    desc: '3 crispy tenders, fries, and a drink. The perfect solo move.',
+    price: 10.99,
+    tag: 'Fan Fave',
+    icon: '🍖',
+  },
+  {
+    name: 'Loaded Fry Meal',
+    desc: 'Loaded fries with cheese sauce, bacon, jalapeños, and ranch. No further explanation needed.',
+    price: 11.99,
+    tag: null,
+    icon: '🍟',
+  },
+  {
+    name: '20 for $20',
+    desc: '20 wings, any 2 sauces or rubs. The Snob-approved group order.',
+    price: 20.00,
+    tag: 'Group Deal',
+    icon: '🔥',
+  },
+]
+
 export default function Home() {
   const [hoveredSauce, setHoveredSauce] = useState(null)
 
@@ -64,65 +136,57 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Wing Snob & Sauce Lab */}
-      <section className="why-section">
+      {/* Weekly Deals */}
+      <section className="deals-section">
         <div className="container">
-          <div className="why-section__header" data-animate="fade-up">
-            <p className="section-label">Why Wing Snob</p>
-            <h2 className="section-title">More Than Just<br />Better Wings</h2>
-            <p className="section-subtitle">
-              Born in Livonia, MI in 2017 — voted Best Chicken Wings in Metro Detroit and growing into a national brand.
-            </p>
+          <div className="deals-header" data-animate="fade-up">
+            <p className="section-label">This Week</p>
+            <h2 className="section-title dark">Weekly Deals</h2>
+            <p className="section-subtitle">Limited time. Stack the savings. Ends Sunday.</p>
           </div>
-          <div className="why-grid">
-            {[
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2C8 2 5 5 5 9c0 5 4 9 7 11 3-2 7-6 7-11 0-4-3-7-7-7z"/>
-                    <path d="M12 6c-2 0-3.5 1.5-3.5 3.5"/>
-                  </svg>
-                ),
-                title: 'Better Wings',
-                text: 'Made-to-order, never frozen. From bone-in traditional to cauli wings — quality is non-negotiable.',
-              },
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2v-4M9 21H5a2 2 0 0 1-2-2v-4m0 0h18"/>
-                  </svg>
-                ),
-                title: '20 Sauces & Rubs',
-                text: 'From Garlic Parmesan to Blazin Q — 20 handcrafted flavors covering every corner of the heat map.',
-              },
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                  </svg>
-                ),
-                title: "Metro Detroit's Best",
-                text: 'Voted Best Chicken Wings in Metro Detroit. Started as a single location — now 70+ strong across 9 states.',
-              },
-              {
-                icon: (
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12.01" y2="18"/>
-                  </svg>
-                ),
-                title: 'Snob Perks App',
-                text: 'Order, earn rewards, and unlock exclusive deals. Download the Wing Snob app and get a free fry just for joining.',
-              },
-            ].map((card, i) => (
-              <div className="why-card" key={card.title} data-animate="fade-up" data-delay={String(i * 100)}>
-                <div className="why-card__icon">{card.icon}</div>
-                <h3>{card.title}</h3>
-                <p>{card.text}</p>
+          <div className="deals-grid">
+            {WEEKLY_DEALS.map((deal, i) => (
+              <div className="deal-card" key={deal.name} data-animate="fade-up" data-delay={String(i * 80)}>
+                {deal.tag && <span className="deal-card__tag">{deal.tag}</span>}
+                <span className="deal-card__icon">{deal.icon}</span>
+                <h3 className="deal-card__name">{deal.name}</h3>
+                <p className="deal-card__desc">{deal.desc}</p>
+                <div className="deal-card__footer">
+                  <span className="deal-card__price">${deal.price.toFixed(2)}</span>
+                  <Link to="/order" className="btn-primary deal-card__btn">Order Now</Link>
+                </div>
               </div>
             ))}
           </div>
-          <div className="sauce-preview__header" data-animate="fade-up" data-delay="400">
+        </div>
+      </section>
+
+      {/* Why Wing Snob — sticky scrollytelling */}
+      <section className="why-sticky" data-scroll-cards="4">
+        <div className="why-sticky__inner">
+          <p className="section-label why-sticky__label">Why Wing Snob</p>
+          <div className="why-sticky__cards">
+            {WHY_CARDS.map((card, i) => (
+              <div key={card.title} className="why-sticky-card" data-scroll-card>
+                <div className="why-sticky-card__step">0{i + 1}<span> / 04</span></div>
+                <div className="why-sticky-card__icon">{card.icon}</div>
+                <h2 className="why-sticky-card__title">{card.title}</h2>
+                <p className="why-sticky-card__text">{card.text}</p>
+              </div>
+            ))}
+          </div>
+          <div className="why-sticky__dots">
+            {WHY_CARDS.map((_, i) => (
+              <div key={i} className="why-dot" data-scroll-dot />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Sauce Lab Preview */}
+      <section className="sauce-preview-section">
+        <div className="container">
+          <div className="sauce-preview__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
             <h2 className="section-title">20 Sauces & Rubs</h2>
             <p className="section-subtitle">
@@ -150,7 +214,7 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="sauce-preview__cta" data-animate="fade-up" data-delay="800">
+          <div className="sauce-preview__cta" data-animate="fade-up">
             <Link to="/menu" className="btn-secondary">See All 20 Sauces & Rubs</Link>
             <Link to="/order" className="btn-primary">Start Your Order</Link>
           </div>

@@ -95,8 +95,8 @@ export default function Franchise() {
 
   return (
     <div className="franchise-page">
-      {/* Hero */}
-      <section className="franchise-hero" >
+{/* Hero */}
+      <section className="franchise-hero" data-section="franchise-hero" data-section-label="Franchise">
         <div className="container">
           <p className="section-label" data-animate="blur-in">Franchise Opportunity</p>
           <h1 className="franchise-hero__title" data-animate="blur-in" data-delay="80">

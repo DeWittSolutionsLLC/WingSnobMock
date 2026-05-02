@@ -70,8 +70,8 @@ export default function Perks() {
 
   return (
     <div className="perks-page">
-      {/* Hero */}
-      <section className="perks-hero">
+{/* Hero */}
+      <section className="perks-hero" data-section="perks-hero" data-section-label="Snob Perks">
         <div className="container">
           <p className="section-label" data-animate="blur-in">Snob Perks</p>
           <h1 className="perks-hero__title" data-animate="blur-in" data-delay="80">

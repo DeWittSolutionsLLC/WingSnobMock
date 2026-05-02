@@ -139,8 +139,8 @@ export default function Locations() {
 
   return (
     <div className="locations-page">
-      {/* Hero */}
-      <section className="locations-hero" >
+{/* Hero */}
+      <section className="locations-hero" data-section="locations-hero" data-section-label="Find Us">
         <div className="container">
           <p className="section-label" data-animate="blur-in">70+ Locations Across 9 States</p>
           <h1 className="section-title" data-animate="blur-in" data-delay="80">Find Your<br />Wing Snob</h1>

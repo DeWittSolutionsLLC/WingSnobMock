@@ -76,7 +76,6 @@ const DRINKS = [
 export default function Menu() {
   const [activeWingType, setActiveWingType] = useState('Traditional')
   const [activeSauceFilter, setActiveSauceFilter] = useState('All')
-
   const sauceFilters = ['All', 'Sauce', 'Dry Rub', 'Mild', 'Hot']
 
   const filteredSauces = SAUCES.filter(s => {

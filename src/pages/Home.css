@@ -167,7 +167,154 @@
   opacity: 0.35;
 }
 
-/* ── Why Section ── */
+/* ── Hero scroll-out ── */
+.hero__text {
+  opacity: calc(1 - min(1, var(--hero-out, 0) * 2.2));
+  transform: translateY(calc(var(--hero-out, 0) * -55px));
+  will-change: opacity, transform;
+}
+
+.hero__image {
+  opacity: calc(1 - min(1, var(--hero-out, 0) * 3));
+  will-change: opacity;
+}
+
+.hero__scroll-hint {
+  opacity: calc(1 - min(1, var(--hero-out, 0) * 8));
+}
+
+/* ── Sticky Why Scrollytelling ── */
+.why-sticky {
+  position: relative;
+  height: 380vh;
+  background: var(--background-secondary);
+}
+
+.why-sticky__inner {
+  position: sticky;
+  top: var(--nav-height);
+  height: calc(100vh - var(--nav-height));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.why-sticky__label {
+  position: absolute;
+  top: 44px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.why-sticky__cards {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  padding: 0 32px;
+  text-align: center;
+  height: 420px;
+}
+
+.why-sticky-card {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(64px) scale(0.96);
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.why-sticky-card.is-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.why-sticky-card.is-past {
+  opacity: 0;
+  transform: translateY(-64px) scale(0.96);
+}
+
+.why-sticky-card__step {
+  font-family: var(--american-typewriter), serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 28px;
+}
+
+.why-sticky-card__step span {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+.why-sticky-card__icon {
+  width: 56px;
+  height: 56px;
+  color: var(--red);
+  margin-bottom: 28px;
+}
+
+.why-sticky-card__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.why-sticky-card__title {
+  font-family: var(--love-of-thunder), cursive;
+  font-size: clamp(2.4rem, 5.5vw, 3.8rem);
+  color: var(--dark-3);
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.why-sticky-card__text {
+  font-family: var(--american-typewriter), serif;
+  font-size: 1.08rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.why-sticky__dots {
+  position: absolute;
+  right: 44px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.why-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.15);
+  transition: background 0.3s, transform 0.3s;
+}
+
+.why-dot.is-active {
+  background: var(--red);
+  transform: scale(1.5);
+}
+
+/* ── Sauce Preview Section (extracted from why) ── */
+.sauce-preview-section {
+  padding: 80px 0;
+  background: var(--background-secondary);
+}
+
+/* ── Why Section (legacy — kept for other pages) ── */
 .why-section {
   padding: 100px 0;
   background: var(--background-secondary);
@@ -589,6 +736,101 @@
   order: 1;
 }
 
+/* ── Weekly Deals ── */
+.deals-section {
+  background: var(--dark-2);
+  padding: 80px 0 72px;
+}
+
+.deals-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.deals-header .section-subtitle {
+  color: rgba(255, 255, 255, 0.38);
+  margin: 0 auto;
+}
+
+.deals-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.deal-card {
+  position: relative;
+  background: var(--dark-3);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  padding: 28px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+.deal-card:hover {
+  border-color: rgba(196, 30, 58, 0.5);
+  transform: translateY(-4px);
+}
+
+.deal-card__tag {
+  position: absolute;
+  top: -1px;
+  right: 16px;
+  background: var(--red);
+  color: var(--white);
+  font-family: var(--american-typewriter), serif;
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 0 0 6px 6px;
+}
+
+.deal-card__icon {
+  font-size: 2rem;
+  line-height: 1;
+}
+
+.deal-card__name {
+  font-family: var(--love-of-thunder), cursive;
+  font-size: 1.35rem;
+  color: var(--white);
+  line-height: 1.2;
+}
+
+.deal-card__desc {
+  font-family: var(--american-typewriter), serif;
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.42);
+  line-height: 1.6;
+  flex: 1;
+}
+
+.deal-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.deal-card__price {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.deal-card__btn {
+  font-size: 0.82rem;
+  padding: 10px 16px;
+  white-space: nowrap;
+}
+
 /* ── Responsive ── */
 @media (max-width: 1024px) {
   .hero__inner {
@@ -627,6 +869,14 @@
 
   .why-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deals-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .why-sticky__dots {
+    right: 16px;
   }
 
   .sauce-grid {
@@ -726,8 +976,38 @@
 }
 
 @media (max-width: 480px) {
-  .why-grid {
+  .why-grid,
+  .deals-grid {
     grid-template-columns: 1fr;
+  }
+
+  .why-sticky {
+    height: auto;
+  }
+
+  .why-sticky__inner {
+    position: relative;
+    height: auto;
+    flex-direction: column;
+    gap: 0;
+    padding: 80px 0;
+  }
+
+  .why-sticky__cards {
+    height: auto;
+  }
+
+  .why-sticky-card {
+    position: relative;
+    opacity: 1 !important;
+    transform: none !important;
+    padding: 32px 0;
+    pointer-events: auto;
+    border-top: 1px solid rgba(0,0,0,0.07);
+  }
+
+  .why-sticky__dots {
+    display: none;
   }
 
   .hero__actions {

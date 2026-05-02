@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import ScrollToast from './components/ScrollToast'
+import ScrollProgress from './components/ScrollProgress'
 import Home from './pages/Home'
 import Menu from './pages/Menu'
 import Order from './pages/Order'
@@ -23,12 +24,46 @@ function ScrollAnimator() {
     const parallaxEls = document.querySelectorAll('[data-parallax]')
 
     const updateParallax = () => {
+      // existing parallax
       parallaxEls.forEach(el => {
         const factor = parseFloat(el.dataset.parallax || '0')
         if (!factor) return
         const offset = window.scrollY * factor
         el.style.setProperty('--parallax-y', `${offset}px`)
       })
+
+      // global scroll progress (drives progress bar)
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight
+      if (maxScroll > 0) {
+        document.documentElement.style.setProperty('--page-progress', String(window.scrollY / maxScroll))
+      }
+
+      // hero scroll-out: fades text/image as hero leaves viewport
+      const hero = document.querySelector('.hero')
+      if (hero) {
+        const b = hero.getBoundingClientRect().bottom
+        const out = Math.max(0, Math.min(1, 1 - b / (window.innerHeight * 0.75)))
+        hero.style.setProperty('--hero-out', String(out))
+      }
+
+      // sticky scrollytelling sections
+      document.querySelectorAll('[data-scroll-cards]').forEach(section => {
+        const rect = section.getBoundingClientRect()
+        const scrollRange = section.offsetHeight - window.innerHeight
+        if (scrollRange <= 0) return
+        const scrolled = Math.max(0, Math.min(scrollRange, -rect.top))
+        const count = parseInt(section.dataset.scrollCards, 10) || 4
+        const idx = Math.min(count - 1, Math.floor((scrolled / scrollRange) * count))
+
+        section.querySelectorAll('[data-scroll-card]').forEach((card, i) => {
+          card.classList.toggle('is-active', i === idx)
+          card.classList.toggle('is-past', i < idx)
+        })
+        section.querySelectorAll('[data-scroll-dot]').forEach((dot, i) => {
+          dot.classList.toggle('is-active', i === idx)
+        })
+      })
+
       rafId = undefined
     }
 
@@ -88,6 +123,7 @@ function App() {
           <Route path="/franchise" element={<Franchise />} />
         </Routes>
       </main>
+      <ScrollProgress />
       <ScrollToast />
       <Footer />
     </BrowserRouter>
