@@ -3,9 +3,91 @@ import { Link } from 'react-router-dom'
 import { SAUCES, HEAT_LABELS, HEAT_COLORS } from '../data/sauces'
 import wingHeroImg from '../assets/ws-traditional.webp'
 import truckImg from '../assets/ws-truck.webp'
+import bonelessImg from '../assets/ws-boneless.webp'
+import cauliImg from '../assets/ws-cauli.webp'
+import tendersImg from '../assets/ws-tenders.webp'
+import minisImg from '../assets/ws-minis.webp'
+import sandoImg from '../assets/ws-sando.webp'
+import sidesImg from '../assets/ws-sides.webp'
+import cheesecakeImg from '../assets/ws-cheesecake.webp'
 import './Home.css'
 
 const MARQUEE_SAUCES = SAUCES.filter(s => s.id !== 1)
+
+const MENU_SHOWCASE = [
+  {
+    slug: 'traditional',
+    label: 'Wings',
+    name: 'Traditional Wings',
+    tag: 'The Classic',
+    desc: 'Bone-in, made-to-order. Crispy outside, juicy inside. Toss in any of our 20 sauces or rubs.',
+    detail: 'Available in 6, 10, 15, and 20 piece.',
+    img: wingHeroImg,
+  },
+  {
+    slug: 'boneless',
+    label: 'Wings',
+    name: 'Boneless Wings',
+    tag: 'All Meat',
+    desc: 'No bones. All flavor. Same crispy perfection, just without the work.',
+    detail: 'Available in 6, 10, 15, and 20 piece.',
+    img: bonelessImg,
+  },
+  {
+    slug: 'cauli',
+    label: 'Plant-Based',
+    name: 'Cauli Wings',
+    tag: 'Plant-Based',
+    desc: 'Cauliflower florets fried golden, tossed in your choice of sauce. The plant-based flex.',
+    detail: 'Available in 6 and 12 piece.',
+    img: cauliImg,
+  },
+  {
+    slug: 'tenders',
+    label: 'Tenders',
+    name: 'Chicken Tenders',
+    tag: 'Crispy & Thick',
+    desc: 'Hand-breaded, double-dipped in seasoning. No shortcuts — these are real tenders.',
+    detail: 'Available in 3 and 5 piece meals.',
+    img: tendersImg,
+  },
+  {
+    slug: 'sliders',
+    label: 'Mini Sliders',
+    name: 'Mini Sliders',
+    tag: 'Two-Bite Perfection',
+    desc: 'Sauced crispy chicken packed into soft slider buns. Perfect for sharing. Or not.',
+    detail: 'Comes in pairs. Choose your sauce.',
+    img: minisImg,
+  },
+  {
+    slug: 'sando',
+    label: 'Sandwiches',
+    name: 'Chicken Sandos',
+    tag: 'The Move',
+    desc: 'Thick-cut chicken breast, crispy or grilled, loaded your way. The sandwich that started debates.',
+    detail: 'Classic, Spicy, or BBQ build.',
+    img: sandoImg,
+  },
+  {
+    slug: 'sides',
+    label: 'Sides',
+    name: 'Sides & Fries',
+    tag: 'Stack the Tray',
+    desc: 'Loaded fries, street corn, mac & cheese, coleslaw — sides that upgrade every order.',
+    detail: 'All sides made fresh to order.',
+    img: sidesImg,
+  },
+  {
+    slug: 'desserts',
+    label: 'Desserts',
+    name: 'Sweet Finishers',
+    tag: 'End on a High Note',
+    desc: 'Cheesecake bites, funnel cake sticks, and seasonal picks. Because every great meal deserves a proper ending.',
+    detail: 'Ask about seasonal specials.',
+    img: cheesecakeImg,
+  },
+]
 
 const WHY_CARDS = [
   {
@@ -112,7 +194,7 @@ export default function Home() {
       </section>
 
       {/* Stats Bar */}
-      <section className="stats-bar">
+      <section className="stats-bar has-grain">
         <div className="container stats-bar__inner">
           <div className="stat" data-animate="scale-up" data-delay="0">
             <span className="stat__number">70+</span>
@@ -137,7 +219,7 @@ export default function Home() {
       </section>
 
       {/* Weekly Deals */}
-      <section className="deals-section">
+      <section className="deals-section has-grain">
         <div className="container">
           <div className="deals-header" data-animate="fade-up">
             <p className="section-label">This Week</p>
@@ -161,24 +243,33 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Why Wing Snob — sticky scrollytelling */}
-      <section className="why-sticky" data-scroll-cards="4">
-        <div className="why-sticky__inner">
-          <p className="section-label why-sticky__label">Why Wing Snob</p>
-          <div className="why-sticky__cards">
-            {WHY_CARDS.map((card, i) => (
-              <div key={card.title} className="why-sticky-card" data-scroll-card>
-                <div className="why-sticky-card__step">0{i + 1}<span> / 04</span></div>
-                <div className="why-sticky-card__icon">{card.icon}</div>
-                <h2 className="why-sticky-card__title">{card.title}</h2>
-                <p className="why-sticky-card__text">{card.text}</p>
+      {/* Menu Showcase — sticky scrollytelling */}
+      <section className="menu-showcase" data-scroll-cards="8">
+        <div className="menu-showcase__inner">
+          <div className="menu-showcase__stack">
+            {MENU_SHOWCASE.map((item, i) => (
+              <div key={item.slug} className="menu-showcase-card" data-scroll-card>
+                <div className="menu-showcase-card__img-wrap">
+                  <img src={item.img} alt={item.name} loading="lazy" />
+                </div>
+                <div className="menu-showcase-card__info" data-num={`0${i + 1}`}>
+                  <span className="menu-showcase-card__label">{item.label}</span>
+                  <span className="menu-showcase-card__tag">{item.tag}</span>
+                  <h2 className="menu-showcase-card__name">{item.name}</h2>
+                  <p className="menu-showcase-card__desc">{item.desc}</p>
+                  <p className="menu-showcase-card__detail">{item.detail}</p>
+                  <Link to="/menu" className="btn-primary menu-showcase-card__cta">See Full Menu</Link>
+                </div>
               </div>
             ))}
           </div>
-          <div className="why-sticky__dots">
-            {WHY_CARDS.map((_, i) => (
-              <div key={i} className="why-dot" data-scroll-dot />
-            ))}
+          <div className="menu-showcase__nav">
+            <p className="section-label menu-showcase__section-label">The Menu</p>
+            <div className="menu-showcase__dots">
+              {MENU_SHOWCASE.map((_, i) => (
+                <div key={i} className="menu-dot" data-scroll-dot />
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -254,7 +345,7 @@ export default function Home() {
       </section>
 
       {/* Catering Section */}
-      <section className="catering-section">
+      <section className="catering-section has-grain">
         <div className="container catering-section__inner">
           <div className="catering-section__text" data-animate="fade-left">
             <p className="section-label">Plan Your Event</p>
@@ -312,7 +403,7 @@ export default function Home() {
       </section>
 
       {/* Franchise CTA */}
-      <section className="franchise-cta">
+      <section className="franchise-cta has-grain">
         <div className="container franchise-cta__inner">
           <div className="franchise-cta__content" data-animate="fade-left">
             <p className="section-label">Own a Wing Snob</p>

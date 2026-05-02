@@ -97,10 +97,30 @@ function ScrollAnimator() {
     window.addEventListener('scroll', handleScroll, { passive: true })
     updateParallax()
 
+    let tiltTarget = null
+    const onTiltMove = e => {
+      const card = e.target.closest('.deal-card, .metric, .tier-card, .sauce-lab-card')
+      if (tiltTarget && tiltTarget !== card) {
+        tiltTarget.style.transform = ''
+        tiltTarget.style.transition = 'transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+        tiltTarget = null
+      }
+      if (!card) return
+      tiltTarget = card
+      const rect = card.getBoundingClientRect()
+      const rx = -((e.clientY - (rect.top + rect.height / 2)) / (rect.height / 2)) * 7
+      const ry = ((e.clientX - (rect.left + rect.width / 2)) / (rect.width / 2)) * 7
+      card.style.transform = `perspective(700px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-4px) scale3d(1.02, 1.02, 1.02)`
+      card.style.transition = 'transform 0.08s linear'
+    }
+    document.addEventListener('mousemove', onTiltMove)
+
     return () => {
       clearTimeout(timer)
       observer?.disconnect()
       window.removeEventListener('scroll', handleScroll)
+      document.removeEventListener('mousemove', onTiltMove)
+      if (tiltTarget) { tiltTarget.style.transform = ''; tiltTarget = null }
       if (rafId) cancelAnimationFrame(rafId)
     }
   }, [location.pathname])

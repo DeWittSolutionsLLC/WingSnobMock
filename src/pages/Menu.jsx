@@ -73,6 +73,22 @@ const DRINKS = [
   { name: 'Water Bottle', desc: '16.9 fl oz.', price: 1.49, emoji: '💧' },
 ]
 
+const HEAT_TINT = {
+  All:       '#f8f8f8',
+  Sauce:     '#f8f8f8',
+  'Dry Rub': '#faf4e4',
+  Mild:      '#eaf4eb',
+  Hot:       '#f9e8e8',
+}
+
+const FILTER_COLORS = {
+  All:       'var(--red)',
+  Sauce:     'var(--red)',
+  'Dry Rub': 'var(--gold)',
+  Mild:      '#4caf50',
+  Hot:       '#c41e3a',
+}
+
 export default function Menu() {
   const [activeWingType, setActiveWingType] = useState('Traditional')
   const [activeSauceFilter, setActiveSauceFilter] = useState('All')
@@ -170,7 +186,10 @@ export default function Menu() {
       </section>
 
       {/* Sauce Lab */}
-      <section className="menu-section menu-section--dark">
+      <section
+        className="menu-section menu-section--dark"
+        style={{ backgroundColor: HEAT_TINT[activeSauceFilter] ?? '#f8f8f8', transition: 'background-color 0.5s ease' }}
+      >
         <div className="container">
           <div className="menu-section__header" data-animate="fade-up">
             <p className="section-label">The Sauce Lab</p>
@@ -185,6 +204,7 @@ export default function Menu() {
               <button
                 key={f}
                 className={`filter-btn ${activeSauceFilter === f ? 'filter-btn--active' : ''}`}
+                style={activeSauceFilter === f ? { background: FILTER_COLORS[f], borderColor: FILTER_COLORS[f] } : {}}
                 onClick={() => setActiveSauceFilter(f)}
               >
                 {f}
