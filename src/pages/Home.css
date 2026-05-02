@@ -189,20 +189,6 @@
   height: 680vh;
 }
 
-/* diagonal: dark menu-showcase → light sauce-preview */
-.menu-showcase::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 64px;
-  background: var(--background-secondary);
-  clip-path: polygon(0 100%, 100% 0, 100% 100%);
-  pointer-events: none;
-  z-index: 10;
-}
-
 .menu-showcase__inner {
   position: sticky;
   top: var(--nav-height);
@@ -801,7 +787,6 @@
   padding: 100px 0;
   background: var(--dark-2);
   border-top: 1px solid rgba(255,255,255,0.05);
-  border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
 /* diagonal: dark catering → light perks */

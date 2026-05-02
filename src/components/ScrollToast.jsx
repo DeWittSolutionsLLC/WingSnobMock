@@ -12,7 +12,7 @@ const MESSAGES = [
 const ELIGIBLE = ['/', '/menu']
 
 // 0.0 = top of page, 1.0 = very bottom
-const SCROLL_TRIGGER = 0.35
+const SCROLL_TRIGGER = 0.5
 
 export default function ScrollToast() {
   const location = useLocation()
