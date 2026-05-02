@@ -1055,8 +1055,41 @@
 }
 
 @media (max-width: 768px) {
+  /* switch from side-by-side to stacked: image on top, info below */
+  .menu-showcase-card {
+    grid-template-columns: 1fr;
+    grid-template-rows: 42vh 1fr;
+  }
+
+  .menu-showcase-card__img-wrap::after {
+    background: linear-gradient(to bottom, transparent 50%, var(--dark) 95%);
+  }
+
+  .menu-showcase-card__info {
+    padding: 28px 56px 28px 24px;
+    justify-content: flex-start;
+  }
+
+  .menu-showcase-card__info::before {
+    font-size: 10rem;
+    right: -8px;
+    bottom: -16px;
+  }
+
   .menu-showcase-card__name {
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(1.8rem, 7vw, 2.8rem);
+  }
+
+  .menu-showcase-card__desc {
+    font-size: 0.95rem;
+  }
+
+  .menu-showcase__nav {
+    right: 12px;
+  }
+
+  .menu-showcase__section-label {
+    display: none;
   }
 
   .why-section,
@@ -1122,46 +1155,31 @@
     grid-template-columns: 1fr;
   }
 
-  /* menu-showcase: collapse to vertical stacked cards on tiny screens */
-  .menu-showcase {
-    height: auto;
-  }
-
-  .menu-showcase__inner {
-    position: relative;
-    height: auto;
-  }
-
-  .menu-showcase__stack {
-    position: relative;
-  }
-
+  /* menu-showcase: tighter image on very small screens */
   .menu-showcase-card {
-    position: relative;
-    opacity: 1 !important;
-    grid-template-columns: 1fr;
-    grid-template-rows: 260px auto;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-  }
-
-  .menu-showcase-card.is-past {
-    opacity: 1 !important;
-  }
-
-  .menu-showcase-card__img-wrap::after {
-    background: linear-gradient(to bottom, transparent 55%, var(--dark) 100%);
+    grid-template-rows: 34vh 1fr;
   }
 
   .menu-showcase-card__info {
-    padding: 28px 24px 40px;
+    padding: 20px 44px 20px 20px;
   }
 
-  .menu-showcase-card__info::before {
-    font-size: 10rem;
+  .menu-showcase-card__desc {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
   }
 
-  .menu-showcase__nav {
-    display: none;
+  .menu-showcase-card__detail {
+    margin-bottom: 24px;
+  }
+
+  .menu-showcase__dots {
+    gap: 8px;
+  }
+
+  .menu-dot {
+    width: 5px;
+    height: 5px;
   }
 
   .hero__actions {
